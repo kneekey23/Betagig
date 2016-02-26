@@ -12,6 +12,9 @@
 		81D913CE1C810E2E0071F627 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81D913CC1C810E2E0071F627 /* Main.storyboard */; };
 		81D913D01C810E2E0071F627 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81D913CF1C810E2E0071F627 /* Assets.xcassets */; };
 		81D913D31C810E2E0071F627 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81D913D11C810E2E0071F627 /* LaunchScreen.storyboard */; };
+		81FA7B721C811670000BACBD /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FA7B711C811670000BACBD /* MainController.swift */; };
+		81FA7B741C8116FC000BACBD /* BrowseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FA7B731C8116FC000BACBD /* BrowseController.swift */; };
+		81FA7B761C81173A000BACBD /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FA7B751C81173A000BACBD /* ProfileController.swift */; };
 		B69F0A1A0AC0E6FA93E993C7 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23905999118BA3E9D5D2DEA0 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +29,9 @@
 		81D913CF1C810E2E0071F627 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		81D913D21C810E2E0071F627 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		81D913D41C810E2E0071F627 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		81FA7B711C811670000BACBD /* MainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
+		81FA7B731C8116FC000BACBD /* BrowseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowseController.swift; sourceTree = "<group>"; };
+		81FA7B751C81173A000BACBD /* ProfileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +81,9 @@
 				81D913CF1C810E2E0071F627 /* Assets.xcassets */,
 				81D913D11C810E2E0071F627 /* LaunchScreen.storyboard */,
 				81D913D41C810E2E0071F627 /* Info.plist */,
+				81FA7B711C811670000BACBD /* MainController.swift */,
+				81FA7B731C8116FC000BACBD /* BrowseController.swift */,
+				81FA7B751C81173A000BACBD /* ProfileController.swift */,
 			);
 			path = Betagig;
 			sourceTree = "<group>";
@@ -210,8 +219,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81FA7B761C81173A000BACBD /* ProfileController.swift in Sources */,
 				81D913CB1C810E2E0071F627 /* AuthenticationController.swift in Sources */,
+				81FA7B721C811670000BACBD /* MainController.swift in Sources */,
 				81D913C91C810E2E0071F627 /* AppDelegate.swift in Sources */,
+				81FA7B741C8116FC000BACBD /* BrowseController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

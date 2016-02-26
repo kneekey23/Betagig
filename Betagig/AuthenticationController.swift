@@ -7,26 +7,89 @@
 //
 
 import UIKit
+import Firebase
 
 
-class AuthenticationController: UIViewController {
+class AuthenticationController: UIViewController,UITextFieldDelegate {
     
-   // let ref = Firebase(url: "https://betagig1.firebaseio.com")
+    let ref = Firebase(url: "https://betagig1.firebaseio.com")
+    
+       var auth: Bool = false
 
+    @IBOutlet weak var username: UITextField!
+    @IBOutlet weak var password: UITextField!
+    @IBAction func login(sender: AnyObject) {
+        let loginButton: UIButton = sender as! UIButton
+        loginButton.setTitle("Loading...", forState: UIControlState.Normal)
+        ref.authUser(username.text, password: password.text) {
+            error, authData in
+            if error != nil {
+                // an error occured while attempting login
+                
+                self.auth = false
+                if(!self.auth){
+                    self.DisplayErrorAlert("")
+                }
+                
+                // by default, transition
+                
+            } else {
+                self.auth = true
+                self.performSegueWithIdentifier("login", sender: nil)
+                // user is logged in, check authData for data
+                
+                
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        username.delegate = self
+        password.delegate = self
+        username.text = "nicki@shortkey.io"
+        password.text = "goucla23"
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject!) -> Bool {
+        
+        if identifier == "login" {
+            return auth
+        }else if identifier == "createNew"{
+            auth = true
+        }
+        
+        return auth
+    }
 
     //adds the ability to get rid of they keyboard for any text field on return.NJK
     func textFieldShouldReturn(textField: UITextField) -> Bool{
         textField.resignFirstResponder()
         return true;
+    }
+    
+    func DisplayErrorAlert(var errorMessage: String)
+    {
+        if(errorMessage.isEmpty){
+            errorMessage = "We weren't able to log you in. Did you forget your password? We recommend getting sleep to help with memory loss"
+        }
+        
+        let alertController = UIAlertController(title: "Error", message: errorMessage, preferredStyle: UIAlertControllerStyle.Alert)
+        
+        let tryAgainAction = UIAlertAction(title: "Try Again", style: UIAlertActionStyle.Default, handler: {(alertAction: UIAlertAction!) in
+            //self.navigationController?.popToRootViewControllerAnimated(true)
+        })
+        alertController.addAction(tryAgainAction)
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+        
     }
 
 }
