@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		813524701C8207990018FB29 /* StaticTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8135246F1C8207990018FB29 /* StaticTableCell.swift */; };
+		81AC3D5A1C82270A0006BAFB /* CompanyAuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AC3D591C82270A0006BAFB /* CompanyAuthController.swift */; };
+		81AC3D5C1C82363F0006BAFB /* CompanyBetaGigsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AC3D5B1C82363F0006BAFB /* CompanyBetaGigsController.swift */; };
+		81AC3D5E1C8240940006BAFB /* CompanyProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AC3D5D1C8240940006BAFB /* CompanyProfileController.swift */; };
 		81D913C91C810E2E0071F627 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D913C81C810E2E0071F627 /* AppDelegate.swift */; };
 		81D913CB1C810E2E0071F627 /* AuthenticationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D913CA1C810E2E0071F627 /* AuthenticationController.swift */; };
 		81D913CE1C810E2E0071F627 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81D913CC1C810E2E0071F627 /* Main.storyboard */; };
@@ -36,6 +39,9 @@
 		2E7CA78C2ADCFD173431136D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		48F8223402CA9FE90A1FE0B7 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		8135246F1C8207990018FB29 /* StaticTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticTableCell.swift; sourceTree = "<group>"; };
+		81AC3D591C82270A0006BAFB /* CompanyAuthController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyAuthController.swift; sourceTree = "<group>"; };
+		81AC3D5B1C82363F0006BAFB /* CompanyBetaGigsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyBetaGigsController.swift; sourceTree = "<group>"; };
+		81AC3D5D1C8240940006BAFB /* CompanyProfileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyProfileController.swift; sourceTree = "<group>"; };
 		81D913C51C810E2E0071F627 /* Betagig.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Betagig.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81D913C81C810E2E0071F627 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81D913CA1C810E2E0071F627 /* AuthenticationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationController.swift; sourceTree = "<group>"; };
@@ -80,6 +86,27 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		81AC3D5F1C8241000006BAFB /* UserControllers */ = {
+			isa = PBXGroup;
+			children = (
+				81FA7B8A1C81802C000BACBD /* CreateAccountController.swift */,
+				81FA7B751C81173A000BACBD /* ProfileController.swift */,
+				81FA7B811C816920000BACBD /* MyBetaGigsController.swift */,
+				81D913CA1C810E2E0071F627 /* AuthenticationController.swift */,
+			);
+			name = UserControllers;
+			sourceTree = "<group>";
+		};
+		81AC3D601C8241080006BAFB /* CompanyControllers */ = {
+			isa = PBXGroup;
+			children = (
+				81AC3D591C82270A0006BAFB /* CompanyAuthController.swift */,
+				81AC3D5B1C82363F0006BAFB /* CompanyBetaGigsController.swift */,
+				81AC3D5D1C8240940006BAFB /* CompanyProfileController.swift */,
+			);
+			name = CompanyControllers;
+			sourceTree = "<group>";
+		};
 		81D913BC1C810E2E0071F627 = {
 			isa = PBXGroup;
 			children = (
@@ -101,9 +128,10 @@
 		81D913C71C810E2E0071F627 /* Betagig */ = {
 			isa = PBXGroup;
 			children = (
+				81AC3D601C8241080006BAFB /* CompanyControllers */,
+				81AC3D5F1C8241000006BAFB /* UserControllers */,
 				81FA7B871C817A2B000BACBD /* Models */,
 				81D913C81C810E2E0071F627 /* AppDelegate.swift */,
-				81D913CA1C810E2E0071F627 /* AuthenticationController.swift */,
 				81D913CC1C810E2E0071F627 /* Main.storyboard */,
 				81D913CF1C810E2E0071F627 /* Assets.xcassets */,
 				81D913D11C810E2E0071F627 /* LaunchScreen.storyboard */,
@@ -111,15 +139,12 @@
 				81FA7B711C811670000BACBD /* MainController.swift */,
 				81FA7B771C812620000BACBD /* CollectionViewCell.swift */,
 				81FA7B731C8116FC000BACBD /* BrowseController.swift */,
-				81FA7B751C81173A000BACBD /* ProfileController.swift */,
 				81FA7B791C81426F000BACBD /* CategoryRow.swift */,
 				81FA7B7B1C815AA4000BACBD /* CompanyListViewController.swift */,
 				81FA7B7D1C815F6A000BACBD /* CompanyDetailController.swift */,
 				81FA7B7F1C816584000BACBD /* BetaGigRequestController.swift */,
-				81FA7B811C816920000BACBD /* MyBetaGigsController.swift */,
 				81FA7B831C816E75000BACBD /* Extensions.swift */,
 				81FA7B851C81701D000BACBD /* BetaGigDetailController.swift */,
-				81FA7B8A1C81802C000BACBD /* CreateAccountController.swift */,
 				8135246F1C8207990018FB29 /* StaticTableCell.swift */,
 			);
 			path = Betagig;
@@ -267,6 +292,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				81FA7B761C81173A000BACBD /* ProfileController.swift in Sources */,
+				81AC3D5C1C82363F0006BAFB /* CompanyBetaGigsController.swift in Sources */,
+				81AC3D5E1C8240940006BAFB /* CompanyProfileController.swift in Sources */,
 				81D913CB1C810E2E0071F627 /* AuthenticationController.swift in Sources */,
 				81FA7B7E1C815F6A000BACBD /* CompanyDetailController.swift in Sources */,
 				81FA7B891C817A3C000BACBD /* Career.swift in Sources */,
@@ -278,6 +305,7 @@
 				81FA7B7C1C815AA4000BACBD /* CompanyListViewController.swift in Sources */,
 				81FA7B8B1C81802C000BACBD /* CreateAccountController.swift in Sources */,
 				8BD0AB401C823F5C0004A453 /* Company.swift in Sources */,
+				81AC3D5A1C82270A0006BAFB /* CompanyAuthController.swift in Sources */,
 				81FA7B841C816E75000BACBD /* Extensions.swift in Sources */,
 				81FA7B7A1C81426F000BACBD /* CategoryRow.swift in Sources */,
 				8BD7088F1C8194C000ACAD53 /* Category.swift in Sources */,
