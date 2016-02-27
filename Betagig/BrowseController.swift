@@ -15,6 +15,8 @@ import Firebase
 
 class BrowseViewController: UIViewController, UITableViewDataSource {
     
+
+    @IBOutlet weak var categoryTableView: UITableView!
     var tableImagesOne: [String] = ["Cook", "Fireman", "Doctor", "Nurse"]
     var tableImagesTwo: [String] = ["Barber Chair", "School Director"]
     var categories: [Category] = []
@@ -27,11 +29,10 @@ class BrowseViewController: UIViewController, UITableViewDataSource {
         //grab those lists above from the database
         
         super.viewDidLoad()
-        refreshCategories()
-        refreshCareers()
+        getData()
     }
     
-    func refreshCategories(){
+    func getData(){
         
         let ref = Firebase(url: "https://betagig1.firebaseio.com/categories")
         
@@ -50,6 +51,8 @@ class BrowseViewController: UIViewController, UITableViewDataSource {
             }
             
             self.categories = categories
+            
+            self.refreshCareers()
             
             }, withCancelBlock: { error in
                 print(error.description)
@@ -73,11 +76,24 @@ class BrowseViewController: UIViewController, UITableViewDataSource {
             
             for c in careers {
                 print(c.title)
-                print(c.icon)
                 print(c.category)
+                print(c.icon)
             }
             
             self.careers = careers
+            
+            for cat in self.categories {
+                for c in cat.careers {
+                    for career in self.careers {
+                        if career.title == c {
+                            // add career.icon to the category object
+                            cat.careerDetails.append(Career(title: career.title, icon: career.icon, category: career.category))
+                        }
+                    }
+                }
+            }
+            
+            self.categoryTableView.reloadData()
             
             }, withCancelBlock: { error in
                 print(error.description)
@@ -95,9 +111,9 @@ class BrowseViewController: UIViewController, UITableViewDataSource {
     
     
     
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> Category? {
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
-        return categories[section]
+        return categories[section].name
         
     }
     
@@ -116,7 +132,7 @@ class BrowseViewController: UIViewController, UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("cell") as! CategoryRow
         
-        cell.category = categories[indexPath.section].name
+        cell.category = categories[indexPath.section]
         
         return cell
         

@@ -50,7 +50,10 @@ extension CategoryRow : UICollectionViewDataSource {
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("careerCell", forIndexPath: indexPath) as! CollectionViewCell
         
-        cell.pinImage.image = UIImage(named: "Cook")
+        let imgName: String = category!.careerDetails[indexPath.row]!.icon
+        cell.pinImage.image = UIImage(named: imgName)
+        
+        cell.title.text = category!.careerDetails[indexPath.row]!.title
         
         return cell
         

@@ -35,8 +35,7 @@ class Career {
         
         icon = snapshot.value["icon"] as! String
         
-        category = snapshot.value["category"]as! String
-        
+        category = snapshot.value["category"] as! String
     }
     
     
@@ -49,8 +48,7 @@ class Career {
             
             "icon": icon,
             
-            "category" : category
-            
+            "category": category
         ]
         
     }

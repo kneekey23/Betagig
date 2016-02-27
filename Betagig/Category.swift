@@ -15,7 +15,9 @@ class Category {
     
     var name: String = ""
     
-    var careers: [Career] = []
+    var careers: [String] = []
+    
+    var careerDetails: [Career?] = []
     
     let ref: Firebase?
     
@@ -31,7 +33,7 @@ class Category {
         
         name = snapshot.value["name"] as! String
         
-        careers = snapshot.value["category"] as! [Career]
+        careers = snapshot.value["careers"] as! [String]
         
     }
     
@@ -51,7 +53,7 @@ class Category {
     
     
     
-    init (name: String, careers: [Career], key: String = "") {
+    init (name: String, careers: [String], careerDetails: [Career?], key: String = "") {
         
         self.name = name
         
@@ -61,6 +63,7 @@ class Category {
         
         self.ref = nil
         
+        self.careerDetails = careerDetails
     }
     
 }

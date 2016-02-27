@@ -15,4 +15,5 @@ class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var pinImage: UIImageView!
  
     @IBOutlet weak var title: UILabel!
+    
 }
