@@ -14,9 +14,9 @@ import Firebase
 
 
 class BrowseViewController: UIViewController, UITableViewDataSource {
-    
 
     @IBOutlet weak var categoryTableView: UITableView!
+    
     var tableImagesOne: [String] = ["Cook", "Fireman", "Doctor", "Nurse"]
     var tableImagesTwo: [String] = ["Barber Chair", "School Director"]
     var categories: [Category] = []
@@ -166,6 +166,7 @@ class BrowseViewController: UIViewController, UITableViewDataSource {
             }
             
         }
+
         
     }
     

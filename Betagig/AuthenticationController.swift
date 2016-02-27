@@ -10,14 +10,15 @@ import UIKit
 import Firebase
 
 
-class AuthenticationController: UIViewController,UITextFieldDelegate {
-    
+class AuthenticationController: UIViewController,UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
+
+
+    @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var username: UITextField!
     let ref = Firebase(url: "https://betagig1.firebaseio.com")
     
        var auth: Bool = false
 
-    @IBOutlet weak var username: UITextField!
-    @IBOutlet weak var password: UITextField!
     @IBAction func login(sender: AnyObject) {
         let loginButton: UIButton = sender as! UIButton
         loginButton.setTitle("Loading...", forState: UIControlState.Normal)
@@ -46,11 +47,35 @@ class AuthenticationController: UIViewController,UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+   
+
         username.delegate = self
         password.delegate = self
         username.text = "nicki@shortkey.io"
         password.text = "goucla23"
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("loginCell", forIndexPath: indexPath) as! StaticTableCell
+        
+        cell.textField = UITextField()
+      
+        
+        if indexPath.row == 0{
+            cell.textField.placeholder = "Email Address"
+        }
+        else{
+            cell.textField.placeholder = "Password"
+            cell.textField.secureTextEntry = true
+        }
+        
+        return cell
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -62,12 +87,14 @@ class AuthenticationController: UIViewController,UITextFieldDelegate {
         
         if identifier == "login" {
             return auth
-        }else if identifier == "createNew"{
+        }else if identifier == "createAccount"{
             auth = true
         }
         
         return auth
     }
+    
+
 
     //adds the ability to get rid of they keyboard for any text field on return.NJK
     func textFieldShouldReturn(textField: UITextField) -> Bool{
