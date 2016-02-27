@@ -70,4 +70,44 @@ class CompanyListViewController: UIViewController, UITableViewDataSource, UITabl
         return cell
         
     }
+    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        self.performSegueWithIdentifier("companyDetailSegue", sender: companyListTableView.cellForRowAtIndexPath(indexPath))
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "companyDetailSegue" {
+            
+            let companyDetailController = segue.destinationViewController as! CompanyDetailController
+            
+            
+            
+            //make call to db to load list of projects and populate a project array based off what they selected
+            
+            //to figure out what they selected user below code with sender to grab if they selected "math" or "lawyer" and send to db to get all projects under that category or subject
+            
+            if sender != nil {
+                
+                if (sender!.isKindOfClass(UITableViewCell)) {
+                    
+                    let cell = sender as! UITableViewCell
+                    let nameOfCo = cell.textLabel?.text
+                    var selectedCompany: Company?
+                    for co in self.companies {
+                        if co.name == nameOfCo! {
+                            selectedCompany = co
+                        }
+                    }
+                    
+                    companyDetailController.company = selectedCompany
+                }
+                
+                
+            }
+            
+        }
+        
+        
+    }
 }

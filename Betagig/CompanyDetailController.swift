@@ -16,12 +16,13 @@ class CompanyDetailController: UIViewController {
     @IBOutlet weak var companyDesc: UITextView!
     @IBOutlet weak var companyImage: UIImageView!
     
-    
+    var company: Company?
     
     @IBAction func bestTestGig(sender: AnyObject) {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(company?.name)
     }
     
 }
