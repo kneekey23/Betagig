@@ -22,6 +22,8 @@
 		81FA7B801C816584000BACBD /* BetaGigRequestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FA7B7F1C816584000BACBD /* BetaGigRequestController.swift */; };
 		81FA7B821C816920000BACBD /* MyBetaGigsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FA7B811C816920000BACBD /* MyBetaGigsController.swift */; };
 		81FA7B841C816E75000BACBD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FA7B831C816E75000BACBD /* Extensions.swift */; };
+		81FA7B861C81701D000BACBD /* BetaGigDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FA7B851C81701D000BACBD /* BetaGigDetailController.swift */; };
+		81FA7B891C817A3C000BACBD /* Career.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FA7B881C817A3C000BACBD /* Career.swift */; };
 		B69F0A1A0AC0E6FA93E993C7 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23905999118BA3E9D5D2DEA0 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +48,8 @@
 		81FA7B7F1C816584000BACBD /* BetaGigRequestController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BetaGigRequestController.swift; sourceTree = "<group>"; };
 		81FA7B811C816920000BACBD /* MyBetaGigsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyBetaGigsController.swift; sourceTree = "<group>"; };
 		81FA7B831C816E75000BACBD /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		81FA7B851C81701D000BACBD /* BetaGigDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BetaGigDetailController.swift; sourceTree = "<group>"; };
+		81FA7B881C817A3C000BACBD /* Career.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Career.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +93,7 @@
 		81D913C71C810E2E0071F627 /* Betagig */ = {
 			isa = PBXGroup;
 			children = (
+				81FA7B871C817A2B000BACBD /* Models */,
 				81D913C81C810E2E0071F627 /* AppDelegate.swift */,
 				81D913CA1C810E2E0071F627 /* AuthenticationController.swift */,
 				81D913CC1C810E2E0071F627 /* Main.storyboard */,
@@ -105,8 +110,17 @@
 				81FA7B7F1C816584000BACBD /* BetaGigRequestController.swift */,
 				81FA7B811C816920000BACBD /* MyBetaGigsController.swift */,
 				81FA7B831C816E75000BACBD /* Extensions.swift */,
+				81FA7B851C81701D000BACBD /* BetaGigDetailController.swift */,
 			);
 			path = Betagig;
+			sourceTree = "<group>";
+		};
+		81FA7B871C817A2B000BACBD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				81FA7B881C817A3C000BACBD /* Career.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		EC1094E24C086E6C19AB5278 /* Pods */ = {
@@ -243,7 +257,9 @@
 				81FA7B761C81173A000BACBD /* ProfileController.swift in Sources */,
 				81D913CB1C810E2E0071F627 /* AuthenticationController.swift in Sources */,
 				81FA7B7E1C815F6A000BACBD /* CompanyDetailController.swift in Sources */,
+				81FA7B891C817A3C000BACBD /* Career.swift in Sources */,
 				81FA7B781C812620000BACBD /* CollectionViewCell.swift in Sources */,
+				81FA7B861C81701D000BACBD /* BetaGigDetailController.swift in Sources */,
 				81FA7B821C816920000BACBD /* MyBetaGigsController.swift in Sources */,
 				81FA7B721C811670000BACBD /* MainController.swift in Sources */,
 				81FA7B7C1C815AA4000BACBD /* CompanyListViewController.swift in Sources */,

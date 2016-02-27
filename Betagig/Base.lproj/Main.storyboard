@@ -116,6 +116,9 @@
                                 <state key="normal" title="Create an account">
                                     <color key="titleColor" red="0.30588235289999999" green="0.8862745098" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="aqj-Nm-oSS" kind="presentation" identifier="createAccount" modalPresentationStyle="fullScreen" id="rt5-Kt-S69"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.23921568627450979" green="0.23529411764705882" blue="0.22745098039215686" alpha="1" colorSpace="calibratedRGB"/>
@@ -159,6 +162,46 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="304.5" y="352.5"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="k23-QG-xaI">
+            <objects>
+                <viewController id="aqj-Nm-oSS" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TEQ-jT-gfG"/>
+                        <viewControllerLayoutGuide type="bottom" id="Hqn-0G-3jY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TLV-2s-w56">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VaD-Ay-91S">
+                                <rect key="frame" x="20" y="50" width="325" height="30"/>
+                                <state key="normal" title="Sign Up With Facebook"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u9e-xI-gvc">
+                                <rect key="frame" x="20" y="110" width="319" height="30"/>
+                                <state key="normal" title="Sign Up With Twitter"/>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hrline" translatesAutoresizingMaskIntoConstraints="NO" id="PEO-tU-lIq">
+                                <rect key="frame" x="11" y="154" width="138" height="3"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="or" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RPn-gd-2UF">
+                                <rect key="frame" x="162" y="145" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hrline" translatesAutoresizingMaskIntoConstraints="NO" id="4Kb-rg-Ule">
+                                <rect key="frame" x="216" y="154" width="138" height="3"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ABV-bG-sDD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="296.5" y="1304.5"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Pcz-aE-qqr">
@@ -210,6 +253,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="LNf-qo-EAJ" kind="show" trigger="accessoryAction" id="LNE-3G-YSv"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -226,6 +272,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6au-uL-RMO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2525.5" y="-1177.5"/>
+        </scene>
+        <!--Beta Gig Detail Controller-->
+        <scene sceneID="XE2-tl-R1u">
+            <objects>
+                <viewController id="LNf-qo-EAJ" customClass="BetaGigDetailController" customModule="Betagig" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Bz5-yf-yKm"/>
+                        <viewControllerLayoutGuide type="bottom" id="Z98-f3-grj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hU2-zJ-ucW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HOb-Ix-Api" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3120.5" y="-1167.5"/>
         </scene>
         <!--Profile-->
         <scene sceneID="aSz-MM-SR4">
@@ -357,6 +421,9 @@
                                                 <constraint firstItem="SnP-fU-2Uv" firstAttribute="leading" secondItem="h9L-dY-T23" secondAttribute="leading" id="hR9-b1-SSH"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="categoryCollectionView" destination="SnP-fU-2Uv" id="lND-jK-sp6"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -691,5 +758,6 @@
         <image name="Briefcase Filled-25" width="25" height="25"/>
         <image name="Permanent Job-25-2" width="25" height="25"/>
         <image name="User-25" width="25" height="25"/>
+        <image name="hrline" width="1024" height="1024"/>
     </resources>
 </document>
