@@ -430,7 +430,7 @@
                                                             <connections>
                                                                 <outlet property="pinImage" destination="czi-ZO-iX8" id="TQg-hJ-Via"/>
                                                                 <outlet property="title" destination="AU4-oO-g6i" id="S5W-2y-a2o"/>
-                                                                <segue destination="7ra-XO-ct7" kind="show" id="GTQ-C1-BFl"/>
+                                                                <segue destination="7ra-XO-ct7" kind="show" identifier="companySegue" id="GTQ-C1-BFl"/>
                                                             </connections>
                                                         </collectionViewCell>
                                                     </cells>
@@ -491,7 +491,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="companyCell" textLabel="eml-6A-xf4" rowHeight="60" style="IBUITableViewCellStyleDefault" id="gKI-4Q-U8v">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cocell" textLabel="eml-6A-xf4" rowHeight="60" style="IBUITableViewCellStyleDefault" id="gKI-4Q-U8v">
                                         <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gKI-4Q-U8v" id="anE-fn-kxh">
@@ -520,6 +520,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="companyListTableView" destination="D3e-xa-dAc" id="dVM-fx-cKG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WHm-ZC-nqD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

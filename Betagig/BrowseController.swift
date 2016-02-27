@@ -157,7 +157,7 @@ class BrowseViewController: UIViewController, UITableViewDataSource {
                 if (sender!.isKindOfClass(CollectionViewCell)) {
                     
                     let cell = sender as! CollectionViewCell
-                    
+                    print(cell.title.text!)
                     companyController.career = cell.title.text!
                     
                 }
