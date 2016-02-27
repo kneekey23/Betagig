@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		813524701C8207990018FB29 /* StaticTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8135246F1C8207990018FB29 /* StaticTableCell.swift */; };
 		81D913C91C810E2E0071F627 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D913C81C810E2E0071F627 /* AppDelegate.swift */; };
 		81D913CB1C810E2E0071F627 /* AuthenticationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D913CA1C810E2E0071F627 /* AuthenticationController.swift */; };
 		81D913CE1C810E2E0071F627 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81D913CC1C810E2E0071F627 /* Main.storyboard */; };
@@ -17,6 +18,15 @@
 		81FA7B761C81173A000BACBD /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FA7B751C81173A000BACBD /* ProfileController.swift */; };
 		81FA7B781C812620000BACBD /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FA7B771C812620000BACBD /* CollectionViewCell.swift */; };
 		81FA7B7A1C81426F000BACBD /* CategoryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FA7B791C81426F000BACBD /* CategoryRow.swift */; };
+		81FA7B7C1C815AA4000BACBD /* CompanyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FA7B7B1C815AA4000BACBD /* CompanyListViewController.swift */; };
+		81FA7B7E1C815F6A000BACBD /* CompanyDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FA7B7D1C815F6A000BACBD /* CompanyDetailController.swift */; };
+		81FA7B801C816584000BACBD /* BetaGigRequestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FA7B7F1C816584000BACBD /* BetaGigRequestController.swift */; };
+		81FA7B821C816920000BACBD /* MyBetaGigsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FA7B811C816920000BACBD /* MyBetaGigsController.swift */; };
+		81FA7B841C816E75000BACBD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FA7B831C816E75000BACBD /* Extensions.swift */; };
+		81FA7B861C81701D000BACBD /* BetaGigDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FA7B851C81701D000BACBD /* BetaGigDetailController.swift */; };
+		81FA7B891C817A3C000BACBD /* Career.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FA7B881C817A3C000BACBD /* Career.swift */; };
+		8BD7088F1C8194C000ACAD53 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD7088E1C8194C000ACAD53 /* Category.swift */; };
+		81FA7B8B1C81802C000BACBD /* CreateAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FA7B8A1C81802C000BACBD /* CreateAccountController.swift */; };
 		B69F0A1A0AC0E6FA93E993C7 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23905999118BA3E9D5D2DEA0 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -24,6 +34,7 @@
 		23905999118BA3E9D5D2DEA0 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E7CA78C2ADCFD173431136D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		48F8223402CA9FE90A1FE0B7 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		8135246F1C8207990018FB29 /* StaticTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticTableCell.swift; sourceTree = "<group>"; };
 		81D913C51C810E2E0071F627 /* Betagig.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Betagig.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81D913C81C810E2E0071F627 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81D913CA1C810E2E0071F627 /* AuthenticationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationController.swift; sourceTree = "<group>"; };
@@ -36,6 +47,15 @@
 		81FA7B751C81173A000BACBD /* ProfileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		81FA7B771C812620000BACBD /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		81FA7B791C81426F000BACBD /* CategoryRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryRow.swift; sourceTree = "<group>"; };
+		81FA7B7B1C815AA4000BACBD /* CompanyListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyListViewController.swift; sourceTree = "<group>"; };
+		81FA7B7D1C815F6A000BACBD /* CompanyDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyDetailController.swift; sourceTree = "<group>"; };
+		81FA7B7F1C816584000BACBD /* BetaGigRequestController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BetaGigRequestController.swift; sourceTree = "<group>"; };
+		81FA7B811C816920000BACBD /* MyBetaGigsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyBetaGigsController.swift; sourceTree = "<group>"; };
+		81FA7B831C816E75000BACBD /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		81FA7B851C81701D000BACBD /* BetaGigDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BetaGigDetailController.swift; sourceTree = "<group>"; };
+		81FA7B881C817A3C000BACBD /* Career.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Career.swift; sourceTree = "<group>"; };
+		8BD7088E1C8194C000ACAD53 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		81FA7B8A1C81802C000BACBD /* CreateAccountController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +99,7 @@
 		81D913C71C810E2E0071F627 /* Betagig */ = {
 			isa = PBXGroup;
 			children = (
+				81FA7B871C817A2B000BACBD /* Models */,
 				81D913C81C810E2E0071F627 /* AppDelegate.swift */,
 				81D913CA1C810E2E0071F627 /* AuthenticationController.swift */,
 				81D913CC1C810E2E0071F627 /* Main.storyboard */,
@@ -86,12 +107,29 @@
 				81D913D11C810E2E0071F627 /* LaunchScreen.storyboard */,
 				81D913D41C810E2E0071F627 /* Info.plist */,
 				81FA7B711C811670000BACBD /* MainController.swift */,
+				81FA7B771C812620000BACBD /* CollectionViewCell.swift */,
 				81FA7B731C8116FC000BACBD /* BrowseController.swift */,
 				81FA7B751C81173A000BACBD /* ProfileController.swift */,
-				81FA7B771C812620000BACBD /* CollectionViewCell.swift */,
 				81FA7B791C81426F000BACBD /* CategoryRow.swift */,
+				81FA7B7B1C815AA4000BACBD /* CompanyListViewController.swift */,
+				81FA7B7D1C815F6A000BACBD /* CompanyDetailController.swift */,
+				81FA7B7F1C816584000BACBD /* BetaGigRequestController.swift */,
+				81FA7B811C816920000BACBD /* MyBetaGigsController.swift */,
+				81FA7B831C816E75000BACBD /* Extensions.swift */,
+				81FA7B851C81701D000BACBD /* BetaGigDetailController.swift */,
+				81FA7B8A1C81802C000BACBD /* CreateAccountController.swift */,
+				8135246F1C8207990018FB29 /* StaticTableCell.swift */,
 			);
 			path = Betagig;
+			sourceTree = "<group>";
+		};
+		81FA7B871C817A2B000BACBD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				81FA7B881C817A3C000BACBD /* Career.swift */,
+				8BD7088E1C8194C000ACAD53 /* Category.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		EC1094E24C086E6C19AB5278 /* Pods */ = {
@@ -227,9 +265,19 @@
 			files = (
 				81FA7B761C81173A000BACBD /* ProfileController.swift in Sources */,
 				81D913CB1C810E2E0071F627 /* AuthenticationController.swift in Sources */,
+				81FA7B7E1C815F6A000BACBD /* CompanyDetailController.swift in Sources */,
+				81FA7B891C817A3C000BACBD /* Career.swift in Sources */,
+				813524701C8207990018FB29 /* StaticTableCell.swift in Sources */,
 				81FA7B781C812620000BACBD /* CollectionViewCell.swift in Sources */,
+				81FA7B861C81701D000BACBD /* BetaGigDetailController.swift in Sources */,
+				81FA7B821C816920000BACBD /* MyBetaGigsController.swift in Sources */,
 				81FA7B721C811670000BACBD /* MainController.swift in Sources */,
+				81FA7B7C1C815AA4000BACBD /* CompanyListViewController.swift in Sources */,
+				81FA7B8B1C81802C000BACBD /* CreateAccountController.swift in Sources */,
+				81FA7B841C816E75000BACBD /* Extensions.swift in Sources */,
 				81FA7B7A1C81426F000BACBD /* CategoryRow.swift in Sources */,
+				8BD7088F1C8194C000ACAD53 /* Category.swift in Sources */,
+				81FA7B801C816584000BACBD /* BetaGigRequestController.swift in Sources */,
 				81D913C91C810E2E0071F627 /* AppDelegate.swift in Sources */,
 				81FA7B741C8116FC000BACBD /* BrowseController.swift in Sources */,
 			);
