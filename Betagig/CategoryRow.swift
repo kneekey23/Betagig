@@ -24,14 +24,10 @@ class CategoryRow : UITableViewCell {
     
     @IBOutlet weak var categoryCollectionView: UICollectionView!
     
-    var category: String? = nil {
-        
+    var category: Category? = nil {
         didSet {
-            
             categoryCollectionView.reloadData()
-            
         }
-        
     }
     
 }
@@ -44,7 +40,7 @@ extension CategoryRow : UICollectionViewDataSource {
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return 12
+        return category!.careers.count
         
     }
     
@@ -67,7 +63,6 @@ extension CategoryRow : UICollectionViewDataSource {
 
 
 extension CategoryRow : UICollectionViewDelegateFlowLayout {
-    
     
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {

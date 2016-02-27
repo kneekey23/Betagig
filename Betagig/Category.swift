@@ -1,23 +1,21 @@
 //
-//  Career.swift
+//  Category.swift
 //  Betagig
 //
-//  Created by Nicki on 2/26/16.
+//  Created by Melissa Hargis on 2/27/16.
 //  Copyright © 2016 shortkey. All rights reserved.
 //
 
 import Foundation
 import Firebase
 
-class Career {
+class Category {
     
     
     
-    var title: String = ""
+    var name: String = ""
     
-    var icon: String = ""
-    
-    var category: String = ""
+    var careers: [Career] = []
     
     let ref: Firebase?
     
@@ -31,11 +29,9 @@ class Career {
         
         ref = snapshot.ref
         
-        title = snapshot.value["title"] as! String
+        name = snapshot.value["name"] as! String
         
-        icon = snapshot.value["icon"] as! String
-        
-        category = snapshot.value["category"]as! String
+        careers = snapshot.value["category"] as! [Career]
         
     }
     
@@ -45,11 +41,9 @@ class Career {
         
         return [
             
-            "title": title,
+            "name": name,
             
-            "icon": icon,
-            
-            "category" : category
+            "careers" : careers
             
         ]
         
@@ -57,13 +51,11 @@ class Career {
     
     
     
-    init (title: String, icon: String, category: String, key: String = "") {
+    init (name: String, careers: [Career], key: String = "") {
         
-        self.title = title
+        self.name = name
         
-        self.icon = icon
-        
-        self.category = category
+        self.careers = careers
         
         self.key = key
         

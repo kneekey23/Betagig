@@ -24,6 +24,7 @@
 		81FA7B841C816E75000BACBD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FA7B831C816E75000BACBD /* Extensions.swift */; };
 		81FA7B861C81701D000BACBD /* BetaGigDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FA7B851C81701D000BACBD /* BetaGigDetailController.swift */; };
 		81FA7B891C817A3C000BACBD /* Career.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FA7B881C817A3C000BACBD /* Career.swift */; };
+		8BD7088F1C8194C000ACAD53 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD7088E1C8194C000ACAD53 /* Category.swift */; };
 		B69F0A1A0AC0E6FA93E993C7 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23905999118BA3E9D5D2DEA0 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,7 @@
 		81FA7B831C816E75000BACBD /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		81FA7B851C81701D000BACBD /* BetaGigDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BetaGigDetailController.swift; sourceTree = "<group>"; };
 		81FA7B881C817A3C000BACBD /* Career.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Career.swift; sourceTree = "<group>"; };
+		8BD7088E1C8194C000ACAD53 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				81FA7B881C817A3C000BACBD /* Career.swift */,
+				8BD7088E1C8194C000ACAD53 /* Category.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 				81FA7B7C1C815AA4000BACBD /* CompanyListViewController.swift in Sources */,
 				81FA7B841C816E75000BACBD /* Extensions.swift in Sources */,
 				81FA7B7A1C81426F000BACBD /* CategoryRow.swift in Sources */,
+				8BD7088F1C8194C000ACAD53 /* Category.swift in Sources */,
 				81FA7B801C816584000BACBD /* BetaGigRequestController.swift in Sources */,
 				81D913C91C810E2E0071F627 /* AppDelegate.swift in Sources */,
 				81FA7B741C8116FC000BACBD /* BrowseController.swift in Sources */,
