@@ -35,15 +35,31 @@ class BrowseViewController: UIViewController, UITableViewDataSource {
         return 1
     }
     
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        return 2
-    }
-    
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell") as! CategoryRow
        
         return cell
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "companySegue" {
+            let companyController = segue.destinationViewController as! CompanyListViewController
+            
+            //make call to db to load list of projects and populate a project array based off what they selected
+            //to figure out what they selected user below code with sender to grab if they selected "math" or "lawyer" and send to db to get all projects under that category or subject
+            if sender != nil {
+                if (sender!.isKindOfClass(CollectionViewCell)) {
+                    let cell = sender as! CollectionViewCell
+                    
+                    companyController.career = cell.title.text!
+                    
+                    
+                    
+                }
+                
+            }
+        }
     }
  
     
