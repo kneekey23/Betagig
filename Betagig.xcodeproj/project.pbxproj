@@ -17,6 +17,7 @@
 		81FA7B761C81173A000BACBD /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FA7B751C81173A000BACBD /* ProfileController.swift */; };
 		81FA7B781C812620000BACBD /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FA7B771C812620000BACBD /* CollectionViewCell.swift */; };
 		81FA7B7A1C81426F000BACBD /* CategoryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FA7B791C81426F000BACBD /* CategoryRow.swift */; };
+		8B1159A61C815DE30080C852 /* Career.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1159A51C815DE30080C852 /* Career.swift */; };
 		B69F0A1A0AC0E6FA93E993C7 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23905999118BA3E9D5D2DEA0 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +37,7 @@
 		81FA7B751C81173A000BACBD /* ProfileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		81FA7B771C812620000BACBD /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		81FA7B791C81426F000BACBD /* CategoryRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryRow.swift; sourceTree = "<group>"; };
+		8B1159A51C815DE30080C852 /* Career.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Career.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 		81D913C71C810E2E0071F627 /* Betagig */ = {
 			isa = PBXGroup;
 			children = (
+				8B1159A41C815B1A0080C852 /* Models */,
 				81D913C81C810E2E0071F627 /* AppDelegate.swift */,
 				81D913CA1C810E2E0071F627 /* AuthenticationController.swift */,
 				81D913CC1C810E2E0071F627 /* Main.storyboard */,
@@ -92,6 +95,14 @@
 				81FA7B791C81426F000BACBD /* CategoryRow.swift */,
 			);
 			path = Betagig;
+			sourceTree = "<group>";
+		};
+		8B1159A41C815B1A0080C852 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8B1159A51C815DE30080C852 /* Career.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		EC1094E24C086E6C19AB5278 /* Pods */ = {
@@ -226,6 +237,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81FA7B761C81173A000BACBD /* ProfileController.swift in Sources */,
+				8B1159A61C815DE30080C852 /* Career.swift in Sources */,
 				81D913CB1C810E2E0071F627 /* AuthenticationController.swift in Sources */,
 				81FA7B781C812620000BACBD /* CollectionViewCell.swift in Sources */,
 				81FA7B721C811670000BACBD /* MainController.swift in Sources */,

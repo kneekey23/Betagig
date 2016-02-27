@@ -274,6 +274,9 @@
                                                 <constraint firstItem="SnP-fU-2Uv" firstAttribute="leading" secondItem="h9L-dY-T23" secondAttribute="leading" id="hR9-b1-SSH"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="CategoryCollectionView" destination="SnP-fU-2Uv" id="NvH-o7-0xj"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>

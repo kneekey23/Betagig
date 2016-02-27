@@ -10,7 +10,12 @@ import Foundation
 import UIKit
 
 class CategoryRow : UITableViewCell {
-
+    @IBOutlet weak var categoryCollectionView: UICollectionView!
+    var category: String? = nil {
+        didSet {
+            categoryCollectionView.reloadData()
+        }
+    }
 }
 
 extension CategoryRow : UICollectionViewDataSource {

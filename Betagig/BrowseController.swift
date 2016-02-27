@@ -14,13 +14,59 @@ class BrowseViewController: UIViewController, UITableViewDataSource {
     
     var tableImagesOne: [String] = ["Cook", "Fireman", "Doctor", "Nurse"]
     var tableImagesTwo: [String] = ["Barber Chair", "School Director"]
-    var categories: [String] = ["Blue Collar Jobs", "White collar jobs"]
-    
+    var categories: [String] = [
+        "IT & Engineering",
+        "Health",
+        "Life Sciences",
+        "Food & Agriculture",
+        "Business",
+        "Finance",
+        "Liberal Arts",
+        "Building & Construction",
+        "Law Enforcement",
+        "Media",
+        "Sports",
+        "Education",
+        "Lifestyle & Personal Services"]
+    var careers: [Career] = []
 
     override func viewDidLoad() {
         // Initialize the collection views, set the desired frames
         //grab those lists above from the database
-
+        super.viewDidLoad()
+//        if projectList == nil {
+//            projectList = []
+//        }
+    }
+    
+    func refreshCareers(){
+        
+        let ref = Firebase(url: "https://betagig1.firebaseio.com/betagig1/careers")
+        
+        // Attach a closure to read the data
+        ref.observeSingleEventOfType(.Value, withBlock: { snapshot in
+            var careers = [Career]()
+            
+            for item in snapshot.children {
+                let career = Career(snapshot: item as! FDataSnapshot)
+                careers.append(career)
+            }
+            
+            for c in careers {
+                print(c.title)
+                print(c.icon)
+                print(c.category)
+            }
+            
+            //send selectedSubjectOrCategory to db to get correct project list and popuale. then set it equal to a variable on next view controller.
+            self.careers = careers
+            
+//            self.projectTableView.reloadData()
+            
+            }, withCancelBlock: { error in
+                print(error.description)
+        })
+        
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -42,6 +88,7 @@ class BrowseViewController: UIViewController, UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell") as! CategoryRow
+        cell.category = categories[indexPath.section]
         return cell
     }
 //    
