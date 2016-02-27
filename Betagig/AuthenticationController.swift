@@ -90,6 +90,9 @@ class AuthenticationController: UIViewController,UITextFieldDelegate, UITableVie
         }else if identifier == "createAccount"{
             auth = true
         }
+        else if identifier == "companySignIn"{
+            auth = true
+        }
         
         return auth
     }
