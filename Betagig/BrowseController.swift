@@ -25,7 +25,6 @@ import Firebase
 class BrowseViewController: UIViewController, UITableViewDataSource {
     
     
-    
     var tableImagesOne: [String] = ["Cook", "Fireman", "Doctor", "Nurse"]
     
     var tableImagesTwo: [String] = ["Barber Chair", "School Director"]
@@ -202,6 +201,7 @@ class BrowseViewController: UIViewController, UITableViewDataSource {
             }
             
         }
+
         
     }
     
