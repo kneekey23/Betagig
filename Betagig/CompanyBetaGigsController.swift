@@ -44,8 +44,8 @@ class CompanyBetaGigsController: UIViewController, UITableViewDataSource, UITabl
         })
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         
         ref.observeAuthEventWithBlock({ authData in
             if authData != nil {
