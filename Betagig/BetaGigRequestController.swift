@@ -31,9 +31,7 @@ class BetaGigRequestController: UIViewController, UIPickerViewDataSource, UIPick
             
             let newId = String(betagigs.count)
             
-            let newBetaGig = ["id": newId, "company": (self.selectedCompany?.name)!, "gig": self.selectedCareer!, "status": "pending", "date": "March 9, 2016 - March 11, 2016", "time": "10:00 AM - 6:00 PM", "contact": "Aiko Rogers", "cost": (self.selectedCompany?.cost)!, "street": (self.selectedCompany?.street)!, "city": (self.selectedCompany?.city)!, "state": (self.selectedCompany?.state)!, "zip": (self.selectedCompany?.zip)!]
-            //add beta gigs to beta gig table.
-            self.ref.childByAppendingPath(newId).setValue(newBetaGig)
+            
             //add beta gig id to users list of beta gigs.
             self.dbRef.observeAuthEventWithBlock({ authData in
                 if authData != nil {
@@ -50,7 +48,21 @@ class BetaGigRequestController: UIViewController, UIPickerViewDataSource, UIPick
                             userUrl.childByAppendingPath("betagigs").updateChildValues(newIdObj)
                         }
                        
+                        var testername: String = ""
+                        if let userName = snapshot.value["name"] as? String {
+                            print(userName)
+                            testername = userName
+                        }
                         
+                        var testeremail: String = ""
+                        if let userEmail = snapshot.value["email"] as? String {
+                            print(testeremail)
+                            testeremail = userEmail
+                        }
+                        
+                        let newBetaGig = ["id": newId, "company": (self.selectedCompany?.name)!, "gig": self.selectedCareer!, "status": "pending", "date": "March 9, 2016 - March 11, 2016", "time": "10:00 AM - 6:00 PM", "contact": "Aiko Rogers", "cost": (self.selectedCompany?.cost)!, "street": (self.selectedCompany?.street)!, "city": (self.selectedCompany?.city)!, "state": (self.selectedCompany?.state)!, "zip": (self.selectedCompany?.zip)!, "testerid" : authData.uid, "testername" : testername, "testeremail" : testeremail, "lat" : (self.selectedCompany?.lat)!, "long" : (self.selectedCompany?.long)!]
+                        //add beta gigs to beta gig table.
+                        self.ref.childByAppendingPath(newId).setValue(newBetaGig)
                     })
                     
                 } else {
