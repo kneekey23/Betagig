@@ -14,7 +14,8 @@ class BetaGigSuccessController: UIViewController {
         super.viewDidLoad()
     }
     @IBAction func closeModal(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: {})
+        self.navigationController?.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
+        //self.dismissViewControllerAnimated(true, completion: {})
 //        let a = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("MainViewController") as!MainViewController
 //       
 //        let b = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("BrowseViewController") as! BrowseViewController
@@ -26,13 +27,14 @@ class BetaGigSuccessController: UIViewController {
     }
 
     @IBAction func browseReturn(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: {
-         self.tabBarController?.selectedIndex = 0
-            
-            
-            let firstNavController: UINavigationController = self.tabBarController?.selectedViewController as! UINavigationController;
-            firstNavController.popToRootViewControllerAnimated(true)
-        })
+        self.navigationController?.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
+//        self.dismissViewControllerAnimated(true, completion: {
+//         self.tabBarController?.selectedIndex = 0
+//            
+//            
+//            let firstNavController: UINavigationController = self.tabBarController?.selectedViewController as! UINavigationController;
+//            firstNavController.popToRootViewControllerAnimated(true)
+//        })
       
     }
 
