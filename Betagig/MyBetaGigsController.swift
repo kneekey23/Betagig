@@ -7,15 +7,38 @@
 //
 
 import UIKit
+import Firebase
 
 class MyBetaGigsController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
     var mypendingGigs: [String] = []
     var myconfirmedGigs: [String] = []
     var mypastGigs: [String] = []
+    let ref = Firebase(url: "https://brilliant-inferno-3353.firebaseio.com")
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        ref.observeAuthEventWithBlock({ authData in
+            if authData != nil {
+                // user authenticated
+                print(authData)
+                
+                let userUrl = Firebase(url: "https://betagig1.firebaseio.com/userData/" + authData.uid)
+                
+                userUrl.observeSingleEventOfType(.Value, withBlock: { snapshot in
+                    
+//                    var allMyGigs = [Betagig]()
+                    
+                   
+                    
+                })
+                
+            } else {
+                // No user is signed in
+            }
+        })
+        
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
