@@ -19,6 +19,14 @@ class ProfileController: UITableViewController {
             ref.unauth()
             let loginVC = segue.destinationViewController as! AuthenticationController
             loginVC.hidesBottomBarWhenPushed = true
+        
+        }
+    }
+    
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.row == 1 {
+            self.performSegueWithIdentifier("paymentSegue", sender: nil)
         }
     }
 
