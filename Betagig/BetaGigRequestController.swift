@@ -29,7 +29,7 @@ class BetaGigRequestController: UIViewController, UIPickerViewDataSource, UIPick
                 betagigs.append(betagig)
             }
             
-            let newId =  "25"//String(betagigs.count)
+            let newId = String(betagigs.count)
             
             
             //add beta gig id to users list of beta gigs.
@@ -112,6 +112,7 @@ class BetaGigRequestController: UIViewController, UIPickerViewDataSource, UIPick
     }
     
     func goBackToMyBetaGigs() {
+        
         tabBarController?.selectedIndex = 1
         let firstNavController: UINavigationController = tabBarController?.selectedViewController as! UINavigationController;
         firstNavController.popToRootViewControllerAnimated(true)
