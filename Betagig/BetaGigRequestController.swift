@@ -29,7 +29,7 @@ class BetaGigRequestController: UIViewController, UIPickerViewDataSource, UIPick
                 betagigs.append(betagig)
             }
             
-            let newId =  "25"//String(betagigs.count)
+            let newId = String(betagigs.count)
             
             
             //add beta gig id to users list of beta gigs.
