@@ -57,8 +57,8 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="dik-55-wQJ"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="29"/>
-                                <color key="textColor" red="0.69019607839999997" green="0.28235294119999998" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="25"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="Not a member?" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4NO-ZM-bu4">
@@ -124,18 +124,9 @@
                                     <constraint firstItem="CCf-wQ-29A" firstAttribute="centerY" secondItem="54k-15-Pfa" secondAttribute="centerY" id="ebR-cU-XY3"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BetaGigAppIcon" translatesAutoresizingMaskIntoConstraints="NO" id="JXl-ow-ffa">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="BetaGigAppIcon" translatesAutoresizingMaskIntoConstraints="NO" id="JXl-ow-ffa">
                                 <rect key="frame" x="106" y="121" width="162" height="151"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Welcome to BetaGig" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="78G-xb-bRY">
-                                <rect key="frame" x="48" y="64" width="278" height="42"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="42" id="dik-55-wQJ"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="26"/>
-                                <color key="textColor" red="0.69019607839999997" green="0.28235294119999998" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.23921568627450979" green="0.23529411764705882" blue="0.22745098039215686" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -147,6 +138,7 @@
                             <constraint firstItem="78G-xb-bRY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="32" id="82l-7E-S0z"/>
                             <constraint firstItem="Ydt-aP-IZ5" firstAttribute="leading" secondItem="4NO-ZM-bu4" secondAttribute="leading" id="9ri-v5-DWk"/>
                             <constraint firstItem="78G-xb-bRY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="AWH-rG-5Z1"/>
+                            <constraint firstItem="JXl-ow-ffa" firstAttribute="centerX" secondItem="78G-xb-bRY" secondAttribute="centerX" id="C5G-Cv-2w2"/>
                             <constraint firstItem="54k-15-Pfa" firstAttribute="leading" secondItem="edq-Mj-TQJ" secondAttribute="leading" id="DXq-J3-F80"/>
                             <constraint firstItem="edq-Mj-TQJ" firstAttribute="trailing" secondItem="54k-15-Pfa" secondAttribute="trailing" id="FCU-K8-B2Z"/>
                             <constraint firstItem="edq-Mj-TQJ" firstAttribute="top" secondItem="54k-15-Pfa" secondAttribute="bottom" constant="8" symbolic="YES" id="Fhu-Kb-xes"/>
@@ -159,7 +151,10 @@
                             <constraint firstItem="4NO-ZM-bu4" firstAttribute="top" secondItem="JIy-7w-Acn" secondAttribute="bottom" constant="12" id="TFd-VT-HJ1"/>
                             <constraint firstItem="fjS-ub-8JO" firstAttribute="leading" secondItem="Ydt-aP-IZ5" secondAttribute="trailing" constant="18" id="UGh-ed-uUf"/>
                             <constraint firstAttribute="trailingMargin" secondItem="4fy-Vy-mwT" secondAttribute="trailing" constant="34" id="YC2-Zc-e12"/>
+                            <constraint firstItem="JXl-ow-ffa" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="90" id="Ygp-bb-XEY"/>
+                            <constraint firstItem="JXl-ow-ffa" firstAttribute="top" secondItem="78G-xb-bRY" secondAttribute="bottom" constant="8" symbolic="YES" id="cel-e6-sDd"/>
                             <constraint firstAttribute="bottom" secondItem="edq-Mj-TQJ" secondAttribute="bottom" constant="255" id="gMc-mj-DTC"/>
+                            <constraint firstItem="54k-15-Pfa" firstAttribute="top" secondItem="JXl-ow-ffa" secondAttribute="bottom" constant="33" id="ixa-BI-MPv"/>
                             <constraint firstItem="4NO-ZM-bu4" firstAttribute="bottom" secondItem="fjS-ub-8JO" secondAttribute="bottom" id="ta0-au-Hbp"/>
                             <constraint firstItem="54k-15-Pfa" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="305" id="x3l-dD-qKZ"/>
                             <constraint firstItem="4fy-Vy-mwT" firstAttribute="top" secondItem="JIy-7w-Acn" secondAttribute="bottom" constant="44" id="xD9-4D-Go1"/>
