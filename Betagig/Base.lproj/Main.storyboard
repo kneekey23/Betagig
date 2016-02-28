@@ -203,6 +203,9 @@
                                 <rect key="frame" x="20" y="110" width="319" height="30"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Sign Up With Twitter"/>
+                                <connections>
+                                    <action selector="logInWithTwitter:" destination="aqj-Nm-oSS" eventType="touchUpInside" id="aFo-Pa-lwB"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hrline" translatesAutoresizingMaskIntoConstraints="NO" id="PEO-tU-lIq">
                                 <rect key="frame" x="20" y="186" width="138" height="3"/>
@@ -1897,7 +1900,7 @@
                                 </state>
                                 <connections>
                                     <action selector="requestAction:" destination="5ww-ut-xLs" eventType="touchUpInside" id="TLo-9P-Z4d"/>
-                                    <segue destination="IeX-qA-gQq" kind="presentation" id="cIR-bK-Sfv"/>
+                                    <segue destination="IeX-qA-gQq" kind="presentation" identifier="successSegue" id="cIR-bK-Sfv"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Days to Beta Test:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iba-g5-E9u">
@@ -2314,7 +2317,7 @@
         <image name="hrline" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="I08-op-RGG"/>
+        <segue reference="LKJ-uR-mU7"/>
         <segue reference="IE5-Hu-xKO"/>
         <segue reference="kpQ-H0-6Ny"/>
     </inferredMetricsTieBreakers>

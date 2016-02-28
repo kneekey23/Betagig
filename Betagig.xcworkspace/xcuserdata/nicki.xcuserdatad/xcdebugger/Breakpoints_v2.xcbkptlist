@@ -58,7 +58,7 @@
                   moduleName = "Betagig"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/nicki/Projects/Betagig/Betagig/Company.swift"
-                  timestampString = "478350134.819492"
+                  timestampString = "478379738.534299"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -73,7 +73,7 @@
                   moduleName = "Betagig"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/nicki/Projects/Betagig/Betagig/Company.swift"
-                  timestampString = "478350134.819693"
+                  timestampString = "478379738.534559"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -122,12 +122,12 @@
                   moduleName = "Betagig"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/nicki/Projects/Betagig/Betagig/BetaGigRequestController.swift"
-                  timestampString = "478350134.82436"
+                  timestampString = "478379738.561478"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "38"
                   endingLineNumber = "38"
-                  offsetFromSymbolStart = "3672">
+                  offsetFromSymbolStart = "3116">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -137,7 +137,7 @@
                   moduleName = "Betagig"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/nicki/Projects/Betagig/Betagig/BetaGigRequestController.swift"
-                  timestampString = "478350134.824546"
+                  timestampString = "478379738.562151"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "39"
@@ -170,7 +170,7 @@
                   moduleName = "Betagig"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/nicki/Projects/Betagig/Betagig/BetaGigRequestController.swift"
-                  timestampString = "478350134.825584"
+                  timestampString = "478379738.596027"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "54"
@@ -185,7 +185,7 @@
                   moduleName = "Betagig"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/nicki/Projects/Betagig/Betagig/BetaGigRequestController.swift"
-                  timestampString = "478350134.825768"
+                  timestampString = "478379738.596324"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "54"
@@ -218,7 +218,7 @@
                   moduleName = "Betagig"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/nicki/Projects/Betagig/Betagig/ProfileController.swift"
-                  timestampString = "478350134.826789"
+                  timestampString = "478379738.598003"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "23"
@@ -233,7 +233,7 @@
                   moduleName = "Betagig"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/nicki/Projects/Betagig/Betagig/ProfileController.swift"
-                  timestampString = "478350134.826971"
+                  timestampString = "478379738.598191"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "23"
@@ -256,6 +256,294 @@
             startingLineNumber = "149"
             endingLineNumber = "149"
             landmarkName = "tableView(_:willDisplayHeaderView:forSection:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Betagig/CreateAccountController.swift"
+            timestampString = "478374439.506556"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "logInWithTwitter(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Betagig/CreateAccountController.swift"
+            timestampString = "478374460.259052"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "logInWithTwitter(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Betagig/CreateAccountController.swift"
+            timestampString = "478374476.02906"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "logInWithTwitter(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Betagig/CreateAccountController.swift"
+            timestampString = "478374501.800509"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "logInWithTwitter(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Betagig/CreateAccountController.swift"
+            timestampString = "478374525.988774"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "logInWithTwitter(_:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Betagig.CreateAccountController.(logInWithTwitter (Betagig.CreateAccountController) -&gt; (Swift.AnyObject) -&gt; ()).(closure #1)"
+                  moduleName = "Betagig"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nicki/Projects/Betagig/Betagig/CreateAccountController.swift"
+                  timestampString = "478379738.602886"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "584">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Betagig.CreateAccountController.(logInWithTwitter (Betagig.CreateAccountController) -&gt; (Swift.AnyObject) -&gt; ()).(closure #1).(closure #1)"
+                  moduleName = "Betagig"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nicki/Projects/Betagig/Betagig/CreateAccountController.swift"
+                  timestampString = "478379738.603041"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "28">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Betagig/CreateAccountController.swift"
+            timestampString = "478374527.338248"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "logInWithTwitter(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Betagig/TwitterAuthHelper.m"
+            timestampString = "478375379.495997"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "-authenticateAccount:withCallback:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Betagig/TwitterAuthHelper.m"
+            timestampString = "478375409.866746"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "-makeReverseRequest"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[TwitterAuthHelper makeReverseRequest]"
+                  moduleName = "Betagig"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nicki/Projects/Betagig/Betagig/TwitterAuthHelper.m"
+                  timestampString = "478379738.605163"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "69"
+                  endingLineNumber = "69"
+                  offsetFromSymbolStart = "32">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__39-[TwitterAuthHelper makeReverseRequest]_block_invoke"
+                  moduleName = "Betagig"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nicki/Projects/Betagig/Betagig/TwitterAuthHelper.m"
+                  timestampString = "478379738.605324"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "69"
+                  endingLineNumber = "69"
+                  offsetFromSymbolStart = "72">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Betagig/TwitterAuthHelper.m"
+            timestampString = "478375416.092476"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "-makeReverseRequest"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Betagig/TwitterAuthHelper.m"
+            timestampString = "478375427.899188"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "-makeReverseRequest"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Betagig/TwitterAuthHelper.m"
+            timestampString = "478375449.38272"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
+            landmarkName = "-requestTwitterCredentials"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[TwitterAuthHelper requestTwitterCredentials]"
+                  moduleName = "Betagig"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nicki/Projects/Betagig/Betagig/TwitterAuthHelper.m"
+                  timestampString = "478379738.607611"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "96"
+                  endingLineNumber = "96"
+                  offsetFromSymbolStart = "32">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__46-[TwitterAuthHelper requestTwitterCredentials]_block_invoke"
+                  moduleName = "Betagig"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nicki/Projects/Betagig/Betagig/TwitterAuthHelper.m"
+                  timestampString = "478379738.607779"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "96"
+                  endingLineNumber = "96"
+                  offsetFromSymbolStart = "104">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Betagig/TwitterAuthHelper.m"
+            timestampString = "478375461.719009"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "-requestTwitterCredentials"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

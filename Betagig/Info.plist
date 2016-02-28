@@ -4,6 +4,7 @@
 <dict>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
+		<string>twitter</string>
 		<string>lyft</string>
 		<string>uber</string>
 	</array>
@@ -38,8 +39,6 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 </dict>
 </plist>

@@ -36,7 +36,9 @@ class BetaGig {
         
         key = snapshot.key
         ref = snapshot.ref
+        
         testerid = snapshot.value["testerid"] as! String
+      
         testername = snapshot.value["testername"] as! String
         testeremail = snapshot.value["testeremail"] as! String
         id = snapshot.value["id"] as! String
