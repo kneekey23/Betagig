@@ -13,6 +13,7 @@ class BetaGig {
     
     var testerid: String = ""
     var testername: String = ""
+    var testeremail: String = ""
     var id: String = ""
     var company: String = ""
     var gig: String = ""
@@ -39,6 +40,7 @@ class BetaGig {
         testerid = snapshot.value["testerid"] as! String
       
         testername = snapshot.value["testername"] as! String
+        testeremail = snapshot.value["testeremail"] as! String
         id = snapshot.value["id"] as! String
         company = snapshot.value["company"] as! String
         gig = snapshot.value["gig"] as! String
@@ -61,6 +63,7 @@ class BetaGig {
         return [
             "testerid": testerid,
             "testername": testername,
+            "testeremail": testeremail,
             "id": id,
             "company": company,
             "gig": gig,
@@ -80,9 +83,10 @@ class BetaGig {
     }
     
     
-    init (testerid: String, testername: String, id: String, company: String, gig: String, status: String, date: String, time: String, contact: String, cost: Double, street: String, city: String, state: String, zip: String, lat: String, long: String, key: String = "") {
+    init (testerid: String, testername: String, testeremail: String, id: String, company: String, gig: String, status: String, date: String, time: String, contact: String, cost: Double, street: String, city: String, state: String, zip: String, lat: String, long: String, key: String = "") {
         self.testerid = testerid
         self.testername = testername
+        self.testeremail = testeremail
         self.id = id
         self.company = company
         self.gig = gig
