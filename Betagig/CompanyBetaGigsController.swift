@@ -73,9 +73,9 @@ class CompanyBetaGigsController: UIViewController, UITableViewDataSource, UITabl
     
     func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let header: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView //recast your view as a UITableViewHeaderFooterView
-        header.contentView.backgroundColor = UIColor(hexString: "B048B5") //make the background color light blue
-        header.textLabel!.textColor = UIColor.whiteColor() //make the text white
-        header.textLabel?.font = UIFont(name: "AvenirNext-DemiBold", size: 13)!
+        header.contentView.backgroundColor = UIColor(hexString: "3D3C3A") //make the background color light blue
+        header.textLabel!.textColor = UIColor(hexString: "4EE2EC") //make the text white
+        header.textLabel?.font = UIFont(name: "Helvetica Neue", size: 16)!
         //header.alpha = 0.5 //make the header transparent
     }
     
