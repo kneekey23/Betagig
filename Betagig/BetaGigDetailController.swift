@@ -51,11 +51,6 @@ class BetaGigDetailController: UIViewController {
         }
         actionSheetControllerIOS8.addAction(cancelActionButton)
         
-//        let uberActionButton: UIAlertAction = UIAlertAction(title: "Take an Uber", style: .Default)
-//            { action -> Void in
-//                print("Uber")
-//        }
-//        actionSheetControllerIOS8.addAction(uberActionButton)
         
         let lyftActionButton: UIAlertAction = UIAlertAction(title: "Take a Lyft", style: .Default)
             { action -> Void in

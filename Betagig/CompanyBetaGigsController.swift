@@ -164,6 +164,12 @@ class CompanyBetaGigsController: UIViewController, UITableViewDataSource, UITabl
         }
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        // tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        self.performSegueWithIdentifier("coBetaGigDetail", sender: betaGigsTableView.cellForRowAtIndexPath(indexPath))
+    }
+    
     func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let header: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView //recast your view as a UITableViewHeaderFooterView
         header.contentView.backgroundColor = UIColor(hexString: "3D3C3A") //make the background color light blue
