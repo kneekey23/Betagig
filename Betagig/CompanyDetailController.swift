@@ -39,16 +39,5 @@ class CompanyDetailController: UIViewController {
         let costText = "$" + String(company!.cost) + "/per day"
         cost.text = costText
         gigs.text = career!
-        
-//        var gigsText: String = ""
-//        var count: Int = 0
-//        for g in company!.gigs {
-//            gigsText += g
-//            if count != company!.gigs.count - 1 {
-//                gigsText += ", "
-//            }
-//            count++
-//        }
-//        gigs.text = gigsText
     }
 }
