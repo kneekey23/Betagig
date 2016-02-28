@@ -12,6 +12,18 @@ import Social
 
 class BetaGigDetailController: UIViewController {
     
+    var betagig: BetaGig?
+    
+    @IBOutlet weak var gigName: UILabel!
+    @IBOutlet weak var status: UILabel!
+    @IBOutlet weak var company: UILabel!
+    @IBOutlet weak var date: UILabel!
+    @IBOutlet weak var time: UILabel!
+    @IBOutlet weak var cost: UILabel!
+    @IBOutlet weak var contact: UILabel!
+    @IBOutlet weak var street: UILabel!
+    @IBOutlet weak var city: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 //        let button = RequestButton()
@@ -20,6 +32,20 @@ class BetaGigDetailController: UIViewController {
 //        button.setDropoffLocation(latitude: 37.791, longitude: -122.405, nickname: "Pier 39")
       //  view.addSubview(button)
         
+        print(betagig!.gig)
+        setFields()
+    }
+    
+    func setFields() {
+        gigName.text = betagig!.gig
+        status.text = betagig!.status
+        company.text = betagig!.company
+        date.text = betagig!.date
+        time.text = betagig!.time
+        cost.text = "$" + String(Int(betagig!.cost)) + "/per day"
+        contact.text = betagig!.contact
+        street.text = betagig!.street
+        city.text = betagig!.city + ", " + betagig!.state + " " + betagig!.zip
     }
 
     @IBAction func showActionSheet(sender: AnyObject) {
