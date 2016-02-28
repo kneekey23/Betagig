@@ -14,10 +14,20 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>UberRides.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>A2F6E21B670DC565238510DE02DEA9F1</key>
+		<key>60FB6C47CBAC138518878DA5156D33F7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>791373CA488D8127B63817E2A9C707D6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
