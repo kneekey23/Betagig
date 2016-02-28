@@ -14,7 +14,7 @@ class BetaGigSuccessController: UIViewController {
         super.viewDidLoad()
     }
     @IBAction func closeModal(sender: AnyObject) {
-       // self.dismissViewControllerAnimated(true, completion: {})
+        self.dismissViewControllerAnimated(true, completion: {})
 //        let a = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("MainViewController") as!MainViewController
 //       
 //        let b = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("BrowseViewController") as! BrowseViewController
