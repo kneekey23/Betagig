@@ -17,8 +17,10 @@ class CityListController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBAction func cancel(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+    @IBOutlet weak var cityListTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+             cityListTableView.tableFooterView = UIView(frame: CGRectZero)
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
