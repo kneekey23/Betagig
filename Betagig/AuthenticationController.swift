@@ -47,7 +47,7 @@ class AuthenticationController: UIViewController,UITextFieldDelegate, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-   
+      self.navigationController?.setNavigationBarHidden(true, animated: true)
 
         username.delegate = self
         password.delegate = self

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import UberRides
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-          RidesClient.sharedInstance.configureClientID("FXuEvdR9TMugN8NDuIyuJc08E7DxGdpt")
+   
         return true
     }
 
