@@ -58,7 +58,7 @@
                   moduleName = "Betagig"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/nicki/Projects/Betagig/Betagig/Company.swift"
-                  timestampString = "478334469.634095"
+                  timestampString = "478337801.898531"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -73,7 +73,7 @@
                   moduleName = "Betagig"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/nicki/Projects/Betagig/Betagig/Company.swift"
-                  timestampString = "478334469.634299"
+                  timestampString = "478337801.898686"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -95,7 +95,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "45"
             endingLineNumber = "45"
-            landmarkName = "showActionSheet(_:)"
+            landmarkName = "setFields()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -111,7 +111,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "47"
             endingLineNumber = "47"
-            landmarkName = "showActionSheet(_:)"
+            landmarkName = "setFields()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -127,7 +127,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "48"
             endingLineNumber = "48"
-            landmarkName = "showActionSheet(_:)"
+            landmarkName = "setFields()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -143,8 +143,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "50"
             endingLineNumber = "50"
-            landmarkName = "showActionSheet(_:)"
-            landmarkType = "5">
+            landmarkName = "BetaGigDetailController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -202,13 +202,93 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Betagig/BetaGigRequestController.swift"
-            timestampString = "478334874.442808"
+            timestampString = "478337801.862563"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
             landmarkName = "requestAction(_:)"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Betagig.BetaGigRequestController.(requestAction (Betagig.BetaGigRequestController) -&gt; (Swift.AnyObject) -&gt; ()).(closure #1)"
+                  moduleName = "Betagig"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nicki/Projects/Betagig/Betagig/BetaGigRequestController.swift"
+                  timestampString = "478337801.903159"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "3672">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Betagig.BetaGigRequestController.(requestAction (Betagig.BetaGigRequestController) -&gt; (Swift.AnyObject) -&gt; ()).(closure #1).(closure #1)"
+                  moduleName = "Betagig"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nicki/Projects/Betagig/Betagig/BetaGigRequestController.swift"
+                  timestampString = "478337801.903294"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "32">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Betagig/BetaGigRequestController.swift"
+            timestampString = "478337801.862563"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "requestAction(_:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Betagig.BetaGigRequestController.(requestAction (Betagig.BetaGigRequestController) -&gt; (Swift.AnyObject) -&gt; ()).(closure #1).(closure #1)"
+                  moduleName = "Betagig"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nicki/Projects/Betagig/Betagig/BetaGigRequestController.swift"
+                  timestampString = "478337801.903898"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "54"
+                  endingLineNumber = "54"
+                  offsetFromSymbolStart = "1336">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Betagig.BetaGigRequestController.(requestAction (Betagig.BetaGigRequestController) -&gt; (Swift.AnyObject) -&gt; ()).(closure #1).(closure #1).(closure #1)"
+                  moduleName = "Betagig"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nicki/Projects/Betagig/Betagig/BetaGigRequestController.swift"
+                  timestampString = "478337801.904036"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "54"
+                  endingLineNumber = "54"
+                  offsetFromSymbolStart = "1656">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

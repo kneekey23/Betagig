@@ -15,6 +15,8 @@ class BetaGigRequestController: UIViewController, UIPickerViewDataSource, UIPick
     var selectedCompany: Company?
     var selectedCareer: String?
       let ref = Firebase(url: "https://betagig1.firebaseio.com/betagigs")
+     let dbRef = Firebase(url: "https://betagig1.firebaseio.com/betagigs")
+    
     @IBAction func requestAction(sender: AnyObject) {
         
         // Attach a closure to read the data
@@ -30,8 +32,31 @@ class BetaGigRequestController: UIViewController, UIPickerViewDataSource, UIPick
             let newId = String(betagigs.count)
             
             let newBetaGig = ["id": newId, "company": (self.selectedCompany?.name)!, "gig": self.selectedCareer!, "status": "pending", "date": "March 9, 2016 - March 11, 2016", "time": "10:00 AM - 6:00 PM", "contact": "Aiko Rogers", "cost": (self.selectedCompany?.cost)!, "street": (self.selectedCompany?.street)!, "city": (self.selectedCompany?.city)!, "state": (self.selectedCompany?.state)!, "zip": (self.selectedCompany?.zip)!]
-            
+            //add beta gigs to beta gig table.
             self.ref.childByAppendingPath(newId).setValue(newBetaGig)
+            //add beta gig id to users list of beta gigs.
+            self.dbRef.observeAuthEventWithBlock({ authData in
+                if authData != nil {
+                    // user authenticated
+                    print(authData)
+                    
+                    let userUrl = Firebase(url: "https://betagig1.firebaseio.com/userData/" + authData.uid)
+                    
+                    userUrl.observeSingleEventOfType(.Value, withBlock: { snapshot in
+                        
+                        if var ids = snapshot.value["betagigs"] as? [String] {
+                           ids.append(newId)
+                            let newIdObj = [newId: newId]
+                            userUrl.childByAppendingPath("betagigs").updateChildValues(newIdObj)
+                        }
+                       
+                        
+                    })
+                    
+                } else {
+                    // No user is signed in
+                }
+            })
             
             
             }, withCancelBlock: { error in
