@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class BetaGigRequestController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextViewDelegate {
+class BetaGigRequestController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextViewDelegate, BetaGigRequestDelegate {
     
     var durationArray: [String] = ["1","3", "5"]
     var selectedCompany: Company?
@@ -29,7 +29,7 @@ class BetaGigRequestController: UIViewController, UIPickerViewDataSource, UIPick
                 betagigs.append(betagig)
             }
             
-            let newId = String(betagigs.count)
+            let newId =  "25"//String(betagigs.count)
             
             let newBetaGig = ["id": newId, "company": (self.selectedCompany?.name)!, "gig": self.selectedCareer!, "status": "pending", "date": "March 9, 2016 - March 11, 2016", "time": "10:00 AM - 6:00 PM", "contact": "Aiko Rogers", "cost": (self.selectedCompany?.cost)!, "street": (self.selectedCompany?.street)!, "city": (self.selectedCompany?.city)!, "state": (self.selectedCompany?.state)!, "zip": (self.selectedCompany?.zip)!]
             //add beta gigs to beta gig table.
@@ -93,5 +93,24 @@ class BetaGigRequestController: UIViewController, UIPickerViewDataSource, UIPick
         }
         return true
     }
+    
+    func goBackToRoot(){
+        self.navigationController?.popToRootViewControllerAnimated(true)
+    }
+    
+    func goBackToMyBetaGigs() {
+        tabBarController?.selectedIndex = 1
+        let firstNavController: UINavigationController = tabBarController?.selectedViewController as! UINavigationController;
+        firstNavController.popToRootViewControllerAnimated(true)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "successSegue" {
+            let secondController = segue.destinationViewController as! BetaGigSuccessController
+            secondController.delegate = self
+        }
+    }
+    
+
 
 }
