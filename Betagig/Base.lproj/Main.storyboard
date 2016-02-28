@@ -124,6 +124,18 @@
                                     <constraint firstItem="CCf-wQ-29A" firstAttribute="centerY" secondItem="54k-15-Pfa" secondAttribute="centerY" id="ebR-cU-XY3"/>
                                 </constraints>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BetaGigAppIcon" translatesAutoresizingMaskIntoConstraints="NO" id="JXl-ow-ffa">
+                                <rect key="frame" x="106" y="121" width="162" height="151"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Welcome to BetaGig" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="78G-xb-bRY">
+                                <rect key="frame" x="48" y="64" width="278" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="dik-55-wQJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="26"/>
+                                <color key="textColor" red="0.69019607839999997" green="0.28235294119999998" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.23921568627450979" green="0.23529411764705882" blue="0.22745098039215686" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -2013,6 +2025,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="BetaGigAppIcon" width="1200" height="1200"/>
         <image name="Briefcase Filled-25" width="25" height="25"/>
         <image name="Checked-96" width="96" height="96"/>
         <image name="Permanent Job-25-2" width="25" height="25"/>
@@ -2020,8 +2033,8 @@
         <image name="hrline" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="I08-op-RGG"/>
         <segue reference="IE5-Hu-xKO"/>
-        <segue reference="LKJ-uR-mU7"/>
-        <segue reference="i3T-qu-Nd0"/>
+        <segue reference="kpQ-H0-6Ny"/>
     </inferredMetricsTieBreakers>
 </document>
