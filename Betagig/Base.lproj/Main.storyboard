@@ -19,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4fy-Vy-mwT">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4fy-Vy-mwT">
                                 <rect key="frame" x="152" y="532" width="173" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="173" id="IsQ-Cz-vo0"/>
@@ -31,7 +31,7 @@
                                     <segue destination="ieq-f5-xNk" kind="show" identifier="companySignIn" id="kpQ-H0-6Ny"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JIy-7w-Acn">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JIy-7w-Acn">
                                 <rect key="frame" x="20" y="431" width="335" height="57"/>
                                 <color key="backgroundColor" red="0.69019607843137254" green="0.28235294117647058" blue="0.70980392156862748" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -52,16 +52,7 @@
                                     <segue destination="dW4-dT-QDQ" kind="show" identifier="login" id="I08-op-RGG"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to BetaGig" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="78G-xb-bRY">
-                                <rect key="frame" x="48" y="71" width="278" height="42"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="42" id="dik-55-wQJ"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="29"/>
-                                <color key="textColor" red="0.69019607839999997" green="0.28235294119999998" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Not a member?" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4NO-ZM-bu4">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="Not a member?" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4NO-ZM-bu4">
                                 <rect key="frame" x="66" y="500" width="119" height="33"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -71,7 +62,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Not a user?" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Ydt-aP-IZ5">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="Not a user?" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Ydt-aP-IZ5">
                                 <rect key="frame" x="66" y="530" width="93" height="34"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -81,7 +72,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fjS-ub-8JO">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fjS-ub-8JO">
                                 <rect key="frame" x="177" y="503" width="143" height="30"/>
                                 <state key="normal" title="Create an account">
                                     <color key="titleColor" red="0.30588235289999999" green="0.8862745098" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
@@ -124,6 +115,18 @@
                                     <constraint firstItem="CCf-wQ-29A" firstAttribute="centerY" secondItem="54k-15-Pfa" secondAttribute="centerY" id="ebR-cU-XY3"/>
                                 </constraints>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BetaGigAppIcon" translatesAutoresizingMaskIntoConstraints="NO" id="JXl-ow-ffa">
+                                <rect key="frame" x="106" y="121" width="162" height="151"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Welcome to BetaGig" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="78G-xb-bRY">
+                                <rect key="frame" x="48" y="64" width="278" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="dik-55-wQJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="26"/>
+                                <color key="textColor" red="0.69019607839999997" green="0.28235294119999998" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.23921568627450979" green="0.23529411764705882" blue="0.22745098039215686" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -2006,6 +2009,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="BetaGigAppIcon" width="1200" height="1200"/>
         <image name="Briefcase Filled-25" width="25" height="25"/>
         <image name="Checked-96" width="96" height="96"/>
         <image name="Permanent Job-25-2" width="25" height="25"/>
@@ -2013,8 +2017,8 @@
         <image name="hrline" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="LKJ-uR-mU7"/>
+        <segue reference="I08-op-RGG"/>
         <segue reference="IE5-Hu-xKO"/>
-        <segue reference="i3T-qu-Nd0"/>
+        <segue reference="kpQ-H0-6Ny"/>
     </inferredMetricsTieBreakers>
 </document>
