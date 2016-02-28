@@ -44,35 +44,9 @@ class CompanyBetaGigsController: UIViewController, UITableViewDataSource, UITabl
         })
     }
     
-//    override func viewWillAppear(animated: Bool) {
-//        super.viewWillAppear(animated)
-//        
-//        ref.observeAuthEventWithBlock({ authData in
-//            if authData != nil {
-//                // user authenticated
-//                print(authData)
-//                
-//                let userUrl = Firebase(url: "https://betagig1.firebaseio.com/userData/" + authData.uid)
-//                
-//                userUrl.observeSingleEventOfType(.Value, withBlock: { snapshot in
-//                    
-//                    if let userName = snapshot.value["name"] as? String {
-//                        print(userName)
-//                        self.getGigData(userName)
-//                    }
-//                    
-//                })
-//                
-//            } else {
-//                // No user is signed in
-//            }
-//        })
-//    }
-    
     func getGigData(userName: String){
         
         let betagigUrl = Firebase(url: "https://betagig1.firebaseio.com/betagigs")
-//        self.allMyGigs.removeAll()
         
         // Attach a closure to read the data
         betagigUrl.observeSingleEventOfType(.Value, withBlock: { snapshot in
@@ -113,25 +87,25 @@ class CompanyBetaGigsController: UIViewController, UITableViewDataSource, UITabl
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //        return directionsGrouped[section].count - 1
         if section == 0{
-//            if mypendingGigs.count < 1 {
-//                return 1
-//            } else {
+            if mypendingGigs.count < 1 {
+                return 1
+            } else {
                 return mypendingGigs.count
-//            }
+            }
         }
         else if section == 1{
-//            if myconfirmedGigs.count < 1 {
-//                return 1
-//            } else {
+            if myconfirmedGigs.count < 1 {
+                return 1
+            } else {
                 return myconfirmedGigs.count
-//            }
+            }
         }
         else{
-//            if mypastGigs.count < 1 {
-//                return 1
-//            } else {
+            if mypastGigs.count < 1 {
+                return 1
+            } else {
                 return mypastGigs.count
-//            }
+            }
         }
         
     }
@@ -141,38 +115,38 @@ class CompanyBetaGigsController: UIViewController, UITableViewDataSource, UITabl
         cell.textLabel!.numberOfLines = 0;
         cell.textLabel!.lineBreakMode = NSLineBreakMode.ByWordWrapping
         var item: BetaGig?
-//        var emptyMsg: String = "No betagigs"
-//        var showEmptyMsg: Bool = false
+        var emptyMsg: String = "No betagigs"
+        var showEmptyMsg: Bool = false
         if indexPath.section == 0 {
-//            if mypendingGigs.count < 1 {
-//                showEmptyMsg = true
-//                emptyMsg = "No pending betagigs"
-//            } else {
+            if mypendingGigs.count < 1 {
+                showEmptyMsg = true
+                emptyMsg = "No pending betagigs"
+            } else {
                 item = mypendingGigs[indexPath.row]
-//            }
+            }
         }
         else if indexPath.section == 1 {
-//            if myconfirmedGigs.count < 1 {
-//                showEmptyMsg = true
-//                emptyMsg = "No upcoming betagigs"
-//            } else {
+            if myconfirmedGigs.count < 1 {
+                showEmptyMsg = true
+                emptyMsg = "No upcoming betagigs"
+            } else {
                 item = myconfirmedGigs[indexPath.row]
-//            }
+            }
         }
         else{
-//            if mypastGigs.count < 1 {
-//                showEmptyMsg = true
-//                emptyMsg = "No past betagigs"
-//            } else {
+            if mypastGigs.count < 1 {
+                showEmptyMsg = true
+                emptyMsg = "No past betagigs"
+            } else {
                 item = mypastGigs[indexPath.row]
-//            }
+            }
         }
         
-//        if showEmptyMsg == false {
+        if showEmptyMsg == false {
             cell.textLabel?.text = item?.gig
-//        } else {
-//            cell.textLabel?.text = emptyMsg
-//        }
+        } else {
+            cell.textLabel?.text = emptyMsg
+        }
         
         
         return cell
