@@ -144,7 +144,12 @@ class BrowseViewController: UIViewController, UITableViewDataSource, CityListVie
     }
     
         
-    
+    func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let header: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView //recast your view as a UITableViewHeaderFooterView
+        header.contentView.backgroundColor = UIColor(hexString: "3D3C3A"); //make the background color light blue
+        header.textLabel!.textColor = UIColor(hexString: "B048B5") //make the text white
+       // header.alpha = 0.5 //make the header transparent
+    }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
