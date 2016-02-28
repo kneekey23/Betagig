@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import UberRides
+//import UberRides
 import Social
 
 class BetaGigDetailController: UIViewController {
