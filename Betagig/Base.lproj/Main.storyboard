@@ -1136,6 +1136,8 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="186" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ttl-yV-ssi">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" red="0.23921568627450979" green="0.23529411764705882" blue="0.22745098039215686" alpha="0.75" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="186" id="8Xq-n2-6Xc" customClass="CategoryRow" customModule="Betagig" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="186"/>
@@ -1204,7 +1206,8 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.23921568630000001" green="0.23529411759999999" blue="0.2274509804" alpha="0.75" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Ttl-yV-ssi" firstAttribute="top" secondItem="N1C-7C-f5w" secondAttribute="bottom" id="J8V-vI-YXW"/>
                             <constraint firstItem="Ttl-yV-ssi" firstAttribute="leading" secondItem="8Dk-Hw-o1A" secondAttribute="leading" id="Xg5-x3-gPN"/>
