@@ -8,12 +8,14 @@
 
 import UIKit
 
-class BetaGigRequestController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class BetaGigRequestController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextViewDelegate {
     
     var duration: [String] = ["1","3", "5"]
     
+    @IBOutlet weak var companyNote: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        companyNote.delegate = self
     }
 
     
@@ -28,4 +30,14 @@ class BetaGigRequestController: UIViewController, UIPickerViewDataSource, UIPick
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return duration[row]
     }
+    
+    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        if text == "\n"  // Recognizes enter key in keyboard
+        {
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
+    }
+
 }
