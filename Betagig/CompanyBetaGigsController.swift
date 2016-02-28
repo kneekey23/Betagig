@@ -184,4 +184,31 @@ class CompanyBetaGigsController: UIViewController, UITableViewDataSource, UITabl
         return CGFloat.min
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "coBetaGigDetail"{
+            
+            let betagigDetailController = segue.destinationViewController as! CompanyBetaGigDetailController
+            
+            if sender != nil {
+                
+                if (sender!.isKindOfClass(UITableViewCell)) {
+                    
+                    let cell = sender as! UITableViewCell
+                    let nameOfGig = cell.textLabel?.text
+                    var selectedBetagig: BetaGig?
+                    for g in self.allMyGigs {
+                        if g.gig == nameOfGig! {
+                            selectedBetagig = g
+                            break
+                        }
+                    }
+                    
+                    betagigDetailController.betagig = selectedBetagig
+                }
+                
+            }
+            
+        }
+    }
+    
 }

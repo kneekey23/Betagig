@@ -10,6 +10,10 @@ import UIKit
 
 class CompanyBetaGigDetailController: UIViewController {
     
+    var betagig: BetaGig?
+    
+    @IBOutlet weak var location: UILabel!
+    @IBOutlet weak var gigName: UILabel!
     @IBOutlet weak var email: UILabel!
     @IBOutlet weak var time: UILabel!
     @IBOutlet weak var cost: UILabel!
@@ -34,7 +38,7 @@ class CompanyBetaGigDetailController: UIViewController {
         }
         actionSheetControllerIOS8.addAction(lyftActionButton)
         
-        let tweetActionButton: UIAlertAction = UIAlertAction(title: "Decline Betagig Request", style: .Cancel)
+        let tweetActionButton: UIAlertAction = UIAlertAction(title: "Decline Betagig Request", style: .Default)
             { action -> Void in
             //change status in database here and update label on page.  NJK
         }
@@ -50,6 +54,20 @@ class CompanyBetaGigDetailController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print(betagig!.gig)
+        setFields()
+    }
+    
+    func setFields() {
+        gigName.text = betagig!.gig
+        location.text = betagig!.street
+        status.text = betagig!.status
+        name.text = betagig!.testername
+        date.text = betagig!.date
+        time.text = betagig!.time
+        cost.text = "$" + String(Int(betagig!.cost)) + "/per day"
+        email.text = betagig!.testeremail
     }
 
 }
