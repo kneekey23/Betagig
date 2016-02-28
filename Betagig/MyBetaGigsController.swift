@@ -56,8 +56,8 @@ class MyBetaGigsController: UIViewController, UITableViewDataSource, UITableView
         
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         ref.observeAuthEventWithBlock({ authData in
             if authData != nil {
                 // user authenticated
@@ -95,7 +95,10 @@ class MyBetaGigsController: UIViewController, UITableViewDataSource, UITableView
         
         // Attach a closure to read the data
         betagigUrl.observeSingleEventOfType(.Value, withBlock: { snapshot in
-            
+            self.allMyGigs.removeAll()
+            self.myconfirmedGigs.removeAll()
+            self.mypastGigs.removeAll()
+            self.mypendingGigs.removeAll()
             for item in snapshot.children {
                 let betagig = BetaGig(snapshot: item as! FDataSnapshot)
                 
