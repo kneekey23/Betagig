@@ -12,10 +12,12 @@ import Foundation
 
 class MyBetaGigsController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
-    var mypendingGigs: [BetaGig] = [BetaGig(name: "Belkin", status: "pending", date: "3/5/6", time: "9AM-6PM", pointOfContact: "Sarah@belkin.com", cost: 100)]
+    var myGigIds: [String] = []
+    var allMyGigs: [BetaGig] = []
+    var mypendingGigs: [BetaGig] = []
     var myconfirmedGigs: [BetaGig] = []
     var mypastGigs: [BetaGig] = []
-    let ref = Firebase(url: "https://brilliant-inferno-3353.firebaseio.com")
+    let ref = Firebase(url: "https://betagig1.firebaseio.com")
     
     @IBOutlet weak var betaGigsTableView: UITableView!
     
@@ -31,15 +33,61 @@ class MyBetaGigsController: UIViewController, UITableViewDataSource, UITableView
                 
                 userUrl.observeSingleEventOfType(.Value, withBlock: { snapshot in
                     
-//                    var allMyGigs = [Betagig]()
+                    if let userName = snapshot.value["name"] as? String {
+                        print(userName)
+                    }
                     
-                   
+                    if let ids = snapshot.value["betagigs"] as? [String] {
+                        self.myGigIds = ids
+                    }
+                    
+                    for gigId in self.myGigIds {
+                        print(gigId)
+                    }
+                    
+                    self.getGigData(self.myGigIds)
                     
                 })
                 
             } else {
                 // No user is signed in
             }
+        })
+        
+    }
+    
+    func getGigData(myGigIds: [String]){
+        
+        let betagigUrl = Firebase(url: "https://betagig1.firebaseio.com/betagigs")
+        
+        // Attach a closure to read the data
+        betagigUrl.observeSingleEventOfType(.Value, withBlock: { snapshot in
+            
+            for item in snapshot.children {
+                let betagig = BetaGig(snapshot: item as! FDataSnapshot)
+                
+                for myId in myGigIds {
+                    if myId == betagig.id {
+                        self.allMyGigs.append(betagig)
+                    }
+                }
+            }
+            
+            for g in self.allMyGigs {
+                if g.status == "pending" {
+                    self.mypendingGigs.append(g)
+                } else if g.status == "upcoming" {
+                    self.myconfirmedGigs.append(g)
+                } else if g.status == "completed" {
+                    self.mypastGigs.append(g)
+                }
+            }
+            
+            self.betaGigsTableView.reloadData()
+            
+            
+            }, withCancelBlock: { error in
+                print(error.description)
         })
         
     }
@@ -79,7 +127,7 @@ class MyBetaGigsController: UIViewController, UITableViewDataSource, UITableView
              item = mypastGigs[indexPath.row]
         }
 
-        cell.textLabel?.text = item?.name
+        cell.textLabel?.text = item?.gig
       
 
         return cell
