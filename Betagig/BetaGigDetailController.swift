@@ -64,7 +64,7 @@ class BetaGigDetailController: UIViewController {
                 let lyftAppURL = NSURL(string: "lyft://partner=SuyEX9chJQys")!
                 if myApp.canOpenURL(lyftAppURL) {
                     // Lyft is installed; launch it
-                     let lyftAppurl = NSURL(string: "lyft://ridetype?id=lyft&partner=SuyEX9chJQys&destination[latitude]=37.7763592&destination[longitude]=-122.4242038")!
+                     let lyftAppurl = NSURL(string: "lyft://ridetype?id=lyft&partner=SuyEX9chJQys&destination[latitude]=" + self.betagig!.lat + "&destination[longitude]=" + self.betagig!.long)!
                     myApp.openURL(lyftAppurl)
                 } else {
                     // Lyft not installed; open App Store
