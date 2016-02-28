@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class BetaGigRequestController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextViewDelegate {
+class BetaGigRequestController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextViewDelegate, BetaGigRequestDelegate {
     
     var durationArray: [String] = ["1","3", "5"]
     var selectedCompany: Company?
@@ -29,7 +29,7 @@ class BetaGigRequestController: UIViewController, UIPickerViewDataSource, UIPick
                 betagigs.append(betagig)
             }
             
-            let newId = String(betagigs.count)
+            let newId =  "25"//String(betagigs.count)
             
             
             //add beta gig id to users list of beta gigs.
@@ -105,5 +105,24 @@ class BetaGigRequestController: UIViewController, UIPickerViewDataSource, UIPick
         }
         return true
     }
+    
+    func goBackToRoot(){
+        self.navigationController?.popToRootViewControllerAnimated(true)
+    }
+    
+    func goBackToMyBetaGigs() {
+        tabBarController?.selectedIndex = 1
+        let firstNavController: UINavigationController = tabBarController?.selectedViewController as! UINavigationController;
+        firstNavController.popToRootViewControllerAnimated(true)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "successSegue" {
+            let secondController = segue.destinationViewController as! BetaGigSuccessController
+            secondController.delegate = self
+        }
+    }
+    
+
 
 }

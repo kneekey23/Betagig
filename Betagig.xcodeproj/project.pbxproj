@@ -16,6 +16,7 @@
 		816D77B01C82D4B40062594C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 816D77AE1C82D4B40062594C /* Main.storyboard */; };
 		816D77B21C82E19A0062594C /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816D77B11C82E19A0062594C /* PaymentViewController.swift */; };
 		816D77B41C835C140062594C /* CompanyBetaGigDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816D77B31C835C140062594C /* CompanyBetaGigDetailController.swift */; };
+		816D77B91C8364A10062594C /* TwitterAuthHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 816D77B81C8364A10062594C /* TwitterAuthHelper.m */; };
 		81AC3D5A1C82270A0006BAFB /* CompanyAuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AC3D591C82270A0006BAFB /* CompanyAuthController.swift */; };
 		81AC3D5C1C82363F0006BAFB /* CompanyBetaGigsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AC3D5B1C82363F0006BAFB /* CompanyBetaGigsController.swift */; };
 		81AC3D5E1C8240940006BAFB /* CompanyProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AC3D5D1C8240940006BAFB /* CompanyProfileController.swift */; };
@@ -54,6 +55,9 @@
 		816D77AF1C82D4B40062594C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		816D77B11C82E19A0062594C /* PaymentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		816D77B31C835C140062594C /* CompanyBetaGigDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyBetaGigDetailController.swift; sourceTree = "<group>"; };
+		816D77B61C8364750062594C /* TwitterAuthHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TwitterAuthHelper.h; sourceTree = "<group>"; };
+		816D77B71C8364A00062594C /* Betagig-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Betagig-Bridging-Header.h"; sourceTree = "<group>"; };
+		816D77B81C8364A10062594C /* TwitterAuthHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterAuthHelper.m; sourceTree = "<group>"; };
 		81AC3D591C82270A0006BAFB /* CompanyAuthController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyAuthController.swift; sourceTree = "<group>"; };
 		81AC3D5B1C82363F0006BAFB /* CompanyBetaGigsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyBetaGigsController.swift; sourceTree = "<group>"; };
 		81AC3D5D1C8240940006BAFB /* CompanyProfileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyProfileController.swift; sourceTree = "<group>"; };
@@ -101,6 +105,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		816D77B51C83645D0062594C /* TwitterFiles */ = {
+			isa = PBXGroup;
+			children = (
+				816D77B61C8364750062594C /* TwitterAuthHelper.h */,
+				816D77B81C8364A10062594C /* TwitterAuthHelper.m */,
+				816D77B71C8364A00062594C /* Betagig-Bridging-Header.h */,
+			);
+			name = TwitterFiles;
+			sourceTree = "<group>";
+		};
 		81AC3D5F1C8241000006BAFB /* UserControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +159,7 @@
 		81D913C71C810E2E0071F627 /* Betagig */ = {
 			isa = PBXGroup;
 			children = (
+				816D77B51C83645D0062594C /* TwitterFiles */,
 				816D77AE1C82D4B40062594C /* Main.storyboard */,
 				81AC3D601C8241080006BAFB /* CompanyControllers */,
 				81AC3D5F1C8241000006BAFB /* UserControllers */,
@@ -339,6 +354,7 @@
 				81FA7B7A1C81426F000BACBD /* CategoryRow.swift in Sources */,
 				8BD7088F1C8194C000ACAD53 /* Category.swift in Sources */,
 				8B04738F1C82ABB400FA0BF0 /* User.swift in Sources */,
+				816D77B91C8364A10062594C /* TwitterAuthHelper.m in Sources */,
 				81FA7B801C816584000BACBD /* BetaGigRequestController.swift in Sources */,
 				81D913C91C810E2E0071F627 /* AppDelegate.swift in Sources */,
 				81FA7B741C8116FC000BACBD /* BrowseController.swift in Sources */,
@@ -453,10 +469,13 @@
 			baseConfigurationReference = 2E7CA78C2ADCFD173431136D /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Betagig/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.shortkey.Betagig;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Betagig/Betagig-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -465,10 +484,12 @@
 			baseConfigurationReference = 48F8223402CA9FE90A1FE0B7 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Betagig/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.shortkey.Betagig;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Betagig/Betagig-Bridging-Header.h";
 			};
 			name = Release;
 		};
