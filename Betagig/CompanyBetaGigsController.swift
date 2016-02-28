@@ -44,9 +44,35 @@ class CompanyBetaGigsController: UIViewController, UITableViewDataSource, UITabl
         })
     }
     
+//    override func viewWillAppear(animated: Bool) {
+//        super.viewWillAppear(animated)
+//        
+//        ref.observeAuthEventWithBlock({ authData in
+//            if authData != nil {
+//                // user authenticated
+//                print(authData)
+//                
+//                let userUrl = Firebase(url: "https://betagig1.firebaseio.com/userData/" + authData.uid)
+//                
+//                userUrl.observeSingleEventOfType(.Value, withBlock: { snapshot in
+//                    
+//                    if let userName = snapshot.value["name"] as? String {
+//                        print(userName)
+//                        self.getGigData(userName)
+//                    }
+//                    
+//                })
+//                
+//            } else {
+//                // No user is signed in
+//            }
+//        })
+//    }
+    
     func getGigData(userName: String){
         
         let betagigUrl = Firebase(url: "https://betagig1.firebaseio.com/betagigs")
+//        self.allMyGigs.removeAll()
         
         // Attach a closure to read the data
         betagigUrl.observeSingleEventOfType(.Value, withBlock: { snapshot in

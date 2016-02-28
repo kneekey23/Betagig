@@ -175,7 +175,11 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "182"
             endingLineNumber = "182"
+<<<<<<< HEAD
             landmarkName = "tableView(_:willDisplayHeaderView:forSection:)"
+=======
+            landmarkName = "prepareForSegue(_:sender:)"
+>>>>>>> master
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -479,7 +483,11 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "119"
             endingLineNumber = "119"
+<<<<<<< HEAD
             landmarkName = "getGigData(_:)"
+=======
+            landmarkName = "tableView(_:cellForRowAtIndexPath:)"
+>>>>>>> master
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -511,7 +519,11 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "74"
             endingLineNumber = "74"
+<<<<<<< HEAD
             landmarkName = "viewDidAppear(_:)"
+=======
+            landmarkName = "getGigData(_:)"
+>>>>>>> master
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
