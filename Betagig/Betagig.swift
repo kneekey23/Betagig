@@ -23,6 +23,8 @@ class BetaGig {
     var city: String = ""
     var state: String = ""
     var zip: String = ""
+    var lat: String = ""
+    var long: String = ""
     let ref: Firebase?
     let key: String!
     
@@ -43,6 +45,8 @@ class BetaGig {
         city = snapshot.value["city"] as! String
         state = snapshot.value["state"] as! String
         zip = snapshot.value["zip"] as! String
+        lat = snapshot.value["lat"] as! String
+        long = snapshot.value["long"] as! String
     }
     
     
@@ -60,13 +64,15 @@ class BetaGig {
             "street": street,
             "city": city,
             "state": state,
-            "zip": zip
+            "zip": zip,
+            "lat": lat,
+            "long": long
         ]
         
     }
     
     
-    init (id: String, company: String, gig: String, status: String, date: String, time: String, contact: String, cost: Double, street: String, city: String, state: String, zip: String, key: String = "") {
+    init (id: String, company: String, gig: String, status: String, date: String, time: String, contact: String, cost: Double, street: String, city: String, state: String, zip: String, lat: String, long: String, key: String = "") {
         self.id = id
         self.company = company
         self.gig = gig
@@ -79,6 +85,8 @@ class BetaGig {
         self.city = city
         self.state = state
         self.zip = zip
+        self.lat = lat
+        self.long = long
         self.key = key
         self.ref = nil
     }
