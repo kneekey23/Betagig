@@ -21,6 +21,7 @@ class Company {
     var cost: Double = 150.00
     var shortdesc: String = ""
     var longdesc: String = ""
+    var image: String = ""
     let ref: Firebase?
     let key: String!
     
@@ -39,6 +40,7 @@ class Company {
         cost = snapshot.value["cost"] as! Double
         shortdesc = snapshot.value["shortdesc"] as! String
         longdesc = snapshot.value["longdesc"] as! String
+        image = snapshot.value["image"] as! String
     }
     
     
@@ -55,13 +57,14 @@ class Company {
             "zip": zip,
             "cost": cost,
             "shortdesc": shortdesc,
-            "longdesc": longdesc
+            "longdesc": longdesc,
+            "image": image
         ]
         
     }
     
     
-    init (name: String, gigs: [String], region: String, street: String, city: String, state: String, zip: String, cost: Double, shortdesc: String, longdesc: String, key: String = "") {
+    init (name: String, gigs: [String], region: String, street: String, city: String, state: String, zip: String, cost: Double, shortdesc: String, longdesc: String, image: String, key: String = "") {
         
         self.name = name
         self.gigs = gigs
@@ -73,6 +76,7 @@ class Company {
         self.cost = cost
         self.shortdesc = shortdesc
         self.longdesc = longdesc
+        self.image = image
         self.key = key
         self.ref = nil
     }

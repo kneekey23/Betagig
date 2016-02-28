@@ -71,7 +71,7 @@ class CompanyListViewController: UIViewController, UITableViewDataSource, UITabl
         
     }
     func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+       // tableView.deselectRowAtIndexPath(indexPath, animated: true)
         self.performSegueWithIdentifier("companyDetailSegue", sender: companyListTableView.cellForRowAtIndexPath(indexPath))
     }
     
