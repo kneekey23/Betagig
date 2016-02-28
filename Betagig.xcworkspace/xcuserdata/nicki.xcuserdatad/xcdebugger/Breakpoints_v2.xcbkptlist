@@ -94,9 +94,13 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "44"
+<<<<<<< HEAD
             endingLineNumber = "44"
             landmarkName = "showActionSheet(_:)"
             landmarkType = "5">
+=======
+            endingLineNumber = "44">
+>>>>>>> master
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -110,9 +114,13 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "46"
+<<<<<<< HEAD
             endingLineNumber = "46"
             landmarkName = "showActionSheet(_:)"
             landmarkType = "5">
+=======
+            endingLineNumber = "46">
+>>>>>>> master
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -126,9 +134,13 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "47"
+<<<<<<< HEAD
             endingLineNumber = "47"
             landmarkName = "showActionSheet(_:)"
             landmarkType = "5">
+=======
+            endingLineNumber = "47">
+>>>>>>> master
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -142,9 +154,13 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "49"
+<<<<<<< HEAD
             endingLineNumber = "49"
             landmarkName = "showActionSheet(_:)"
             landmarkType = "5">
+=======
+            endingLineNumber = "49">
+>>>>>>> master
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
