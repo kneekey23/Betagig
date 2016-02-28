@@ -7,7 +7,6 @@
 //
 
 import UIKit
-//import UberRides
 import Social
 
 class BetaGigDetailController: UIViewController {
@@ -26,11 +25,6 @@ class BetaGigDetailController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let button = RequestButton()
-//         button.frame = CGRectMake(20, 450, 50, 335)
-//        button.translatesAutoresizingMaskIntoConstraints = true
-//        button.setDropoffLocation(latitude: 37.791, longitude: -122.405, nickname: "Pier 39")
-      //  view.addSubview(button)
         
         print(betagig!.gig)
         setFields()

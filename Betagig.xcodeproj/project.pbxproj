@@ -14,6 +14,7 @@
 		816D77AB1C82B5EC0062594C /* BetaGigSuccessController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816D77AA1C82B5EC0062594C /* BetaGigSuccessController.swift */; };
 		816D77AD1C82BDBB0062594C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81D913D11C810E2E0071F627 /* LaunchScreen.storyboard */; };
 		816D77B01C82D4B40062594C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 816D77AE1C82D4B40062594C /* Main.storyboard */; };
+		816D77B21C82E19A0062594C /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816D77B11C82E19A0062594C /* PaymentViewController.swift */; };
 		81AC3D5A1C82270A0006BAFB /* CompanyAuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AC3D591C82270A0006BAFB /* CompanyAuthController.swift */; };
 		81AC3D5C1C82363F0006BAFB /* CompanyBetaGigsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AC3D5B1C82363F0006BAFB /* CompanyBetaGigsController.swift */; };
 		81AC3D5E1C8240940006BAFB /* CompanyProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AC3D5D1C8240940006BAFB /* CompanyProfileController.swift */; };
@@ -50,6 +51,7 @@
 		816D77A81C82A8170062594C /* CityListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityListController.swift; sourceTree = "<group>"; };
 		816D77AA1C82B5EC0062594C /* BetaGigSuccessController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BetaGigSuccessController.swift; sourceTree = "<group>"; };
 		816D77AF1C82D4B40062594C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		816D77B11C82E19A0062594C /* PaymentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		81AC3D591C82270A0006BAFB /* CompanyAuthController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyAuthController.swift; sourceTree = "<group>"; };
 		81AC3D5B1C82363F0006BAFB /* CompanyBetaGigsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyBetaGigsController.swift; sourceTree = "<group>"; };
 		81AC3D5D1C8240940006BAFB /* CompanyProfileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyProfileController.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 				8135246F1C8207990018FB29 /* StaticTableCell.swift */,
 				816D77A81C82A8170062594C /* CityListController.swift */,
 				816D77AA1C82B5EC0062594C /* BetaGigSuccessController.swift */,
+				816D77B11C82E19A0062594C /* PaymentViewController.swift */,
 			);
 			path = Betagig;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 				81FA7B7C1C815AA4000BACBD /* CompanyListViewController.swift in Sources */,
 				81FA7B8B1C81802C000BACBD /* CreateAccountController.swift in Sources */,
 				8BD0AB401C823F5C0004A453 /* Company.swift in Sources */,
+				816D77B21C82E19A0062594C /* PaymentViewController.swift in Sources */,
 				816D77A51C8247E90062594C /* CompanyCreateAccountController.swift in Sources */,
 				81AC3D5A1C82270A0006BAFB /* CompanyAuthController.swift in Sources */,
 				816D77A71C8273650062594C /* Betagig.swift in Sources */,

@@ -35,7 +35,7 @@ class CreateAccountController: UIViewController, UITextFieldDelegate{
                     self.auth = true
                     
                     let saveRef = Firebase(url:"https://betagig1.firebaseio.com/userData")
-                    let userData = ["name": self.firstName.text! + self.lastName.text!]
+                    let userData = ["name": self.firstName.text! + " " + self.lastName.text!]
                     saveRef.childByAppendingPath(uid).setValue(userData)
                     
                     self.performSegueWithIdentifier("createAccountSuccess", sender: nil)

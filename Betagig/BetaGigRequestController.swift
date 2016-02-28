@@ -15,7 +15,7 @@ class BetaGigRequestController: UIViewController, UIPickerViewDataSource, UIPick
     var selectedCompany: Company?
     var selectedCareer: String?
       let ref = Firebase(url: "https://betagig1.firebaseio.com/betagigs")
-     let dbRef = Firebase(url: "https://betagig1.firebaseio.com/betagigs")
+     let dbRef = Firebase(url: "https://betagig1.firebaseio.com")
     
     @IBAction func requestAction(sender: AnyObject) {
         
