@@ -13,7 +13,7 @@ import UIKit
 import Firebase
 
 
-class BrowseViewController: UIViewController, UITableViewDataSource {
+class BrowseViewController: UIViewController, UITableViewDataSource, CityListViewControllerDelegate {
 
     @IBOutlet weak var categoryTableView: UITableView!
     
@@ -21,6 +21,7 @@ class BrowseViewController: UIViewController, UITableViewDataSource {
     var tableImagesTwo: [String] = ["Barber Chair", "School Director"]
     var categories: [Category] = []
     var careers: [Career] = []
+    var cityButton: UIButton?
     
     
     override func viewDidLoad() {
@@ -30,6 +31,23 @@ class BrowseViewController: UIViewController, UITableViewDataSource {
         
         super.viewDidLoad()
         getData()
+        cityButton =  UIButton(type: .Custom)
+        cityButton!.frame = CGRectMake(0, 0, 100, 40) as CGRect
+        cityButton!.tintColor = UIColor.blackColor()
+        cityButton!.setTitle("Los Angeles" + " \u{25BE}", forState: UIControlState.Normal)
+        cityButton!.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
+        cityButton!.addTarget(self, action: Selector("clickOnButton:"), forControlEvents: UIControlEvents.TouchUpInside)
+        self.navigationItem.titleView = cityButton
+    }
+    
+    func clickOnButton(button: UIButton) {
+         self.performSegueWithIdentifier("citySegue", sender: button)
+    }
+    
+    func sendValue(value: NSString) {
+        let city = value as String
+        cityButton!.setTitle(city + " \u{25BE}", forState: UIControlState.Normal)
+        
     }
     
     func getData(){
@@ -165,6 +183,11 @@ class BrowseViewController: UIViewController, UITableViewDataSource {
                 
             }
             
+        }
+        
+        if segue.identifier == "citySegue" {
+            let secondController = segue.destinationViewController as! CityListController
+            secondController.delegate = self
         }
 
         
