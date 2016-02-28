@@ -29,6 +29,15 @@ class CompanyDetailController: UIViewController {
         setFields()
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "requestSegue"{
+          let betagigRequestController = segue.destinationViewController as! BetaGigRequestController
+            
+            betagigRequestController.selectedCompany = company
+            betagigRequestController.selectedCareer = career
+        }
+    }
+    
     func setFields() {
         let addressText = company!.street + "\n" + company!.city + ", " + company!.state + " " + company!.zip
         address.text = addressText
