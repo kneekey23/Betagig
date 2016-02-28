@@ -51,8 +51,8 @@ class CompanyAuthController: UIViewController, UITextFieldDelegate {
         
         username.delegate = self
         password.delegate = self
-        username.text = "nicki@shortkey.io"
-        password.text = "goucla23"
+        username.text = "larry@belkin.com"
+        password.text = "909090"
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
