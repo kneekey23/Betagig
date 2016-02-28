@@ -1383,8 +1383,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="76A-qW-LJv">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="76A-qW-LJv">
                                 <rect key="frame" x="319" y="28" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="6Bx-CA-FXc"/>
+                                </constraints>
                                 <state key="normal" title="Close">
                                     <color key="titleColor" red="0.69019607839999997" green="0.28235294119999998" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -1392,10 +1395,13 @@
                                     <action selector="cancel:" destination="rds-6n-7Rf" eventType="touchUpInside" id="EIe-NV-rHk"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Iqg-Kq-7lB">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Iqg-Kq-7lB">
                                 <rect key="frame" x="0.0" y="70" width="375" height="597"/>
                                 <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.69019607839999997" green="0.28235294119999998" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="597" id="9vw-GF-mb1"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cityCell" textLabel="Nhm-l5-ylf" style="IBUITableViewCellStyleDefault" id="5aA-uR-VQV">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
@@ -1423,9 +1429,19 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.23921568630000001" green="0.23529411759999999" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Iqg-Kq-7lB" secondAttribute="trailing" id="5Up-q2-Fsn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="76A-qW-LJv" secondAttribute="trailing" constant="-6" id="IuW-Va-u3a"/>
+                            <constraint firstItem="Iqg-Kq-7lB" firstAttribute="bottom" secondItem="qVE-K8-cw3" secondAttribute="top" id="fjd-AH-frw"/>
+                            <constraint firstItem="Iqg-Kq-7lB" firstAttribute="leading" secondItem="l7w-lK-MPr" secondAttribute="leading" id="ov3-6l-axi"/>
+                            <constraint firstItem="Iqg-Kq-7lB" firstAttribute="top" secondItem="76A-qW-LJv" secondAttribute="bottom" constant="12" id="zCt-BW-l3Z"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="cityListTableView" destination="Iqg-Kq-7lB" id="tVq-Sf-HUU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HST-JK-2mv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1808,7 +1824,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DTK-iR-gY6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3590.5" y="410"/>
+            <point key="canvasLocation" x="3642.5" y="552"/>
         </scene>
         <!--Beta Gig Request Controller-->
         <scene sceneID="XTg-rW-hEO">
