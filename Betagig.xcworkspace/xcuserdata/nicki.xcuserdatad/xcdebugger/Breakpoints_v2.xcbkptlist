@@ -58,7 +58,7 @@
                   moduleName = "Betagig"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/nicki/Projects/Betagig/Betagig/Company.swift"
-                  timestampString = "478316449.652389"
+                  timestampString = "478317861.864573"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -73,7 +73,7 @@
                   moduleName = "Betagig"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/nicki/Projects/Betagig/Betagig/Company.swift"
-                  timestampString = "478316449.652548"
+                  timestampString = "478317861.864813"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -90,17 +90,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Betagig/BetaGigDetailController.swift"
-            timestampString = "478316449.610803"
+            timestampString = "478319170.940544"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-<<<<<<< HEAD
-            endingLineNumber = "44"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
             landmarkName = "showActionSheet(_:)"
             landmarkType = "5">
-=======
-            endingLineNumber = "44">
->>>>>>> master
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -110,37 +106,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Betagig/BetaGigDetailController.swift"
-            timestampString = "478316449.610803"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-<<<<<<< HEAD
-            endingLineNumber = "46"
-            landmarkName = "showActionSheet(_:)"
-            landmarkType = "5">
-=======
-            endingLineNumber = "46">
->>>>>>> master
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Betagig/BetaGigDetailController.swift"
-            timestampString = "478316449.610803"
+            timestampString = "478319170.940544"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "47"
-<<<<<<< HEAD
             endingLineNumber = "47"
             landmarkName = "showActionSheet(_:)"
             landmarkType = "5">
-=======
-            endingLineNumber = "47">
->>>>>>> master
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -150,17 +122,29 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Betagig/BetaGigDetailController.swift"
-            timestampString = "478316449.610803"
+            timestampString = "478319170.940544"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-<<<<<<< HEAD
-            endingLineNumber = "49"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
             landmarkName = "showActionSheet(_:)"
             landmarkType = "5">
-=======
-            endingLineNumber = "49">
->>>>>>> master
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Betagig/BetaGigDetailController.swift"
+            timestampString = "478319170.940544"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "showActionSheet(_:)"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -8,6 +8,7 @@
 
 import UIKit
 import UberRides
+import Social
 
 class BetaGigDetailController: UIViewController {
     
@@ -55,9 +56,39 @@ class BetaGigDetailController: UIViewController {
         
         let tweetActionButton: UIAlertAction = UIAlertAction(title: "Tweet About Your Betagig", style: .Default)
             { action -> Void in
-                print("Lyft")
+                if SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter) {
+                    
+                    let tweetShare:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
+                    tweetShare.setInitialText("#betagig")
+                    
+                    self.presentViewController(tweetShare, animated: true, completion: nil)
+                    
+                } else {
+                    
+                    let alert = UIAlertController(title: "Accounts", message: "Please login to a Twitter account to tweet.", preferredStyle: UIAlertControllerStyle.Alert)
+                    
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                    
+                    self.presentViewController(alert, animated: true, completion: nil)
+                }
         }
         actionSheetControllerIOS8.addAction(tweetActionButton)
+        
+        let fbActionButton: UIAlertAction = UIAlertAction(title: "Facebook share Your Betagig", style: .Default){
+            action -> Void in
+            if SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook) {
+                let fbShare:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+                
+                self.presentViewController(fbShare, animated: true, completion: nil)
+                
+            } else {
+                let alert = UIAlertController(title: "Accounts", message: "Please login to a Facebook account to share.", preferredStyle: UIAlertControllerStyle.Alert)
+                
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
+            }
+        }
+        actionSheetControllerIOS8.addAction(fbActionButton)
         self.presentViewController(actionSheetControllerIOS8, animated: true, completion: nil)
     }
 }
