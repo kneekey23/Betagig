@@ -18,6 +18,7 @@ class CompanyListViewController: UIViewController, UITableViewDataSource, UITabl
         // Initialize the collection views, set the desired frames
         //grab those lists above from the database
         
+        companyListTableView.tableFooterView = UIView(frame: CGRectZero)
 //        self.navigationController?.navigationBar.topItem?.title = career!
         getData()
     }
