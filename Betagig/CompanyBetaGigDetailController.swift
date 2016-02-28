@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class CompanyBetaGigDetailController: UIViewController {
     
@@ -35,12 +36,34 @@ class CompanyBetaGigDetailController: UIViewController {
         let lyftActionButton: UIAlertAction = UIAlertAction(title: "Accept Betagig Request", style: .Default)
             { action -> Void in
                 //change status in database here and update label on page.  NJK
+                self.status.text = "upcoming"
+                self.updateGigStatus("upcoming")
+                
+                //pop a success modal and reload tableview MKH
+                let msg = "You have successfully accepted this pending betagig request!"
+                let alertController = UIAlertController(title: "Thank You", message: msg, preferredStyle: UIAlertControllerStyle.Alert)
+                let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: {(alertAction: UIAlertAction!) in
+                    self.navigationController?.popToRootViewControllerAnimated(true)
+                })
+                alertController.addAction(okAction)
+                self.presentViewController(alertController, animated: true, completion: nil)
         }
         actionSheetControllerIOS8.addAction(lyftActionButton)
         
         let tweetActionButton: UIAlertAction = UIAlertAction(title: "Decline Betagig Request", style: .Default)
             { action -> Void in
             //change status in database here and update label on page.  NJK
+                self.status.text = "rejected"
+                self.updateGigStatus("rejected")
+                
+                //pop a success modal and reload tableview MKH
+                let msg = "You have successfully rejected this pending betagig request!"
+                let alertController = UIAlertController(title: "Thank You", message: msg, preferredStyle: UIAlertControllerStyle.Alert)
+                let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: {(alertAction: UIAlertAction!) in
+                    self.navigationController?.popToRootViewControllerAnimated(true)
+                })
+                alertController.addAction(okAction)
+                self.presentViewController(alertController, animated: true, completion: nil)
         }
         actionSheetControllerIOS8.addAction(tweetActionButton)
         
@@ -68,6 +91,15 @@ class CompanyBetaGigDetailController: UIViewController {
         time.text = betagig!.time
         cost.text = "$" + String(Int(betagig!.cost)) + "/per day"
         email.text = betagig!.testeremail
+    }
+    
+    func updateGigStatus(newStatus: String) {
+        let id = String(betagig!.id)
+        let ref = Firebase(url: "https://betagig1.firebaseio.com/betagigs")
+        
+        //add beta gigs to beta gig table.
+        var updatedStatus = ["status": newStatus]
+        ref.childByAppendingPath(id).updateChildValues(updatedStatus)
     }
 
 }
