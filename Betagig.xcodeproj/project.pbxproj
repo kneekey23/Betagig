@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		813524701C8207990018FB29 /* StaticTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8135246F1C8207990018FB29 /* StaticTableCell.swift */; };
 		816D77A51C8247E90062594C /* CompanyCreateAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816D77A41C8247E90062594C /* CompanyCreateAccountController.swift */; };
+		816D77A71C8273650062594C /* Betagig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816D77A61C8273650062594C /* Betagig.swift */; };
 		81AC3D5A1C82270A0006BAFB /* CompanyAuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AC3D591C82270A0006BAFB /* CompanyAuthController.swift */; };
 		81AC3D5C1C82363F0006BAFB /* CompanyBetaGigsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AC3D5B1C82363F0006BAFB /* CompanyBetaGigsController.swift */; };
 		81AC3D5E1C8240940006BAFB /* CompanyProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AC3D5D1C8240940006BAFB /* CompanyProfileController.swift */; };
@@ -41,6 +42,7 @@
 		48F8223402CA9FE90A1FE0B7 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		8135246F1C8207990018FB29 /* StaticTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticTableCell.swift; sourceTree = "<group>"; };
 		816D77A41C8247E90062594C /* CompanyCreateAccountController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyCreateAccountController.swift; sourceTree = "<group>"; };
+		816D77A61C8273650062594C /* Betagig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Betagig.swift; sourceTree = "<group>"; };
 		81AC3D591C82270A0006BAFB /* CompanyAuthController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyAuthController.swift; sourceTree = "<group>"; };
 		81AC3D5B1C82363F0006BAFB /* CompanyBetaGigsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyBetaGigsController.swift; sourceTree = "<group>"; };
 		81AC3D5D1C8240940006BAFB /* CompanyProfileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyProfileController.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				81FA7B881C817A3C000BACBD /* Career.swift */,
 				8BD7088E1C8194C000ACAD53 /* Category.swift */,
 				8BD0AB3F1C823F5C0004A453 /* Company.swift */,
+				816D77A61C8273650062594C /* Betagig.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 				8BD0AB401C823F5C0004A453 /* Company.swift in Sources */,
 				816D77A51C8247E90062594C /* CompanyCreateAccountController.swift in Sources */,
 				81AC3D5A1C82270A0006BAFB /* CompanyAuthController.swift in Sources */,
+				816D77A71C8273650062594C /* Betagig.swift in Sources */,
 				81FA7B841C816E75000BACBD /* Extensions.swift in Sources */,
 				81FA7B7A1C81426F000BACBD /* CategoryRow.swift in Sources */,
 				8BD7088F1C8194C000ACAD53 /* Category.swift in Sources */,

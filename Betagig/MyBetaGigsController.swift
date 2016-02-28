@@ -7,13 +7,16 @@
 //
 
 import UIKit
+import Firebase
+import Foundation
 
 class MyBetaGigsController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
-    var mypendingGigs: [String] = []
-    var myconfirmedGigs: [String] = []
-    var mypastGigs: [String] = []
+    var mypendingGigs: [BetaGig] = [BetaGig(name: "Belkin", status: "pending", date: "3/5/6", time: "9AM-6PM", pointOfContact: "Sarah@belkin.com", cost: 100)]
+    var myconfirmedGigs: [BetaGig] = []
+    var mypastGigs: [BetaGig] = []
     
+    @IBOutlet weak var betaGigsTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -42,7 +45,7 @@ class MyBetaGigsController: UIViewController, UITableViewDataSource, UITableView
         let cell = tableView.dequeueReusableCellWithIdentifier("betaGig", forIndexPath: indexPath)
         cell.textLabel!.numberOfLines = 0;
         cell.textLabel!.lineBreakMode = NSLineBreakMode.ByWordWrapping
-        var item: String = ""
+        var item: BetaGig?
         if indexPath.section == 0 {
              item = mypendingGigs[indexPath.row]
         }
@@ -53,7 +56,7 @@ class MyBetaGigsController: UIViewController, UITableViewDataSource, UITableView
              item = mypastGigs[indexPath.row]
         }
 
-        cell.textLabel?.text = item
+        cell.textLabel?.text = item?.name
       
 
         return cell
@@ -79,10 +82,23 @@ class MyBetaGigsController: UIViewController, UITableViewDataSource, UITableView
         //header.alpha = 0.5 //make the header transparent
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+       // tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        self.performSegueWithIdentifier("betaGigDetail", sender: betaGigsTableView.cellForRowAtIndexPath(indexPath))
+    }
+    
     func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         
         // remove bottom extra 20px space.
         return CGFloat.min
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "betaGigDetail"{
+            
+            
+        }
     }
 
 }
