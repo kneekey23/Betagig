@@ -111,6 +111,7 @@ class BetaGigRequestController: UIViewController, UIPickerViewDataSource, UIPick
     }
     
     func goBackToMyBetaGigs() {
+        
         tabBarController?.selectedIndex = 1
         let firstNavController: UINavigationController = tabBarController?.selectedViewController as! UINavigationController;
         firstNavController.popToRootViewControllerAnimated(true)

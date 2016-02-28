@@ -19,7 +19,8 @@ class CompanyListViewController: UIViewController, UITableViewDataSource, UITabl
         //grab those lists above from the database
         
         companyListTableView.tableFooterView = UIView(frame: CGRectZero)
-//        self.navigationController?.navigationBar.topItem?.title = career!
+       // self.navigationController?.navigationBar = career!
+        self.title = career!
         getData()
     }
 
