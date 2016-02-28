@@ -11,6 +11,8 @@ import Firebase
 
 class BetaGig {
     
+    var testerid: String = ""
+    var testername: String = ""
     var id: String = ""
     var company: String = ""
     var gig: String = ""
@@ -33,6 +35,8 @@ class BetaGig {
         
         key = snapshot.key
         ref = snapshot.ref
+        testerid = snapshot.value["testerid"] as! String
+        testername = snapshot.value["testername"] as! String
         id = snapshot.value["id"] as! String
         company = snapshot.value["company"] as! String
         gig = snapshot.value["gig"] as! String
@@ -53,6 +57,8 @@ class BetaGig {
     func toAnyObject() -> AnyObject {
         
         return [
+            "testerid": testerid,
+            "testername": testername,
             "id": id,
             "company": company,
             "gig": gig,
@@ -72,7 +78,9 @@ class BetaGig {
     }
     
     
-    init (id: String, company: String, gig: String, status: String, date: String, time: String, contact: String, cost: Double, street: String, city: String, state: String, zip: String, lat: String, long: String, key: String = "") {
+    init (testerid: String, testername: String, id: String, company: String, gig: String, status: String, date: String, time: String, contact: String, cost: Double, street: String, city: String, state: String, zip: String, lat: String, long: String, key: String = "") {
+        self.testerid = testerid
+        self.testername = testername
         self.id = id
         self.company = company
         self.gig = gig
