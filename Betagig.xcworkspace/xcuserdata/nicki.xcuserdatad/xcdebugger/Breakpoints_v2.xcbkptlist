@@ -10,13 +10,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Betagig/BrowseController.swift"
-            timestampString = "478253499.507027"
+            timestampString = "478326375.93737"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "177"
-            endingLineNumber = "177"
-            landmarkName = "prepareForSegue(_:sender:)"
-            landmarkType = "5">
+            startingLineNumber = "200"
+            endingLineNumber = "200"
+            landmarkName = "BrowseViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -58,7 +58,7 @@
                   moduleName = "Betagig"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/nicki/Projects/Betagig/Betagig/Company.swift"
-                  timestampString = "478317861.864573"
+                  timestampString = "478326376.962688"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -73,7 +73,7 @@
                   moduleName = "Betagig"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/nicki/Projects/Betagig/Betagig/Company.swift"
-                  timestampString = "478317861.864813"
+                  timestampString = "478326376.962909"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -144,6 +144,54 @@
             startingLineNumber = "50"
             endingLineNumber = "50"
             landmarkName = "showActionSheet(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Betagig/CityListController.swift"
+            timestampString = "478325700.082213"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "CityListController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Betagig/BrowseController.swift"
+            timestampString = "478326293.263308"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Betagig/BrowseController.swift"
+            timestampString = "478326296.781319"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
