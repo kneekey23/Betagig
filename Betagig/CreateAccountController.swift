@@ -8,6 +8,8 @@
 import UIKit
 import Firebase
 import Foundation
+import Social
+import Accounts
 
 class CreateAccountController: UIViewController, UITextFieldDelegate{
     
@@ -15,6 +17,33 @@ class CreateAccountController: UIViewController, UITextFieldDelegate{
               self.dismissViewControllerAnimated(true, completion: nil)
     }
   
+    @IBAction func logInWithTwitter(sender: AnyObject) {
+        let ref = Firebase(url: "https://betagig1.firebaseio.com")
+        let twitterAuthHelper = TwitterAuthHelper(firebaseRef: ref, twitterAppId: "3711213326-9ABwY8MVRIf6JgCgd7QumFC4rUDIJyqqUEGWWEb")
+        twitterAuthHelper.selectTwitterAccountWithCallback { error, accounts in
+            if error != nil {
+                // Error retrieving Twitter accounts
+            } else if accounts.count > 1 {
+                // Select an account. Here we pick the first one for simplicity
+                let account = accounts[0] as? ACAccount
+                twitterAuthHelper.authenticateAccount(account, withCallback: { error, authData in
+                    if error != nil {
+                        // Error authenticating account
+                        print(error)
+                    } else {
+                        // User logged in!
+                        self.auth = true
+                        let saveRef = Firebase(url:"https://betagig1.firebaseio.com/userData")
+                        let userName = String(authData.providerData["displayName"])
+                        let userData = ["name": userName]
+                        saveRef.childByAppendingPath(authData.uid).setValue(userData)
+                          self.performSegueWithIdentifier("createAccountSuccess", sender: nil)
+                    }
+                })
+            }
+        }
+
+    }
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var emailAddress: UITextField!
     @IBOutlet weak var lastName: UITextField!
