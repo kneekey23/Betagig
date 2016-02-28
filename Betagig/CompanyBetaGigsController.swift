@@ -7,15 +7,75 @@
 //
 
 import UIKit
+import Firebase
 
 class CompanyBetaGigsController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
-    var mypendingGigs: [String] = []
-    var myconfirmedGigs: [String] = []
-    var mypastGigs: [String] = []
+    var allMyGigs: [BetaGig] = []
+    var mypendingGigs: [BetaGig] = []
+    var myconfirmedGigs: [BetaGig] = []
+    var mypastGigs: [BetaGig] = []
+    let ref = Firebase(url: "https://betagig1.firebaseio.com")
+    
+    @IBOutlet weak var betaGigsTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        ref.observeAuthEventWithBlock({ authData in
+            if authData != nil {
+                // user authenticated
+                print(authData)
+                
+                let userUrl = Firebase(url: "https://betagig1.firebaseio.com/userData/" + authData.uid)
+                
+                userUrl.observeSingleEventOfType(.Value, withBlock: { snapshot in
+                    
+                    if let userName = snapshot.value["name"] as? String {
+                        print(userName)
+                        self.getGigData(userName)
+                    }
+                    
+                })
+                
+            } else {
+                // No user is signed in
+            }
+        })
+    }
+    
+    func getGigData(userName: String){
+        
+        let betagigUrl = Firebase(url: "https://betagig1.firebaseio.com/betagigs")
+        
+        // Attach a closure to read the data
+        betagigUrl.observeSingleEventOfType(.Value, withBlock: { snapshot in
+            
+            for item in snapshot.children {
+                let betagig = BetaGig(snapshot: item as! FDataSnapshot)
+                
+                if userName == betagig.company {
+                    self.allMyGigs.append(betagig)
+                }
+            }
+            
+            for g in self.allMyGigs {
+                if g.status == "pending" {
+                    self.mypendingGigs.append(g)
+                } else if g.status == "upcoming" {
+                    self.myconfirmedGigs.append(g)
+                } else if g.status == "completed" {
+                    self.mypastGigs.append(g)
+                }
+            }
+            
+            self.betaGigsTableView.reloadData()
+            
+            
+            }, withCancelBlock: { error in
+                print(error.description)
+        })
+        
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -39,10 +99,10 @@ class CompanyBetaGigsController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("betaGig", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("cobetaGig", forIndexPath: indexPath)
         cell.textLabel!.numberOfLines = 0;
         cell.textLabel!.lineBreakMode = NSLineBreakMode.ByWordWrapping
-        var item: String = ""
+        var item: BetaGig?
         if indexPath.section == 0 {
             item = mypendingGigs[indexPath.row]
         }
@@ -53,7 +113,7 @@ class CompanyBetaGigsController: UIViewController, UITableViewDataSource, UITabl
             item = mypastGigs[indexPath.row]
         }
         
-        cell.textLabel?.text = item
+        cell.textLabel?.text = item?.gig
         
         
         return cell
