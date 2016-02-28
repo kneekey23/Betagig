@@ -12,7 +12,6 @@ import Firebase
 class CompanyListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var companies: [Company] = []
     var career: String?
-    
    
     @IBOutlet weak var companyListTableView: UITableView!
     override func viewDidLoad() {
@@ -103,8 +102,8 @@ class CompanyListViewController: UIViewController, UITableViewDataSource, UITabl
                     companyDetailController.company = selectedCompany
                 }
                 
-                
             }
+            companyDetailController.career = career
             
         }
         

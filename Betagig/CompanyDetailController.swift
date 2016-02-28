@@ -19,6 +19,7 @@ class CompanyDetailController: UIViewController {
     @IBOutlet weak var gigs: UILabel!
     
     var company: Company?
+    var career: String?
     
     @IBAction func bestTestGig(sender: AnyObject) {
     }
@@ -31,20 +32,23 @@ class CompanyDetailController: UIViewController {
     func setFields() {
         let addressText = company!.street + "\n" + company!.city + ", " + company!.state + " " + company!.zip
         address.text = addressText
-        duration.text = "1 day, 3 days, or 5 days"
+        duration.text = "1, 3, or 5 days"
         companyTitle.text = company!.name
         companyDesc.text = company!.longdesc
         companyImage.image = UIImage(named: company!.image)
-        let costText = String(company!.cost)
+        let costText = "$" + String(company!.cost) + "/per day"
         cost.text = costText
-        var gigsText: String = ""
-        var count: Int = 0
-        for g in company!.gigs {
-            gigsText += g
-            if count != company!.gigs.count - 1 {
-                gigsText += ", "
-            }
-            count++
-        }
+        gigs.text = career!
+        
+//        var gigsText: String = ""
+//        var count: Int = 0
+//        for g in company!.gigs {
+//            gigsText += g
+//            if count != company!.gigs.count - 1 {
+//                gigsText += ", "
+//            }
+//            count++
+//        }
+//        gigs.text = gigsText
     }
 }
