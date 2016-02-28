@@ -58,7 +58,11 @@
                   moduleName = "Betagig"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/nicki/Projects/Betagig/Betagig/Company.swift"
+<<<<<<< HEAD
                   timestampString = "478334469.634095"
+=======
+                  timestampString = "478331853.488832"
+>>>>>>> 684012372a97846a93dad1acbbdfa143e59f03bf
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -73,7 +77,11 @@
                   moduleName = "Betagig"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/nicki/Projects/Betagig/Betagig/Company.swift"
+<<<<<<< HEAD
                   timestampString = "478334469.634299"
+=======
+                  timestampString = "478331853.489057"
+>>>>>>> 684012372a97846a93dad1acbbdfa143e59f03bf
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -187,6 +195,7 @@
             continueAfterRunningActions = "No"
             filePath = "Betagig/BetaGigSuccessController.swift"
             timestampString = "478332410.877606"
+<<<<<<< HEAD
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "34"
@@ -203,11 +212,17 @@
             continueAfterRunningActions = "No"
             filePath = "Betagig/BetaGigRequestController.swift"
             timestampString = "478334874.442808"
+=======
+>>>>>>> 684012372a97846a93dad1acbbdfa143e59f03bf
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "34"
             endingLineNumber = "34"
+<<<<<<< HEAD
             landmarkName = "textView(_:shouldChangeTextInRange:replacementText:)"
+=======
+            landmarkName = "browseReturn(_:)"
+>>>>>>> 684012372a97846a93dad1acbbdfa143e59f03bf
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
