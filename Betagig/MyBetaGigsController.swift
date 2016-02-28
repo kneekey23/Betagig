@@ -56,6 +56,39 @@ class MyBetaGigsController: UIViewController, UITableViewDataSource, UITableView
         
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        ref.observeAuthEventWithBlock({ authData in
+            if authData != nil {
+                // user authenticated
+                print(authData)
+                
+                let userUrl = Firebase(url: "https://betagig1.firebaseio.com/userData/" + authData.uid)
+                
+                userUrl.observeSingleEventOfType(.Value, withBlock: { snapshot in
+                    
+                    if let userName = snapshot.value["name"] as? String {
+                        print(userName)
+                    }
+                    
+                    if let ids = snapshot.value["betagigs"] as? [String] {
+                        self.myGigIds = ids
+                    }
+                    
+                    for gigId in self.myGigIds {
+                        print(gigId)
+                    }
+                    
+                    self.getGigData(self.myGigIds)
+                    
+                })
+                
+            } else {
+                // No user is signed in
+            }
+        })
+    }
+    
     func getGigData(myGigIds: [String]){
         
         let betagigUrl = Firebase(url: "https://betagig1.firebaseio.com/betagigs")
