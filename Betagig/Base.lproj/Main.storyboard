@@ -615,7 +615,7 @@
                                 <color key="backgroundColor" red="0.23921568630000001" green="0.23529411759999999" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cobetaGig" textLabel="1fE-PK-b7J" style="IBUITableViewCellStyleDefault" id="DEb-0j-C5G">
-                                        <rect key="frame" x="0.0" y="50" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="49.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DEb-0j-C5G" id="f7c-Uc-yNp">
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
@@ -999,7 +999,7 @@
                                 <color key="backgroundColor" red="0.23921568630000001" green="0.23529411759999999" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="betaGig" textLabel="ywl-Ok-BCC" rowHeight="63" style="IBUITableViewCellStyleDefault" id="b0B-8d-GQn">
-                                        <rect key="frame" x="0.0" y="50" width="375" height="63"/>
+                                        <rect key="frame" x="0.0" y="49.5" width="375" height="63"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="b0B-8d-GQn" id="DVH-b7-8BE">
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="62.5"/>
