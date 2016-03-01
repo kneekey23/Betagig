@@ -33,7 +33,7 @@ class CompanyBetaGigDetailController: UIViewController {
         actionSheetControllerIOS8.addAction(cancelActionButton)
         
         
-        let lyftActionButton: UIAlertAction = UIAlertAction(title: "Accept Betagig Request", style: .Default)
+        let acceptActionButton: UIAlertAction = UIAlertAction(title: "Accept Betagig Request", style: .Default)
             { action -> Void in
                 //change status in database here and update label on page.  NJK
                 self.status.text = "upcoming"
@@ -48,9 +48,9 @@ class CompanyBetaGigDetailController: UIViewController {
                 alertController.addAction(okAction)
                 self.presentViewController(alertController, animated: true, completion: nil)
         }
-        actionSheetControllerIOS8.addAction(lyftActionButton)
+        actionSheetControllerIOS8.addAction(acceptActionButton)
         
-        let tweetActionButton: UIAlertAction = UIAlertAction(title: "Decline Betagig Request", style: .Default)
+        let declineActionButton: UIAlertAction = UIAlertAction(title: "Decline Betagig Request", style: .Default)
             { action -> Void in
             //change status in database here and update label on page.  NJK
                 self.status.text = "rejected"
@@ -65,13 +65,15 @@ class CompanyBetaGigDetailController: UIViewController {
                 alertController.addAction(okAction)
                 self.presentViewController(alertController, animated: true, completion: nil)
         }
-        actionSheetControllerIOS8.addAction(tweetActionButton)
+        actionSheetControllerIOS8.addAction(declineActionButton)
         
-        let fbActionButton: UIAlertAction = UIAlertAction(title: "Email Betagig Requester", style: .Default){
+        let emailActionButton: UIAlertAction = UIAlertAction(title: "Email Betagig Requester", style: .Default){
             action -> Void in
-            //open mail app with user email populated. NJK
+            
+            let url = NSURL(string: "mailto:\(self.betagig!.testeremail)")!
+            UIApplication.sharedApplication().openURL(url)
         }
-        actionSheetControllerIOS8.addAction(fbActionButton)
+        actionSheetControllerIOS8.addAction(emailActionButton)
         self.presentViewController(actionSheetControllerIOS8, animated: true, completion: nil)
     }
     
@@ -98,7 +100,7 @@ class CompanyBetaGigDetailController: UIViewController {
         let ref = Firebase(url: "https://betagig1.firebaseio.com/betagigs")
         
         //add beta gigs to beta gig table.
-        var updatedStatus = ["status": newStatus]
+        let updatedStatus = ["status": newStatus]
         ref.childByAppendingPath(id).updateChildValues(updatedStatus)
     }
 
