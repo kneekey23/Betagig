@@ -53,8 +53,8 @@
                                     <segue destination="dW4-dT-QDQ" kind="show" identifier="login" id="I08-op-RGG"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Welcome to BetaGig" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="78G-xb-bRY">
-                                <rect key="frame" x="48" y="85" width="278" height="42"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to BetaGig" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="78G-xb-bRY">
+                                <rect key="frame" x="48" y="41" width="278" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="egV-9H-dA2"/>
                                 </constraints>
@@ -112,8 +112,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="BetaGigAppIcon" translatesAutoresizingMaskIntoConstraints="NO" id="JXl-ow-ffa">
-                                <rect key="frame" x="90" y="153" width="195" height="181"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BetaGigAppIcon" translatesAutoresizingMaskIntoConstraints="NO" id="JXl-ow-ffa">
+                                <rect key="frame" x="86" y="109" width="203" height="181"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="181" id="Z0v-TT-UR7"/>
                                     <constraint firstAttribute="width" constant="195" id="ppl-LQ-tJm"/>
@@ -602,8 +602,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="hgJ-c6-NN2">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="hgJ-c6-NN2">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" red="0.23921568630000001" green="0.23529411759999999" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cobetaGig" textLabel="1fE-PK-b7J" style="IBUITableViewCellStyleDefault" id="DEb-0j-C5G">
@@ -1164,7 +1164,7 @@
         <!--Beta Gig Detail Controller-->
         <scene sceneID="XE2-tl-R1u">
             <objects>
-                <viewController id="LNf-qo-EAJ" customClass="BetaGigDetailController" customModule="Betagig" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="LNf-qo-EAJ" customClass="BetaGigDetailController" customModule="Betagig" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Bz5-yf-yKm"/>
                         <viewControllerLayoutGuide type="bottom" id="Z98-f3-grj"/>
