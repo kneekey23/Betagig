@@ -34,7 +34,7 @@ class BrowseViewController: UIViewController, UITableViewDataSource, CityListVie
         cityButton =  UIButton(type: .Custom)
         cityButton!.frame = CGRectMake(0, 0, 100, 40) as CGRect
         cityButton!.tintColor = UIColor.blackColor()
-        cityButton!.setTitle("Los Angeles" + " \u{25BE}", forState: UIControlState.Normal)
+        cityButton!.setTitle("San Francisco" + " \u{25BE}", forState: UIControlState.Normal)
         cityButton!.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
         cityButton!.addTarget(self, action: Selector("clickOnButton:"), forControlEvents: UIControlEvents.TouchUpInside)
         self.navigationItem.titleView = cityButton
