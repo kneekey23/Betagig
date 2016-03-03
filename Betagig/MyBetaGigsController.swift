@@ -27,7 +27,7 @@ class MyBetaGigsController: UIViewController, UITableViewDataSource, UITableView
         ref.observeAuthEventWithBlock({ authData in
             if authData != nil {
                 // user authenticated
-                print(authData)
+            
                 
                 let userUrl = Firebase(url: "https://betagig1.firebaseio.com/userData/" + authData.uid)
                 
@@ -61,7 +61,7 @@ class MyBetaGigsController: UIViewController, UITableViewDataSource, UITableView
         ref.observeAuthEventWithBlock({ authData in
             if authData != nil {
                 // user authenticated
-                print(authData)
+             
                 
                 let userUrl = Firebase(url: "https://betagig1.firebaseio.com/userData/" + authData.uid)
                 
