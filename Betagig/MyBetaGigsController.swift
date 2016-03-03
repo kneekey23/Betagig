@@ -200,6 +200,7 @@ class MyBetaGigsController: UIViewController, UITableViewDataSource, UITableView
 
         if showEmptyMsg == false {
             cell.textLabel?.text = item?.gig
+            cell.detailTextLabel?.text = (item?.company)! + ", " + (item?.date)!
             cell.selectionStyle = .Default
             cell.accessoryType = .DisclosureIndicator
             cell.userInteractionEnabled = true
@@ -208,6 +209,7 @@ class MyBetaGigsController: UIViewController, UITableViewDataSource, UITableView
             cell.accessoryType = .None;
             cell.userInteractionEnabled = false
             cell.textLabel?.text = emptyMsg
+            cell.detailTextLabel?.text = ""
         }
       
 

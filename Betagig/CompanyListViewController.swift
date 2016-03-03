@@ -67,6 +67,7 @@ class CompanyListViewController: UIViewController, UITableViewDataSource, UITabl
        
         let item = self.companies[indexPath.row]
         cell.textLabel?.text = item.name
+        cell.detailTextLabel?.text = "$" + String(item.cost) + "/per day"
         
         return cell
         
