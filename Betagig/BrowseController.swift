@@ -92,12 +92,6 @@ class BrowseViewController: UIViewController, UITableViewDataSource, CityListVie
                 careers.append(career)
             }
             
-            for c in careers {
-                print(c.title)
-                print(c.category)
-                print(c.icon)
-            }
-            
             self.careers = careers
             
             for cat in self.categories {
