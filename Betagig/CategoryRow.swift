@@ -55,6 +55,18 @@ extension CategoryRow : UICollectionViewDataSource {
         
         cell.title.text = category!.careerDetails[indexPath.row]!.title
         
+//        var subtitle: String = ""
+//        let numCompanies: String = String(category!.careers.count) + " betagigs"
+//        let priceRange: String = ""
+//        var min = 0
+//        var max = 0
+//        for career in category!.careers {
+//            
+//        }
+//        
+//        subtitle = numCompanies + ", " + priceRange
+//        cell.subtitle.text = subtitle
+        
         return cell
         
     }
