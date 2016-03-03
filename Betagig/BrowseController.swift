@@ -94,12 +94,60 @@ class BrowseViewController: UIViewController, UITableViewDataSource, CityListVie
             
             self.careers = careers
             
+            self.getCareerDetails()
+            
+            }, withCancelBlock: { error in
+                print(error.description)
+        })
+        
+    }
+    
+    func getCareerDetails() {
+        
+        let refCompanies = Firebase(url: "https://betagig1.firebaseio.com/companies")
+        refCompanies.observeSingleEventOfType(.Value, withBlock: { snapshot in
+            
+            var companies = [Company]()
+            
+            for item in snapshot.children {
+                let company = Company(snapshot: item as! FDataSnapshot)
+                companies.append(company)
+            }
+            
             for cat in self.categories {
+                
                 for c in cat.careers {
+                    
+                    var companiesInCat = [Company]()
                     for career in self.careers {
                         if career.title == c {
-                            // add career.icon to the category object
-                            cat.careerDetails.append(Career(title: career.title, icon: career.icon, category: career.category))
+                            
+                            
+                            // Get all companies for that career
+                            for c in companies {
+                                for gig in c.gigs {
+                                    if gig == career.title {
+                                        companiesInCat.append(c)
+                                    }
+                                }
+                            }
+                            
+                            // Determine min and max costs for this career
+                            var costs: [Int] = []
+                            for c in companiesInCat {
+                                costs.append(c.cost)
+                            }
+                            
+                            costs.sortInPlace {
+                                return $0 < $1
+                            }
+                            
+                            let min = costs[0]
+                            let max = costs[costs.count - 1]
+                            let numBetagigs = companiesInCat.count
+                            
+                            cat.careerDetails.append(Career(title: career.title, icon: career.icon, category: career.category, minCost: min, maxCost: max, numBetagigs: numBetagigs))
+                            
                         }
                     }
                 }
@@ -112,7 +160,6 @@ class BrowseViewController: UIViewController, UITableViewDataSource, CityListVie
         })
         
     }
-    
     
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
