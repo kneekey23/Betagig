@@ -106,7 +106,7 @@ class BetaGigDetailController: UIViewController {
         }
         actionSheetControllerIOS8.addAction(fbActionButton)
         
-        let deleteActionButton: UIAlertAction = UIAlertAction(title: "Delete this Betagig request", style: .Default){
+        let deleteActionButton: UIAlertAction = UIAlertAction(title: "Cancel this Betagig request", style: .Default){
             action -> Void in
           //add code to delete beta gig request. NJK
             //remove from beta gigs table
