@@ -9,11 +9,13 @@
 import UIKit
 import Social
 import Firebase
+import MapKit
 
 class BetaGigDetailController: UIViewController {
     
     var betagig: BetaGig?
     
+    @IBOutlet weak var mapview: MKMapView!
     @IBOutlet weak var gigName: UILabel!
     @IBOutlet weak var status: UILabel!
     @IBOutlet weak var company: UILabel!
@@ -27,7 +29,11 @@ class BetaGigDetailController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(betagig!.gig)
+        let companyPin = MapAnnotation(title: betagig!.company, coordinate: CLLocationCoordinate2D(latitude: Double(betagig!.lat)!, longitude: Double(betagig!.long)!), info: betagig!.street)
+        mapview.addAnnotation(companyPin)
+        let span = MKCoordinateSpanMake(0.075, 0.075)
+        let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: Double(betagig!.lat)!, longitude: Double(betagig!.long)!), span: span)
+        mapview.setRegion(region, animated: true)
         setFields()
     }
     
