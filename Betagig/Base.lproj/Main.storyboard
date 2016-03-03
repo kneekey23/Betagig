@@ -610,13 +610,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-<<<<<<< HEAD
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="hgJ-c6-NN2">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-=======
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="hgJ-c6-NN2">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
->>>>>>> master
                                 <color key="backgroundColor" red="0.23921568630000001" green="0.23529411759999999" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cobetaGig" textLabel="1fE-PK-b7J" style="IBUITableViewCellStyleDefault" id="DEb-0j-C5G">
@@ -1490,11 +1485,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="206"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8Xq-n2-6Xc" id="h9L-dY-T23">
-<<<<<<< HEAD
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="185.5"/>
-=======
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="205"/>
->>>>>>> master
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="SnP-fU-2Uv">

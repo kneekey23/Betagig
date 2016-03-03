@@ -19,6 +19,12 @@ class Career {
     
     var category: String = ""
     
+    var minCost: Int?
+    
+    var maxCost: Int?
+    
+    var numBetagigs: Int?
+    
     let ref: Firebase?
     
     let key: String!
@@ -36,6 +42,12 @@ class Career {
         icon = snapshot.value["icon"] as! String
         
         category = snapshot.value["category"] as! String
+        
+        minCost = snapshot.value["minCost"] as? Int
+        
+        maxCost = snapshot.value["maxCost"] as? Int
+        
+        numBetagigs = snapshot.value["maxCost"] as? Int
     }
     
     
@@ -55,13 +67,19 @@ class Career {
     
     
     
-    init (title: String, icon: String, category: String, key: String = "") {
+    init (title: String, icon: String, category: String, minCost: Int, maxCost: Int, numBetagigs: Int, key: String = "") {
         
         self.title = title
         
         self.icon = icon
         
         self.category = category
+        
+        self.minCost = minCost
+        
+        self.maxCost = maxCost
+        
+        self.numBetagigs = numBetagigs
         
         self.key = key
         
