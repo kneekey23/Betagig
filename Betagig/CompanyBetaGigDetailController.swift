@@ -76,6 +76,11 @@ class CompanyBetaGigDetailController: UIViewController {
             UIApplication.sharedApplication().openURL(url)
         }
         actionSheetControllerIOS8.addAction(emailActionButton)
+        let subview = actionSheetControllerIOS8.view.subviews.first! as UIView
+        let alertContentView = subview.subviews.first! as UIView
+        alertContentView.backgroundColor = UIColor(hexString: "B048B5")
+        alertContentView.layer.cornerRadius = 0;
+        actionSheetControllerIOS8.view.tintColor = UIColor(hexString: "4EE2EC")
         self.presentViewController(actionSheetControllerIOS8, animated: true, completion: nil)
     }
     

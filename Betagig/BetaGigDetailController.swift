@@ -46,10 +46,12 @@ class BetaGigDetailController: UIViewController {
     @IBAction func showActionSheet(sender: AnyObject) {
         //Create the AlertController and add Its action like button in Actionsheet
         let actionSheetControllerIOS8: UIAlertController = UIAlertController(title: "Actions to Take", message: "", preferredStyle: .ActionSheet)
+
         
         let cancelActionButton: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in
             print("Cancel")
         }
+      
         actionSheetControllerIOS8.addAction(cancelActionButton)
         
         
@@ -135,6 +137,12 @@ class BetaGigDetailController: UIViewController {
         self.navigationController?.popToRootViewControllerAnimated(true)
         }
         actionSheetControllerIOS8.addAction(deleteActionButton)
+        let subview = actionSheetControllerIOS8.view.subviews.first! as UIView
+        let alertContentView = subview.subviews.first! as UIView
+        alertContentView.backgroundColor = UIColor(hexString: "B048B5")
+        alertContentView.layer.cornerRadius = 0;
+        actionSheetControllerIOS8.view.tintColor = UIColor(hexString: "4EE2EC")
         self.presentViewController(actionSheetControllerIOS8, animated: true, completion: nil)
+ 
     }
 }
