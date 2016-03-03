@@ -8,6 +8,7 @@
 
 import UIKit
 import Social
+import Firebase
 
 class BetaGigDetailController: UIViewController {
     
@@ -108,6 +109,30 @@ class BetaGigDetailController: UIViewController {
         let deleteActionButton: UIAlertAction = UIAlertAction(title: "Delete this Betagig request", style: .Default){
             action -> Void in
           //add code to delete beta gig request. NJK
+            //remove from beta gigs table
+            let urlString: String = "https://betagig1.firebaseio.com/betagigs"
+              let betagigUrl = Firebase(url: urlString)
+            print(urlString)
+            // Attach a closure to read the data
+            betagigUrl.childByAppendingPath(self.betagig!.id).removeValue()
+            
+            //remove from users list of beta gigs.
+            let userUrl = "https://betagig1.firebaseio.com/userData/" + self.betagig!.testerid + "/betagigs"
+            let ref = Firebase(url:userUrl)
+            var ids = []
+            ref.observeEventType(.Value, withBlock: { snapshot in
+                
+               ids = snapshot.value as! NSArray
+                let aMutableArray = ids.mutableCopy() as! NSMutableArray
+                if aMutableArray.containsObject(self.betagig!.id){
+                      aMutableArray.removeObjectAtIndex(Int(self.betagig!.id)!)
+                }
+              
+                ids = aMutableArray as NSArray
+                ref.setValue(ids)
+                
+            })
+        self.navigationController?.popToRootViewControllerAnimated(true)
         }
         actionSheetControllerIOS8.addAction(deleteActionButton)
         self.presentViewController(actionSheetControllerIOS8, animated: true, completion: nil)
