@@ -204,12 +204,15 @@ class MyBetaGigsController: UIViewController, UITableViewDataSource, UITableView
             cell.selectionStyle = .Default
             cell.accessoryType = .DisclosureIndicator
             cell.userInteractionEnabled = true
+            cell.textLabel?.textColor = UIColor(hexString: "B048B5")
+          
         } else {
             cell.selectionStyle = .None;
             cell.accessoryType = .None;
             cell.userInteractionEnabled = false
             cell.textLabel?.text = emptyMsg
             cell.detailTextLabel?.text = ""
+            cell.textLabel?.textColor = UIColor.grayColor()
         }
       
 

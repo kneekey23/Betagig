@@ -9,11 +9,13 @@
 import UIKit
 import Social
 import Firebase
+import MapKit
 
 class BetaGigDetailController: UIViewController {
     
     var betagig: BetaGig?
     
+    @IBOutlet weak var mapview: MKMapView!
     @IBOutlet weak var gigName: UILabel!
     @IBOutlet weak var status: UILabel!
     @IBOutlet weak var company: UILabel!
@@ -27,7 +29,11 @@ class BetaGigDetailController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(betagig!.gig)
+        let companyPin = MapAnnotation(title: betagig!.company, coordinate: CLLocationCoordinate2D(latitude: Double(betagig!.lat)!, longitude: Double(betagig!.long)!), info: betagig!.street)
+        mapview.addAnnotation(companyPin)
+        let span = MKCoordinateSpanMake(0.075, 0.075)
+        let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: Double(betagig!.lat)!, longitude: Double(betagig!.long)!), span: span)
+        mapview.setRegion(region, animated: true)
         setFields()
     }
     
@@ -46,10 +52,12 @@ class BetaGigDetailController: UIViewController {
     @IBAction func showActionSheet(sender: AnyObject) {
         //Create the AlertController and add Its action like button in Actionsheet
         let actionSheetControllerIOS8: UIAlertController = UIAlertController(title: "Actions to Take", message: "", preferredStyle: .ActionSheet)
+
         
         let cancelActionButton: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in
             print("Cancel")
         }
+      
         actionSheetControllerIOS8.addAction(cancelActionButton)
         
         
@@ -106,7 +114,7 @@ class BetaGigDetailController: UIViewController {
         }
         actionSheetControllerIOS8.addAction(fbActionButton)
         
-        let deleteActionButton: UIAlertAction = UIAlertAction(title: "Delete this Betagig request", style: .Default){
+        let deleteActionButton: UIAlertAction = UIAlertAction(title: "Cancel this Betagig request", style: .Default){
             action -> Void in
           //add code to delete beta gig request. NJK
             //remove from beta gigs table
@@ -135,6 +143,12 @@ class BetaGigDetailController: UIViewController {
         self.navigationController?.popToRootViewControllerAnimated(true)
         }
         actionSheetControllerIOS8.addAction(deleteActionButton)
+        let subview = actionSheetControllerIOS8.view.subviews.first! as UIView
+        let alertContentView = subview.subviews.first! as UIView
+        alertContentView.backgroundColor = UIColor(hexString: "B048B5")
+        alertContentView.layer.cornerRadius = 0;
+        actionSheetControllerIOS8.view.tintColor = UIColor(hexString: "4EE2EC")
         self.presentViewController(actionSheetControllerIOS8, animated: true, completion: nil)
+ 
     }
 }

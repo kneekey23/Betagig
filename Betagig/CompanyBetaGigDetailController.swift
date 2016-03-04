@@ -20,8 +20,10 @@ class CompanyBetaGigDetailController: UIViewController {
     @IBOutlet weak var cost: UILabel!
     @IBOutlet weak var gigRequested: UILabel!
     @IBOutlet weak var date: UILabel!
-    @IBOutlet weak var name: UILabel!
+  
     @IBOutlet weak var status: UILabel!
+    
+    @IBOutlet weak var nameButton: UIButton!
     
     @IBAction func showActionSheet(sender: AnyObject) {
         //Create the AlertController and add Its action like button in Actionsheet
@@ -74,6 +76,11 @@ class CompanyBetaGigDetailController: UIViewController {
             UIApplication.sharedApplication().openURL(url)
         }
         actionSheetControllerIOS8.addAction(emailActionButton)
+        let subview = actionSheetControllerIOS8.view.subviews.first! as UIView
+        let alertContentView = subview.subviews.first! as UIView
+        alertContentView.backgroundColor = UIColor(hexString: "B048B5")
+        alertContentView.layer.cornerRadius = 0;
+        actionSheetControllerIOS8.view.tintColor = UIColor(hexString: "4EE2EC")
         self.presentViewController(actionSheetControllerIOS8, animated: true, completion: nil)
     }
     
@@ -88,7 +95,9 @@ class CompanyBetaGigDetailController: UIViewController {
         gigName.text = betagig!.gig
         location.text = betagig!.street
         status.text = betagig!.status
-        name.text = betagig!.testername
+     
+        nameButton.setTitle(betagig!.testername, forState: UIControlState.Normal)
+         nameButton.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Left
         date.text = betagig!.date
         time.text = betagig!.time
         cost.text = "$" + String(Int(betagig!.cost)) + "/per day"
@@ -102,6 +111,14 @@ class CompanyBetaGigDetailController: UIViewController {
         //add beta gigs to beta gig table.
         let updatedStatus = ["status": newStatus]
         ref.childByAppendingPath(id).updateChildValues(updatedStatus)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "userProfileSegue"{
+            let userProfileController = segue.destinationViewController as! CompanyUserProfileController
+            userProfileController.userName = self.betagig!.testername
+            
+        }
     }
 
 }

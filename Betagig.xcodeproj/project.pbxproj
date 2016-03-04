@@ -17,6 +17,7 @@
 		816D77B21C82E19A0062594C /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816D77B11C82E19A0062594C /* PaymentViewController.swift */; };
 		816D77B41C835C140062594C /* CompanyBetaGigDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816D77B31C835C140062594C /* CompanyBetaGigDetailController.swift */; };
 		816D77B91C8364A10062594C /* TwitterAuthHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 816D77B81C8364A10062594C /* TwitterAuthHelper.m */; };
+		816D77BB1C8818320062594C /* CompanyUserProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816D77BA1C8818320062594C /* CompanyUserProfileController.swift */; };
 		81AC3D5A1C82270A0006BAFB /* CompanyAuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AC3D591C82270A0006BAFB /* CompanyAuthController.swift */; };
 		81AC3D5C1C82363F0006BAFB /* CompanyBetaGigsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AC3D5B1C82363F0006BAFB /* CompanyBetaGigsController.swift */; };
 		81AC3D5E1C8240940006BAFB /* CompanyProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AC3D5D1C8240940006BAFB /* CompanyProfileController.swift */; };
@@ -37,6 +38,7 @@
 		81FA7B861C81701D000BACBD /* BetaGigDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FA7B851C81701D000BACBD /* BetaGigDetailController.swift */; };
 		81FA7B891C817A3C000BACBD /* Career.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FA7B881C817A3C000BACBD /* Career.swift */; };
 		81FA7B8B1C81802C000BACBD /* CreateAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FA7B8A1C81802C000BACBD /* CreateAccountController.swift */; };
+		8B01E2E61C8834A30056D323 /* MapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B01E2E51C8834A30056D323 /* MapAnnotation.swift */; };
 		8B04738F1C82ABB400FA0BF0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B04738E1C82ABB400FA0BF0 /* User.swift */; };
 		8BD0AB401C823F5C0004A453 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD0AB3F1C823F5C0004A453 /* Company.swift */; };
 		8BD7088F1C8194C000ACAD53 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD7088E1C8194C000ACAD53 /* Category.swift */; };
@@ -58,6 +60,7 @@
 		816D77B61C8364750062594C /* TwitterAuthHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TwitterAuthHelper.h; sourceTree = "<group>"; };
 		816D77B71C8364A00062594C /* Betagig-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Betagig-Bridging-Header.h"; sourceTree = "<group>"; };
 		816D77B81C8364A10062594C /* TwitterAuthHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterAuthHelper.m; sourceTree = "<group>"; };
+		816D77BA1C8818320062594C /* CompanyUserProfileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyUserProfileController.swift; sourceTree = "<group>"; };
 		81AC3D591C82270A0006BAFB /* CompanyAuthController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyAuthController.swift; sourceTree = "<group>"; };
 		81AC3D5B1C82363F0006BAFB /* CompanyBetaGigsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyBetaGigsController.swift; sourceTree = "<group>"; };
 		81AC3D5D1C8240940006BAFB /* CompanyProfileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyProfileController.swift; sourceTree = "<group>"; };
@@ -80,6 +83,7 @@
 		81FA7B851C81701D000BACBD /* BetaGigDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BetaGigDetailController.swift; sourceTree = "<group>"; };
 		81FA7B881C817A3C000BACBD /* Career.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Career.swift; sourceTree = "<group>"; };
 		81FA7B8A1C81802C000BACBD /* CreateAccountController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountController.swift; sourceTree = "<group>"; };
+		8B01E2E51C8834A30056D323 /* MapAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapAnnotation.swift; sourceTree = "<group>"; };
 		8B04738E1C82ABB400FA0BF0 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8BD0AB3F1C823F5C0004A453 /* Company.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 		8BD7088E1C8194C000ACAD53 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
@@ -134,6 +138,7 @@
 				81AC3D5D1C8240940006BAFB /* CompanyProfileController.swift */,
 				816D77A41C8247E90062594C /* CompanyCreateAccountController.swift */,
 				816D77B31C835C140062594C /* CompanyBetaGigDetailController.swift */,
+				816D77BA1C8818320062594C /* CompanyUserProfileController.swift */,
 			);
 			name = CompanyControllers;
 			sourceTree = "<group>";
@@ -193,6 +198,7 @@
 				8BD0AB3F1C823F5C0004A453 /* Company.swift */,
 				816D77A61C8273650062594C /* Betagig.swift */,
 				8B04738E1C82ABB400FA0BF0 /* User.swift */,
+				8B01E2E51C8834A30056D323 /* MapAnnotation.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -329,6 +335,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B01E2E61C8834A30056D323 /* MapAnnotation.swift in Sources */,
 				81FA7B761C81173A000BACBD /* ProfileController.swift in Sources */,
 				81AC3D5C1C82363F0006BAFB /* CompanyBetaGigsController.swift in Sources */,
 				81AC3D5E1C8240940006BAFB /* CompanyProfileController.swift in Sources */,
@@ -343,6 +350,7 @@
 				81FA7B821C816920000BACBD /* MyBetaGigsController.swift in Sources */,
 				81FA7B721C811670000BACBD /* MainController.swift in Sources */,
 				816D77AB1C82B5EC0062594C /* BetaGigSuccessController.swift in Sources */,
+				816D77BB1C8818320062594C /* CompanyUserProfileController.swift in Sources */,
 				81FA7B7C1C815AA4000BACBD /* CompanyListViewController.swift in Sources */,
 				81FA7B8B1C81802C000BACBD /* CreateAccountController.swift in Sources */,
 				8BD0AB401C823F5C0004A453 /* Company.swift in Sources */,
