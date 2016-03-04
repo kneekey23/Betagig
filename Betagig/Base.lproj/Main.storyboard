@@ -756,7 +756,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nKP-hP-SrB">
-                                        <rect key="frame" x="102" y="7" width="195" height="33.5"/>
+                                        <rect key="frame" x="102" y="7" width="195" height="34"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
                                         <state key="normal" title="Name">
                                             <color key="titleColor" red="0.69019607839999997" green="0.28235294119999998" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
@@ -1438,6 +1438,9 @@
                                             <constraint firstItem="eet-Gn-v34" firstAttribute="leading" secondItem="1em-Hi-hwW" secondAttribute="trailing" constant="17" id="vc8-d2-sUt"/>
                                         </constraints>
                                     </view>
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="LPh-SI-eQ5">
+                                        <rect key="frame" x="20" y="249" width="335" height="128"/>
+                                    </mapView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="C11-au-FUC" firstAttribute="trailing" secondItem="ELH-7u-Xhp" secondAttribute="trailing" id="428-XG-HvC"/>
@@ -1497,6 +1500,7 @@
                         <outlet property="cost" destination="eet-Gn-v34" id="894-Kg-SV5"/>
                         <outlet property="date" destination="IAi-mn-ZrR" id="OO0-na-HbW"/>
                         <outlet property="gigName" destination="d3Z-bm-d9U" id="b84-H8-42s"/>
+                        <outlet property="mapview" destination="LPh-SI-eQ5" id="eXw-eN-dsa"/>
                         <outlet property="status" destination="g1u-3s-AIP" id="WIQ-Yf-Hy7"/>
                         <outlet property="street" destination="38h-pb-oJl" id="Xcf-66-Ykh"/>
                         <outlet property="time" destination="WYc-Mz-sRY" id="WaH-h5-Ymh"/>
