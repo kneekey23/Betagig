@@ -93,6 +93,9 @@ class AuthenticationController: UIViewController,UITextFieldDelegate, UITableVie
         else if identifier == "companySignIn"{
             auth = true
         }
+        else if identifier == "giftSegue"{
+            auth = true
+        }
         
         return auth
     }
