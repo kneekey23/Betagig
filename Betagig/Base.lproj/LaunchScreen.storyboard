@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -18,53 +17,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="17T-nO-BIA">
-                                <rect key="frame" x="11" y="162" width="350" height="249"/>
-                                <color key="backgroundColor" red="0.23921568630000001" green="0.23529411759999999" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="249" id="YuY-22-QH8"/>
-                                </constraints>
-                                <string key="text">“The only way to do great work is to love what you do. If you haven’t found it yet, keep looking. Don’t settle...."                                                               </string>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BetaGigAppIconV2_nobkg" translatesAutoresizingMaskIntoConstraints="NO" id="gGP-4a-Nij">
+                                <rect key="frame" x="134" y="215" width="106" height="104"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Betagig" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OUT-oq-DZU">
+                                <rect key="frame" x="119" y="314" width="136" height="39"/>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="32"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="31"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="-Steve Jobs" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="dWc-i3-iko">
-                                <rect key="frame" x="11" y="419" width="344" height="52"/>
-                                <color key="backgroundColor" red="0.23921568630000001" green="0.23529411759999999" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="52" id="Siy-Ii-GQR"/>
-                                </constraints>
-                                <color key="textColor" red="0.30588235294117649" green="0.88627450980392153" blue="0.92549019607843142" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="28"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Jm-yg-dwf">
-                                <rect key="frame" x="0.0" y="528" width="375" height="30"/>
-                                <color key="backgroundColor" red="0.69019607839999997" green="0.28235294119999998" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gJk-Qn-kbk">
-                                <rect key="frame" x="1" y="580" width="375" height="30"/>
-                                <color key="backgroundColor" red="0.69019607839999997" green="0.28235294119999998" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.23921568630000001" green="0.23529411759999999" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="17T-nO-BIA" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="142" id="2MS-Kw-1tu"/>
-                            <constraint firstItem="gJk-Qn-kbk" firstAttribute="top" secondItem="5Jm-yg-dwf" secondAttribute="bottom" constant="22" id="3PS-VC-a8A"/>
-                            <constraint firstItem="17T-nO-BIA" firstAttribute="leading" secondItem="dWc-i3-iko" secondAttribute="leading" id="4uu-UV-Ygw"/>
-                            <constraint firstItem="gJk-Qn-kbk" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" constant="580" id="5RF-5z-0fm"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="gJk-Qn-kbk" secondAttribute="trailing" constant="-17" id="Gpk-K4-ANU"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="17T-nO-BIA" secondAttribute="trailing" constant="-2" id="I1m-DO-oJz"/>
-                            <constraint firstItem="5Jm-yg-dwf" firstAttribute="top" secondItem="dWc-i3-iko" secondAttribute="bottom" constant="57" id="Old-Pj-Ezr"/>
-                            <constraint firstItem="gJk-Qn-kbk" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="-15" id="a5c-If-EGZ"/>
-                            <constraint firstItem="5Jm-yg-dwf" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="bwh-YN-uqS"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="gJk-Qn-kbk" secondAttribute="bottom" constant="57" id="car-5n-ID4"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="dWc-i3-iko" secondAttribute="trailing" constant="4" id="d4E-Mk-EKf"/>
-                            <constraint firstAttribute="trailing" secondItem="5Jm-yg-dwf" secondAttribute="trailing" id="e2R-GA-745"/>
-                            <constraint firstItem="17T-nO-BIA" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="-5" id="lHw-3U-Vbs"/>
-                            <constraint firstItem="dWc-i3-iko" firstAttribute="top" secondItem="17T-nO-BIA" secondAttribute="bottom" constant="8" symbolic="YES" id="rC4-rB-SJ1"/>
-                        </constraints>
+                        <color key="backgroundColor" red="0.90196078430000004" green="0.31764705879999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
@@ -73,4 +36,7 @@
             <point key="canvasLocation" x="52.5" y="374.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="BetaGigAppIconV2_nobkg" width="1200" height="1200"/>
+    </resources>
 </document>

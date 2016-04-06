@@ -13,7 +13,7 @@ import UIKit
 import Firebase
 
 
-class BrowseViewController: UIViewController, UITableViewDataSource, CityListViewControllerDelegate {
+class BrowseViewController: UIViewController, UITableViewDataSource, CityListViewControllerDelegate, LoginViewControllerDelegate {
 
     @IBOutlet weak var categoryTableView: UITableView!
     
@@ -38,6 +38,8 @@ class BrowseViewController: UIViewController, UITableViewDataSource, CityListVie
         cityButton!.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
         cityButton!.addTarget(self, action: Selector("clickOnButton:"), forControlEvents: UIControlEvents.TouchUpInside)
         self.navigationItem.titleView = cityButton
+        
+        self.performSegueWithIdentifier("loginSegue", sender: self)
     }
     
     func clickOnButton(button: UIButton) {
@@ -187,8 +189,8 @@ class BrowseViewController: UIViewController, UITableViewDataSource, CityListVie
         
     func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let header: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView //recast your view as a UITableViewHeaderFooterView
-        header.contentView.backgroundColor = UIColor(hexString: "3D3C3A"); //make the background color light blue
-        header.textLabel!.textColor = UIColor(hexString: "B048B5") //make the text white
+        header.contentView.backgroundColor = UIColor(hexString: "FFF"); 
+        header.textLabel!.textColor = UIColor(hexString: "E65100")
        // header.alpha = 0.5 //make the header transparent
     }
     
@@ -231,6 +233,11 @@ class BrowseViewController: UIViewController, UITableViewDataSource, CityListVie
             
         }
         
+//        if segue.identifier == "loginSegue" {
+//            let loginController = segue.destinationViewController as! LoginController
+//            loginController.delegate = self
+//        }
+//        
         if segue.identifier == "citySegue" {
             let secondController = segue.destinationViewController as! CityListController
             secondController.delegate = self
