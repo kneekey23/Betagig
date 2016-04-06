@@ -221,21 +221,21 @@ class MyBetaGigsController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0 {
-           return "My Pending BetaGigs"
+           return "Pending"
         }
         else if section == 1 {
-            return "My Upcoming BetaGigs"
+            return "Upcoming"
         }
         else{
-            return "My Past BetaGigs"
+            return "Completed"
         }
     }
     
     func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let header: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView //recast your view as a UITableViewHeaderFooterView
-        header.contentView.backgroundColor = UIColor(hexString: "3D3C3A") //make the background color light blue
-        header.textLabel!.textColor = UIColor(hexString: "4EE2EC") //make the text white
-        header.textLabel?.font = UIFont(name: "Helvetica Neue", size: 16)!
+        header.contentView.backgroundColor = UIColor(hexString: "FFFFFF") 
+        header.textLabel!.textColor = UIColor(hexString: "E65100") //make the text orange
+        header.textLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 16)!
         //header.alpha = 0.5 //make the header transparent
     }
     
