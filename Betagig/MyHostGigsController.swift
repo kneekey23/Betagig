@@ -1,8 +1,8 @@
 //
-//  MyBetaGigsController.swift
+//  MyHostGigsController.swift
 //  Betagig
 //
-//  Created by Nicki on 2/26/16.
+//  Created by Melissa on 4/6/16.
 //  Copyright © 2016 shortkey. All rights reserved.
 //
 
@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import Foundation
 
-class MyBetaGigsController: UIViewController, UITableViewDataSource, UITableViewDelegate{
+class MyHostGigsController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
     var myGigIds: [String] = []
     var allMyGigs: [BetaGig] = []
