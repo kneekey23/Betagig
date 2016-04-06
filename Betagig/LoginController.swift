@@ -22,7 +22,6 @@ class LoginController: UIViewController {
     }
     
     func tapOnX(button: UIButton) {
-//        self.performSegueWithIdentifier("citySegue", sender: button)
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 }

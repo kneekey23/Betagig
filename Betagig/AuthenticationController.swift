@@ -15,6 +15,7 @@ class AuthenticationController: UIViewController,UITextFieldDelegate, UITableVie
 
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var username: UITextField!
+    @IBOutlet weak var closeBtn: UIButton!
     let ref = Firebase(url: "https://betagig1.firebaseio.com")
     
        var auth: Bool = false
@@ -47,12 +48,17 @@ class AuthenticationController: UIViewController,UITextFieldDelegate, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-      self.navigationController?.setNavigationBarHidden(true, animated: true)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        closeBtn!.addTarget(self, action: Selector("tapOnX:"), forControlEvents: UIControlEvents.TouchUpInside)
 
         username.delegate = self
         password.delegate = self
         username.text = "nicki@shortkey.io"
         password.text = "goucla23"
+    }
+    
+    func tapOnX(button: UIButton) {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

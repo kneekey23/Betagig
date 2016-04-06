@@ -13,6 +13,8 @@ import Accounts
 
 class CreateAccountController: UIViewController, UITextFieldDelegate{
     
+    @IBOutlet weak var closeBtn: UIButton!
+    
     @IBAction func cancelCreate(sender: AnyObject) {
               self.dismissViewControllerAnimated(true, completion: nil)
     }
@@ -75,10 +77,17 @@ class CreateAccountController: UIViewController, UITextFieldDelegate{
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        closeBtn!.addTarget(self, action: Selector("tapOnX:"), forControlEvents: UIControlEvents.TouchUpInside)
+        
         emailAddress.delegate = self
         lastName.delegate = self
         firstName.delegate = self
         password.delegate = self
+    }
+    
+    func tapOnX(button: UIButton) {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool{
