@@ -43,6 +43,7 @@
 		8B04738F1C82ABB400FA0BF0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B04738E1C82ABB400FA0BF0 /* User.swift */; };
 		8B9724ED1CAB6B8E00788017 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9724EC1CAB6B8E00788017 /* LoginController.swift */; };
 		8BBFC3881CB5B0C6002805CB /* MyHostGigsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBFC3871CB5B0C6002805CB /* MyHostGigsController.swift */; };
+		8BBFC38A1CB5B886002805CB /* MessagesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBFC3891CB5B886002805CB /* MessagesController.swift */; };
 		8BD0AB401C823F5C0004A453 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD0AB3F1C823F5C0004A453 /* Company.swift */; };
 		8BD7088F1C8194C000ACAD53 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD7088E1C8194C000ACAD53 /* Category.swift */; };
 		B69F0A1A0AC0E6FA93E993C7 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23905999118BA3E9D5D2DEA0 /* Pods.framework */; };
@@ -91,6 +92,7 @@
 		8B04738E1C82ABB400FA0BF0 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8B9724EC1CAB6B8E00788017 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		8BBFC3871CB5B0C6002805CB /* MyHostGigsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyHostGigsController.swift; sourceTree = "<group>"; };
+		8BBFC3891CB5B886002805CB /* MessagesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesController.swift; sourceTree = "<group>"; };
 		8BD0AB3F1C823F5C0004A453 /* Company.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 		8BD7088E1C8194C000ACAD53 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -195,6 +197,7 @@
 				816D77B11C82E19A0062594C /* PaymentViewController.swift */,
 				816D77BC1C8909FE0062594C /* GiftAUserController.swift */,
 				8B9724EC1CAB6B8E00788017 /* LoginController.swift */,
+				8BBFC3891CB5B886002805CB /* MessagesController.swift */,
 			);
 			path = Betagig;
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 				816D77A91C82A8170062594C /* CityListController.swift in Sources */,
 				81FA7B7E1C815F6A000BACBD /* CompanyDetailController.swift in Sources */,
 				81FA7B891C817A3C000BACBD /* Career.swift in Sources */,
+				8BBFC38A1CB5B886002805CB /* MessagesController.swift in Sources */,
 				813524701C8207990018FB29 /* StaticTableCell.swift in Sources */,
 				81FA7B781C812620000BACBD /* CollectionViewCell.swift in Sources */,
 				81FA7B861C81701D000BACBD /* BetaGigDetailController.swift in Sources */,
