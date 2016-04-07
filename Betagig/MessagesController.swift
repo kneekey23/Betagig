@@ -28,10 +28,9 @@ class MessagesController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let header: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView //recast your view as a UITableViewHeaderFooterView
-        header.contentView.backgroundColor = UIColor(hexString: "FFFFFF")
-        header.textLabel!.textColor = UIColor(hexString: "E65100") //make the text orange
-        header.textLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 16)!
-        //        header.alpha = 0.5 //make the header transparent
+        header.contentView.backgroundColor = UIColor.clearColor()
+        header.textLabel!.textColor = UIColor(hexString: "FFFFFF")
+        header.textLabel?.font = UIFont(name: "American Typewriter", size: 26)!
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
