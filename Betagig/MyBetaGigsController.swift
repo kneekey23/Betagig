@@ -233,10 +233,10 @@ class MyBetaGigsController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let header: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView //recast your view as a UITableViewHeaderFooterView
-        header.contentView.backgroundColor = UIColor(hexString: "FFFFFF") 
+        header.contentView.backgroundColor = UIColor(white: 1, alpha: 0.7)
+//        header.contentView.backgroundColor = UIColor.clearColor()
         header.textLabel!.textColor = UIColor(hexString: "E65100") //make the text orange
         header.textLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 16)!
-//        header.alpha = 0.5 //make the header transparent
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
