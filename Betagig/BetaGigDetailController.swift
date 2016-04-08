@@ -29,24 +29,24 @@ class BetaGigDetailController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let companyPin = MapAnnotation(title: betagig!.company, coordinate: CLLocationCoordinate2D(latitude: Double(betagig!.lat)!, longitude: Double(betagig!.long)!), info: betagig!.street)
+        let companyPin = MapAnnotation(title: betagig!.companyName!, coordinate: CLLocationCoordinate2D(latitude: Double(betagig!.lat!), longitude: Double(betagig!.long!)), info: betagig!.companyStreet!)
         mapview.addAnnotation(companyPin)
         let span = MKCoordinateSpanMake(0.075, 0.075)
-        let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: Double(betagig!.lat)!, longitude: Double(betagig!.long)!), span: span)
+        let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: Double(betagig!.lat!), longitude: Double(betagig!.long!)), span: span)
         mapview.setRegion(region, animated: true)
         setFields()
     }
     
     func setFields() {
-        gigName.text = betagig!.gig
+        gigName.text = betagig!.careerName
         status.text = betagig!.status
-        company.text = betagig!.company
-        date.text = betagig!.date
+        company.text = betagig!.companyName
+        //date.text = betagig!.date
         time.text = betagig!.time
-        cost.text = "$" + String(Int(betagig!.cost)) + "/per day"
-        contact.text = betagig!.contact
-        street.text = betagig!.street
-        city.text = betagig!.city + ", " + betagig!.state + " " + betagig!.zip
+        cost.text = "$" + String(Int(betagig!.costPerDay!)) + "/per day"
+       // contact.text = betagig!.companyContactUserId
+        street.text = betagig!.companyStreet
+        //city.text = betagig!.companyCity! + ", " + betagig!.companyState! + " " + betagig!.companyZip!
     }
 
     @IBAction func showActionSheet(sender: AnyObject) {
@@ -68,7 +68,7 @@ class BetaGigDetailController: UIViewController {
                 let lyftAppURL = NSURL(string: "lyft://partner=SuyEX9chJQys")!
                 if myApp.canOpenURL(lyftAppURL) {
                     // Lyft is installed; launch it
-                     let lyftAppurl = NSURL(string: "lyft://ridetype?id=lyft&partner=SuyEX9chJQys&destination[latitude]=" + self.betagig!.lat + "&destination[longitude]=" + self.betagig!.long)!
+                     let lyftAppurl = NSURL(string: "lyft://ridetype?id=lyft&partner=SuyEX9chJQys&destination[latitude]=" + String(self.betagig!.lat) + "&destination[longitude]=" + String(self.betagig!.long))!
                     myApp.openURL(lyftAppurl)
                 } else {
                     // Lyft not installed; open App Store
@@ -125,15 +125,15 @@ class BetaGigDetailController: UIViewController {
             betagigUrl.childByAppendingPath(self.betagig!.id).removeValue()
             
             //remove from users list of beta gigs.
-            let userUrl = "https://betagig1.firebaseio.com/userData/" + self.betagig!.testerid + "/betagigs"
+            let userUrl = "https://betagig1.firebaseio.com/userData/" + self.betagig!.testerUserId! + "/betagigs"
             let ref = Firebase(url:userUrl)
             var ids = []
             ref.observeEventType(.Value, withBlock: { snapshot in
                 
                ids = snapshot.value as! NSArray
                 let aMutableArray = ids.mutableCopy() as! NSMutableArray
-                if aMutableArray.containsObject(self.betagig!.id){
-                      aMutableArray.removeObjectAtIndex(Int(self.betagig!.id)!)
+                if aMutableArray.containsObject(self.betagig!.id!){
+                      aMutableArray.removeObjectAtIndex(Int(self.betagig!.id!)!)
                 }
               
                 ids = aMutableArray as NSArray

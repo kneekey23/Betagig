@@ -7,102 +7,60 @@
 //
 
 import Foundation
-import Firebase
+import SwiftyJSON
 
 class BetaGig {
     
-    var testerid: String = ""
-    var testername: String = ""
-    var testeremail: String = ""
-    var id: String = ""
-    var company: String = ""
-    var gig: String = ""
-    var status: String = ""
-    var date: String = ""
-    var time: String = ""
-    var contact: String = ""
-    var cost: Double = 50.00
-    var street: String = ""
-    var city: String = ""
-    var state: String = ""
-    var zip: String = ""
-    var lat: String = ""
-    var long: String = ""
-    let ref: Firebase?
-    let key: String!
+   var testerUserId : String?
+   var companyName : String?
+   var lat : Double?
+   var companyZip : Int?
+   var testerName : String?
+   var tablePrefix : String?
+   var tableName : String?
+   var status : String?
+   var time : String?
+   var id : String?
+   var isDeleted : String?
+   var companyState : String?
+   var managerApproved : String?
+   var testerEmail : String?
+   var long : Double?
+   var careerName : String?
+   var companyContactUserId : String?
+   var careerId : String?
+   var costPerDay: Int?
+   var companyStreet : String?
+    var companyCity : String?
     
-    
-    init(snapshot: FDataSnapshot) {
+
+    required init?(json: JSON) {
         
-        key = snapshot.key
-        ref = snapshot.ref
-        
-        testerid = snapshot.value["testerid"] as! String
-      
-        testername = snapshot.value["testername"] as! String
-        testeremail = snapshot.value["testeremail"] as! String
-        id = snapshot.value["id"] as! String
-        company = snapshot.value["company"] as! String
-        gig = snapshot.value["gig"] as! String
-        status = snapshot.value["status"] as! String
-        date = snapshot.value["date"] as! String
-        time = snapshot.value["time"] as! String
-        contact = snapshot.value["contact"] as! String
-        cost = snapshot.value["cost"] as! Double
-        street = snapshot.value["street"] as! String
-        city = snapshot.value["city"] as! String
-        state = snapshot.value["state"] as! String
-        zip = snapshot.value["zip"] as! String
-        lat = snapshot.value["lat"] as! String
-        long = snapshot.value["long"] as! String
+        testerUserId = json["testerUserId"].stringValue
+        companyName = json["companyName"].stringValue
+        lat = json["lat"].doubleValue
+        companyZip = json["companyZip"].intValue
+        testerName = json["testerName"].stringValue
+        tablePrefix = json["tablePrefix"].stringValue
+        tableName = json["tableName"].stringValue
+        status = json["status"].stringValue
+        time = json["time"].stringValue
+        id = json["id"].stringValue
+        isDeleted = json["isDeleted"].stringValue
+        companyState = json["companyState"].stringValue
+        managerApproved = json["managerApproved"].stringValue
+        testerEmail = json["testerEmail"].stringValue
+        long = json["long"].doubleValue
+        careerName = json["careerName"].stringValue
+        companyContactUserId = json["companyContactUserId"].stringValue
+        careerId = json["careerId"].stringValue
+        companyStreet = json["companyStreet"].stringValue
     }
     
-    
-    func toAnyObject() -> AnyObject {
-        
-        return [
-            "testerid": testerid,
-            "testername": testername,
-            "testeremail": testeremail,
-            "id": id,
-            "company": company,
-            "gig": gig,
-            "status": status,
-            "date": date,
-            "time": time,
-            "contact": contact,
-            "cost": cost,
-            "street": street,
-            "city": city,
-            "state": state,
-            "zip": zip,
-            "lat": lat,
-            "long": long
-        ]
+    init(){
         
     }
     
-    
-    init (testerid: String, testername: String, testeremail: String, id: String, company: String, gig: String, status: String, date: String, time: String, contact: String, cost: Double, street: String, city: String, state: String, zip: String, lat: String, long: String, key: String = "") {
-        self.testerid = testerid
-        self.testername = testername
-        self.testeremail = testeremail
-        self.id = id
-        self.company = company
-        self.gig = gig
-        self.status = status
-        self.date = date
-        self.time = time
-        self.contact = contact
-        self.cost = cost
-        self.street = street
-        self.city = city
-        self.state = state
-        self.zip = zip
-        self.lat = lat
-        self.long = long
-        self.key = key
-        self.ref = nil
-    }
+
     
 }

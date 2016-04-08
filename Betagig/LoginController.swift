@@ -18,7 +18,7 @@ class LoginController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        closeBtn!.addTarget(self, action: Selector("tapOnX:"), forControlEvents: UIControlEvents.TouchUpInside)
+        closeBtn!.addTarget(self, action: #selector(LoginController.tapOnX(_:)), forControlEvents: UIControlEvents.TouchUpInside)
     }
     
     func tapOnX(button: UIButton) {
@@ -28,5 +28,5 @@ class LoginController: UIViewController {
 
 protocol LoginViewControllerDelegate
 {
-    func sendValue(var value : NSString)
+    func sendValue(value : NSString)
 }

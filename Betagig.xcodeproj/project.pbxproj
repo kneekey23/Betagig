@@ -25,7 +25,6 @@
 		81D913C91C810E2E0071F627 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D913C81C810E2E0071F627 /* AppDelegate.swift */; };
 		81D913CB1C810E2E0071F627 /* AuthenticationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D913CA1C810E2E0071F627 /* AuthenticationController.swift */; };
 		81D913D01C810E2E0071F627 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81D913CF1C810E2E0071F627 /* Assets.xcassets */; };
-		81D913D31C810E2E0071F627 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81D913D11C810E2E0071F627 /* LaunchScreen.storyboard */; };
 		81FA7B721C811670000BACBD /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FA7B711C811670000BACBD /* MainController.swift */; };
 		81FA7B741C8116FC000BACBD /* BrowseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FA7B731C8116FC000BACBD /* BrowseController.swift */; };
 		81FA7B761C81173A000BACBD /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FA7B751C81173A000BACBD /* ProfileController.swift */; };
@@ -254,7 +253,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = shortkey;
 				TargetAttributes = {
 					81D913C41C810E2E0071F627 = {
@@ -286,7 +285,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				816D77AD1C82BDBB0062594C /* LaunchScreen.storyboard in Resources */,
-				81D913D31C810E2E0071F627 /* LaunchScreen.storyboard in Resources */,
 				81D913D01C810E2E0071F627 /* Assets.xcassets in Resources */,
 				816D77B01C82D4B40062594C /* Main.storyboard in Resources */,
 			);

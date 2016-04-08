@@ -80,61 +80,61 @@ class BetaGigRequestController: UIViewController, UIPickerViewDataSource, UIPick
     @IBAction func requestAction(sender: AnyObject) {
         
         // Attach a closure to read the data
-        ref.observeSingleEventOfType(.Value, withBlock: { snapshot in
-            
-            var betagigs = [BetaGig]()
-            
-            for item in snapshot.children {
-                let betagig = BetaGig(snapshot: item as! FDataSnapshot)
-                betagigs.append(betagig)
-            }
-            
-            let newId = String(betagigs.count)
-            
-            
-            //add beta gig id to users list of beta gigs.
-            self.dbRef.observeAuthEventWithBlock({ authData in
-                if authData != nil {
-                    // user authenticated
-                    
-                    
-                    let userUrl = Firebase(url: "https://betagig1.firebaseio.com/userData/" + authData.uid)
-                    
-                    userUrl.observeSingleEventOfType(.Value, withBlock: { snapshot in
-                        
-                        if var ids = snapshot.value["betagigs"] as? [String] {
-                           ids.append(newId)
-                            let newIdObj = [newId: newId]
-                            userUrl.childByAppendingPath("betagigs").updateChildValues(newIdObj)
-                        }
-                       
-                        var testername: String = ""
-                        if let userName = snapshot.value["name"] as? String {
-                            print(userName)
-                            testername = userName
-                        }
-                        
-                        var testeremail: String = ""
-                        if let userEmail = snapshot.value["email"] as? String {
-                            print(testeremail)
-                            testeremail = userEmail
-                        }
-                        
-                        
-                        let newBetaGig = ["id": newId, "company": (self.selectedCompany?.name)!, "gig": self.selectedCareer!, "status": "pending", "date": "Mar 9 - 11, 2016", "time": "10:00 AM - 6:00 PM", "contact": "Aiko Rogers", "cost": (self.selectedCompany?.cost)!, "street": (self.selectedCompany?.street)!, "city": (self.selectedCompany?.city)!, "state": (self.selectedCompany?.state)!, "zip": (self.selectedCompany?.zip)!, "testerid" : String(authData.uid), "testername" : testername, "testeremail" : testeremail, "lat" : (self.selectedCompany?.lat)!, "long" : (self.selectedCompany?.long)!]
-                        //add beta gigs to beta gig table.
-                        self.ref.childByAppendingPath(newId).setValue(newBetaGig)
-                    })
-                    
-                } else {
-                    // No user is signed in
-                }
-            })
-            
-            
-            }, withCancelBlock: { error in
-                print(error.description)
-        })
+//        ref.observeSingleEventOfType(.Value, withBlock: { snapshot in
+//            
+//            var betagigs = [BetaGig]()
+//            
+//            for item in snapshot.children {
+//                let betagig = BetaGig(dictionary: item as! FDataSnapshot)
+//                betagigs.append(betagig)
+//            }
+//            
+//            let newId = String(betagigs.count)
+//            
+//            
+//            //add beta gig id to users list of beta gigs.
+//            self.dbRef.observeAuthEventWithBlock({ authData in
+//                if authData != nil {
+//                    // user authenticated
+//                    
+//                    
+//                    let userUrl = Firebase(url: "https://betagig1.firebaseio.com/userData/" + authData.uid)
+//                    
+//                    userUrl.observeSingleEventOfType(.Value, withBlock: { snapshot in
+//                        
+//                        if var ids = snapshot.value["betagigs"] as? [String] {
+//                           ids.append(newId)
+//                            let newIdObj = [newId: newId]
+//                            userUrl.childByAppendingPath("betagigs").updateChildValues(newIdObj)
+//                        }
+//                       
+//                        var testername: String = ""
+//                        if let userName = snapshot.value["name"] as? String {
+//                            print(userName)
+//                            testername = userName
+//                        }
+//                        
+//                        var testeremail: String = ""
+//                        if let userEmail = snapshot.value["email"] as? String {
+//                            print(testeremail)
+//                            testeremail = userEmail
+//                        }
+//                        
+//                        
+//                        let newBetaGig = ["id": newId, "company": (self.selectedCompany?.name)!, "gig": self.selectedCareer!, "status": "pending", "date": "Mar 9 - 11, 2016", "time": "10:00 AM - 6:00 PM", "contact": "Aiko Rogers", "cost": (self.selectedCompany?.cost)!, "street": (self.selectedCompany?.street)!, "city": (self.selectedCompany?.city)!, "state": (self.selectedCompany?.state)!, "zip": (self.selectedCompany?.zip)!, "testerid" : String(authData.uid), "testername" : testername, "testeremail" : testeremail, "lat" : (self.selectedCompany?.lat)!, "long" : (self.selectedCompany?.long)!]
+//                        //add beta gigs to beta gig table.
+//                        self.ref.childByAppendingPath(newId).setValue(newBetaGig)
+//                    })
+//                    
+//                } else {
+//                    // No user is signed in
+//                }
+//            })
+//            
+//            
+//            }, withCancelBlock: { error in
+//                print(error.description)
+//        })
         
         
     }

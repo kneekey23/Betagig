@@ -9,6 +9,8 @@
 import UIKit
 import Firebase
 import Foundation
+import Alamofire
+import SwiftyJSON
 
 class MyBetaGigsController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
@@ -17,115 +19,70 @@ class MyBetaGigsController: UIViewController, UITableViewDataSource, UITableView
     var mypendingGigs: [BetaGig] = []
     var myconfirmedGigs: [BetaGig] = []
     var mypastGigs: [BetaGig] = []
-    let ref = Firebase(url: "https://betagig1.firebaseio.com")
+   
+  
+    //let ref = Firebase(url: "https://betagig1.firebaseio.com")
+    let userId: String = "a2c1144f-6842-4249-b3cd-77bd8571cf04"
     
     @IBOutlet weak var betaGigsTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        ref.observeAuthEventWithBlock({ authData in
-            if authData != nil {
-                // user authenticated
-            
-                
-                let userUrl = Firebase(url: "https://betagig1.firebaseio.com/userData/" + authData.uid)
-                
-                userUrl.observeSingleEventOfType(.Value, withBlock: { snapshot in
-                    
-                    if let userName = snapshot.value["name"] as? String {
-                        print(userName)
-                    }
-                    
-                    if let ids = snapshot.value["betagigs"] as? [String] {
-                        self.myGigIds = ids
-                    }
-                    
-                    for gigId in self.myGigIds {
-                        print(gigId)
-                    }
-                    
-                    self.getGigData(self.myGigIds)
-                    
-                })
-                
-            } else {
-                // No user is signed in
-            }
-        })
+       // getMyBetaGigs(userId)
         
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        ref.observeAuthEventWithBlock({ authData in
-            if authData != nil {
-                // user authenticated
-             
-                
-                let userUrl = Firebase(url: "https://betagig1.firebaseio.com/userData/" + authData.uid)
-                
-                userUrl.observeSingleEventOfType(.Value, withBlock: { snapshot in
-                    
-                    if let userName = snapshot.value["name"] as? String {
-                        print(userName)
-                    }
-                    
-                    if let ids = snapshot.value["betagigs"] as? [String] {
-                        self.myGigIds = ids
-                    }
-                    
-                    for gigId in self.myGigIds {
-                        print(gigId)
-                    }
-                    
-                    self.getGigData(self.myGigIds)
-                    
-                })
-                
-            } else {
-                // No user is signed in
-            }
-        })
+         getMyBetaGigs(userId)
     }
-    
-    func getGigData(myGigIds: [String]){
+
+
+    func getMyBetaGigs(userId: String){
+
+        let apiUrl = "https://qc2n6qlv7g.execute-api.us-west-2.amazonaws.com/dev/betagig/user?id=\(userId)";
+        // let pars2 : Dictionary<String,String> = ["x-api-key":"3euU5d6Khj5YQXZNDBrqq1NDkDytrwek1AyToIHA"]
+        let headers = [
+            "x-api-key": "3euU5d6Khj5YQXZNDBrqq1NDkDytrwek1AyToIHA",
+            "Content-Type": "application/json"
+        ]
         
-        let betagigUrl = Firebase(url: "https://betagig1.firebaseio.com/betagigs")
-        
-        // Attach a closure to read the data
-        betagigUrl.observeSingleEventOfType(.Value, withBlock: { snapshot in
-            self.allMyGigs.removeAll()
-            self.myconfirmedGigs.removeAll()
-            self.mypastGigs.removeAll()
-            self.mypendingGigs.removeAll()
-            for item in snapshot.children {
-                let betagig = BetaGig(snapshot: item as! FDataSnapshot)
+        Alamofire.request(.GET, apiUrl, headers: headers).validate()
+            .responseJSON { response in
                 
-                for myId in myGigIds {
-                    if myId == betagig.id {
-                        self.allMyGigs.append(betagig)
-                    }
+        switch response.result {
+                case .Success(let data):
+                    let json = JSON(data)
+                    let list: Array<JSON> = json["Items"].arrayValue
+                        for item in list{
+                            
+                            
+                            self.allMyGigs.append(BetaGig(json: item)!)
+                            
+                        }
+                        
+                        for g in self.allMyGigs {
+                            if g.status == "pending" {
+                                self.mypendingGigs.append(g)
+                            } else if g.status == "upcoming" {
+                                self.myconfirmedGigs.append(g)
+                            } else if g.status == "completed" {
+                                self.mypastGigs.append(g)
+                            }
+                        }
+                        
+                        self.betaGigsTableView.reloadData()
+                    
+                case .Failure(let error):
+                    print("Request failed with error: \(error)")
                 }
-            }
             
-            for g in self.allMyGigs {
-                if g.status == "pending" {
-                    self.mypendingGigs.append(g)
-                } else if g.status == "upcoming" {
-                    self.myconfirmedGigs.append(g)
-                } else if g.status == "completed" {
-                    self.mypastGigs.append(g)
-                }
-            }
-            
-            self.betaGigsTableView.reloadData()
-            
-            
-            }, withCancelBlock: { error in
-                print(error.description)
-        })
-        
+                
+
+                
+                
+        }
+    
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -199,8 +156,8 @@ class MyBetaGigsController: UIViewController, UITableViewDataSource, UITableView
         }
 
         if showEmptyMsg == false {
-            cell.textLabel?.text = item?.gig
-            cell.detailTextLabel?.text = (item?.company)! + ", " + (item?.date)!
+            cell.textLabel?.text = item?.careerName
+            cell.detailTextLabel?.text = (item?.companyName)! + ", " + (item?.time)!
             cell.selectionStyle = .Default
             cell.accessoryType = .DisclosureIndicator
             cell.userInteractionEnabled = true
@@ -266,7 +223,7 @@ class MyBetaGigsController: UIViewController, UITableViewDataSource, UITableView
                     let nameOfGig = cell.textLabel?.text
                     var selectedBetagig: BetaGig?
                     for g in self.allMyGigs {
-                        if g.gig == nameOfGig! {
+                        if g.careerName == nameOfGig! {
                             selectedBetagig = g
                             break
                         }

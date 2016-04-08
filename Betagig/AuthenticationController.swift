@@ -49,7 +49,7 @@ class AuthenticationController: UIViewController,UITextFieldDelegate, UITableVie
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.navigationController?.setNavigationBarHidden(true, animated: true)
-        closeBtn!.addTarget(self, action: Selector("tapOnX:"), forControlEvents: UIControlEvents.TouchUpInside)
+        closeBtn!.addTarget(self, action: #selector(AuthenticationController.tapOnX(_:)), forControlEvents: UIControlEvents.TouchUpInside)
 
         username.delegate = self
         password.delegate = self

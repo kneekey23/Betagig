@@ -93,38 +93,38 @@ class MyHostGigsController: UIViewController, UITableViewDataSource, UITableView
         
         let betagigUrl = Firebase(url: "https://betagig1.firebaseio.com/betagigs")
         
-        // Attach a closure to read the data
-        betagigUrl.observeSingleEventOfType(.Value, withBlock: { snapshot in
-            self.allMyGigs.removeAll()
-            self.myconfirmedGigs.removeAll()
-            self.mypastGigs.removeAll()
-            self.mypendingGigs.removeAll()
-            for item in snapshot.children {
-                let betagig = BetaGig(snapshot: item as! FDataSnapshot)
-                
-                for myId in myGigIds {
-                    if myId == betagig.id {
-                        self.allMyGigs.append(betagig)
-                    }
-                }
-            }
-            
-            for g in self.allMyGigs {
-                if g.status == "pending" {
-                    self.mypendingGigs.append(g)
-                } else if g.status == "upcoming" {
-                    self.myconfirmedGigs.append(g)
-                } else if g.status == "completed" {
-                    self.mypastGigs.append(g)
-                }
-            }
-            
-            self.betaGigsTableView.reloadData()
-            
-            
-            }, withCancelBlock: { error in
-                print(error.description)
-        })
+//        // Attach a closure to read the data
+//        betagigUrl.observeSingleEventOfType(.Value, withBlock: { snapshot in
+//            self.allMyGigs.removeAll()
+//            self.myconfirmedGigs.removeAll()
+//            self.mypastGigs.removeAll()
+//            self.mypendingGigs.removeAll()
+//            for item in snapshot.children {
+//                let betagig = BetaGig(snapshot: item as! FDataSnapshot)
+//                
+//                for myId in myGigIds {
+//                    if myId == betagig.id {
+//                        self.allMyGigs.append(betagig)
+//                    }
+//                }
+//            }
+//            
+//            for g in self.allMyGigs {
+//                if g.status == "pending" {
+//                    self.mypendingGigs.append(g)
+//                } else if g.status == "upcoming" {
+//                    self.myconfirmedGigs.append(g)
+//                } else if g.status == "completed" {
+//                    self.mypastGigs.append(g)
+//                }
+//            }
+//            
+//            self.betaGigsTableView.reloadData()
+//            
+//            
+//            }, withCancelBlock: { error in
+//                print(error.description)
+//        })
         
     }
     
@@ -199,8 +199,8 @@ class MyHostGigsController: UIViewController, UITableViewDataSource, UITableView
         }
 
         if showEmptyMsg == false {
-            cell.textLabel?.text = item?.gig
-            cell.detailTextLabel?.text = (item?.company)! + ", " + (item?.date)!
+            cell.textLabel?.text = item?.careerName
+            cell.detailTextLabel?.text = (item?.companyName)! + ", " + (item?.time)!
             cell.selectionStyle = .Default
             cell.accessoryType = .DisclosureIndicator
             cell.userInteractionEnabled = true
@@ -266,7 +266,7 @@ class MyHostGigsController: UIViewController, UITableViewDataSource, UITableView
                     let nameOfGig = cell.textLabel?.text
                     var selectedBetagig: BetaGig?
                     for g in self.allMyGigs {
-                        if g.gig == nameOfGig! {
+                        if g.careerName == nameOfGig! {
                             selectedBetagig = g
                             break
                         }

@@ -72,7 +72,7 @@ class CompanyBetaGigDetailController: UIViewController {
         let emailActionButton: UIAlertAction = UIAlertAction(title: "Email Betagig Requester", style: .Default){
             action -> Void in
             
-            let url = NSURL(string: "mailto:\(self.betagig!.testeremail)")!
+            let url = NSURL(string: "mailto:\(self.betagig!.testerEmail)")!
             UIApplication.sharedApplication().openURL(url)
         }
         actionSheetControllerIOS8.addAction(emailActionButton)
@@ -87,21 +87,21 @@ class CompanyBetaGigDetailController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(betagig!.gig)
+        print(betagig!.careerName)
         setFields()
     }
     
     func setFields() {
-        gigName.text = betagig!.gig
-        location.text = betagig!.street
+        gigName.text = betagig!.careerName
+        location.text = betagig!.companyStreet
         status.text = betagig!.status
      
-        nameButton.setTitle(betagig!.testername, forState: UIControlState.Normal)
+        nameButton.setTitle(betagig!.testerName, forState: UIControlState.Normal)
          nameButton.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Left
-        date.text = betagig!.date
+//        date.text = betagig!.date
         time.text = betagig!.time
-        cost.text = "$" + String(Int(betagig!.cost)) + "/per day"
-        email.text = betagig!.testeremail
+        cost.text = "$" + String(Int(betagig!.costPerDay!)) + "/per day"
+        email.text = betagig!.testerEmail
     }
     
     func updateGigStatus(newStatus: String) {
@@ -116,7 +116,7 @@ class CompanyBetaGigDetailController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "userProfileSegue"{
             let userProfileController = segue.destinationViewController as! CompanyUserProfileController
-            userProfileController.userName = self.betagig!.testername
+            userProfileController.userName = self.betagig!.testerName
             
         }
     }
