@@ -17,9 +17,8 @@ class ProfileController: UITableViewController {
 
         if segue.identifier == "logOut"{
             ref.unauth()
-            let loginVC = segue.destinationViewController as! AuthenticationController
-            loginVC.hidesBottomBarWhenPushed = true
-        
+            let loginVC = segue.destinationViewController as! MainViewController
+            loginVC.hidesBottomBarWhenPushed = true  
         }
     }
     
