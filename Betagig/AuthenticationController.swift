@@ -37,10 +37,8 @@ class AuthenticationController: UIViewController,UITextFieldDelegate, UITableVie
                 
             } else {
                 self.auth = true
-                self.performSegueWithIdentifier("login", sender: nil)
+                self.performSegueWithIdentifier("browse", sender: nil)
                 // user is logged in, check authData for data
-                
-                
             }
         }
     }
@@ -53,7 +51,7 @@ class AuthenticationController: UIViewController,UITextFieldDelegate, UITableVie
 
         username.delegate = self
         password.delegate = self
-        username.text = "nicki@shortkey.io"
+        username.text = "mel.hargis@ucla.edu"
         password.text = "goucla23"
     }
     
@@ -93,13 +91,11 @@ class AuthenticationController: UIViewController,UITextFieldDelegate, UITableVie
         
         if identifier == "login" {
             return auth
-        }else if identifier == "createAccount"{
+        } else if identifier == "createAccount"{
             auth = true
-        }
-        else if identifier == "companySignIn"{
+        } else if identifier == "companySignIn"{
             auth = true
-        }
-        else if identifier == "giftSegue"{
+        } else if identifier == "giftSegue"{
             auth = true
         }
         

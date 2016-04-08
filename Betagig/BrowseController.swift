@@ -22,7 +22,7 @@ class BrowseViewController: UIViewController, UITableViewDataSource, CityListVie
     var categories: [Category] = []
     var careers: [Career] = []
     var cityButton: UIButton?
-    
+    let ref = Firebase(url: "https://betagig1.firebaseio.com")
     
     override func viewDidLoad() {
         
@@ -39,7 +39,16 @@ class BrowseViewController: UIViewController, UITableViewDataSource, CityListVie
         cityButton!.addTarget(self, action: Selector("clickOnButton:"), forControlEvents: UIControlEvents.TouchUpInside)
         self.navigationItem.titleView = cityButton
         
-        self.performSegueWithIdentifier("loginSegue", sender: self)
+        ref.observeAuthEventWithBlock({ authData in
+            if authData != nil {
+                // user authenticated
+                print("logged in")
+            } else {
+                // No user is signed in
+                self.performSegueWithIdentifier("loginSegue", sender: self)
+            }
+        })
+//        self.performSegueWithIdentifier("loginSegue", sender: self)
     }
     
     func clickOnButton(button: UIButton) {
