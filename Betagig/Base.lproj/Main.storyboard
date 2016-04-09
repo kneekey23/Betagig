@@ -791,9 +791,6 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <segue destination="cZX-Z3-kcd" kind="show" identifier="coBetaGigDetail" trigger="accessoryAction" id="RE7-4I-PuN"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -829,7 +826,7 @@
                         <viewControllerLayoutGuide type="bottom" id="VCE-Pf-z8r"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="b4i-hg-CiT">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T7j-Eq-xPM">
@@ -1001,7 +998,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o84-6e-rIk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3854.5" y="1645.5"/>
+            <point key="canvasLocation" x="2739.5" y="-1946.5"/>
         </scene>
         <!--Company User Profile Controller-->
         <scene sceneID="ewm-8l-AYr">
@@ -1015,7 +1012,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Melissa Hargis" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TXl-ZO-tkn">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nicki Klein" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TXl-ZO-tkn">
                                 <rect key="frame" x="92" y="49" width="191" height="29"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                 <color key="textColor" red="0.69019607839999997" green="0.28235294119999998" blue="0.70980392160000005" alpha="1" colorSpace="deviceRGB"/>
@@ -1091,9 +1088,6 @@
                                 <rect key="frame" x="108" y="313" width="158" height="28"/>
                                 <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="MelissaCurly" translatesAutoresizingMaskIntoConstraints="NO" id="44N-hm-opJ">
-                                <rect key="frame" x="79" y="86" width="216" height="219"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zjk-kr-aTL">
                                 <rect key="frame" x="329" y="28" width="26" height="25"/>
                                 <state key="normal" image="Delete Filled-50 black">
@@ -1103,6 +1097,9 @@
                                     <action selector="userProfile:" destination="0d0-Zo-7dl" eventType="touchUpInside" id="80p-nX-XRO"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SCAN0013" translatesAutoresizingMaskIntoConstraints="NO" id="44N-hm-opJ">
+                                <rect key="frame" x="104" y="86" width="166" height="219"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -1113,7 +1110,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V63-yD-Chv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4422.5" y="1645.5"/>
+            <point key="canvasLocation" x="3262.5" y="-1946.5"/>
         </scene>
         <!--Company Profile-->
         <scene sceneID="Zt3-bh-GdV">
@@ -3194,6 +3191,9 @@
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="cZX-Z3-kcd" kind="show" identifier="hostGigDetail" trigger="accessoryAction" id="eaK-eI-hgV"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -3245,7 +3245,7 @@
                     <navigationItem key="navigationItem" id="68X-i4-aoO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="betaGigsTableView" destination="Dd4-9h-aeg" id="X0l-Rs-JsF"/>
+                        <outlet property="hostGigsTableView" destination="Dd4-9h-aeg" id="fdZ-B8-ihY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CMW-y2-02U" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3375,7 +3375,6 @@
         <image name="Gender Neutral User-25-gray" width="25" height="25"/>
         <image name="Left Filled-50" width="50" height="50"/>
         <image name="MainBkg" width="2775" height="4699"/>
-        <image name="MelissaCurly" width="400" height="400"/>
         <image name="Message Filled-25-orange" width="25" height="25"/>
         <image name="Message-25-gray" width="25" height="25"/>
         <image name="PeopleWalkingOffice" width="2902" height="2129"/>
@@ -3384,6 +3383,7 @@
         <image name="Permanent Job-25-gray" width="25" height="25"/>
         <image name="Pin 2 Filled-25-orange" width="25" height="25"/>
         <image name="Pin 2-25-gray" width="25" height="25"/>
+        <image name="SCAN0013" width="1025" height="1447"/>
         <image name="Twtr" width="305" height="53"/>
         <image name="Twtr-signup" width="305" height="53"/>
         <image name="browse-top-img" width="615" height="574"/>

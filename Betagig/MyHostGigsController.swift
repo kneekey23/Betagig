@@ -19,74 +19,165 @@ class MyHostGigsController: UIViewController, UITableViewDataSource, UITableView
     var mypastGigs: [BetaGig] = []
     let ref = Firebase(url: "https://betagig1.firebaseio.com")
     
-    @IBOutlet weak var betaGigsTableView: UITableView!
+    @IBOutlet weak var hostGigsTableView: UITableView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ref.observeAuthEventWithBlock({ authData in
-            if authData != nil {
-                // user authenticated
+//        ref.observeAuthEventWithBlock({ authData in
+//            if authData != nil {
+//                // user authenticated
+//            
+//                let uid: String = "db5ee49a-bb55-4f02-b58f-5fcc19bdb5c9"
+//                let userUrl = Firebase(url: "https://betagig1.firebaseio.com/userData/" + uid)
+//                
+//                userUrl.observeSingleEventOfType(.Value, withBlock: { snapshot in
+//                    
+//                    if let userName = snapshot.value["name"] as? String {
+//                        print(userName)
+//                    }
+//                    
+//                    if let ids = snapshot.value["betagigs"] as? [String] {
+//                        self.myGigIds = ids
+//                    }
+//                    
+//                    for gigId in self.myGigIds {
+//                        print(gigId)
+//                    }
+//                    
+//                    self.getGigData(self.myGigIds)
+//                    
+//                })
+//                
+//            } else {
+//                print("not logged in")
+//                // No user is signed in
+//            }
+//        })
+        
+        if loggedIn {
+//            let uid = "db5ee49a-bb55-4f02-b58f-5fcc19bdb5c9"
+//            let userUrl = Firebase(url: "https://betagig1.firebaseio.com/userData/" + uid)
+//            
+//            userUrl.observeSingleEventOfType(.Value, withBlock: { snapshot in
+//                print(snapshot.value["name"])
+//                if let userName = snapshot.value["name"] as? String {
+//                    print(userName)
+//                }
+//                
+//                if let ids = snapshot.value["betagigs"] as? [String] {
+//                    self.myGigIds = ids
+//                }
+//                
+//                for gigId in self.myGigIds {
+//                    print(gigId)
+//                }
+//                
+//                self.getGigData(self.myGigIds)
+//                
+//            })
             
-                
-                let userUrl = Firebase(url: "https://betagig1.firebaseio.com/userData/" + authData.uid)
-                
-                userUrl.observeSingleEventOfType(.Value, withBlock: { snapshot in
-                    
-                    if let userName = snapshot.value["name"] as? String {
-                        print(userName)
-                    }
-                    
-                    if let ids = snapshot.value["betagigs"] as? [String] {
-                        self.myGigIds = ids
-                    }
-                    
-                    for gigId in self.myGigIds {
-                        print(gigId)
-                    }
-                    
-                    self.getGigData(self.myGigIds)
-                    
-                })
-                
-            } else {
-                // No user is signed in
-            }
-        })
+            
+            
+//            self.myGigIds = ["4", "5"]
+//            self.getGigData(self.myGigIds)
+            
+            self.getHardcodedGigData()
+        }
         
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        ref.observeAuthEventWithBlock({ authData in
-            if authData != nil {
-                // user authenticated
-             
-                
-                let userUrl = Firebase(url: "https://betagig1.firebaseio.com/userData/" + authData.uid)
-                
-                userUrl.observeSingleEventOfType(.Value, withBlock: { snapshot in
-                    
-                    if let userName = snapshot.value["name"] as? String {
-                        print(userName)
-                    }
-                    
-                    if let ids = snapshot.value["betagigs"] as? [String] {
-                        self.myGigIds = ids
-                    }
-                    
-                    for gigId in self.myGigIds {
-                        print(gigId)
-                    }
-                    
-                    self.getGigData(self.myGigIds)
-                    
-                })
-                
-            } else {
-                // No user is signed in
+//        ref.observeAuthEventWithBlock({ authData in
+//            if authData != nil {
+//                // user authenticated
+//             
+//                let uid: String = "db5ee49a-bb55-4f02-b58f-5fcc19bdb5c9"
+//                let userUrl = Firebase(url: "https://betagig1.firebaseio.com/userData/" + uid)
+//                
+//                userUrl.observeSingleEventOfType(.Value, withBlock: { snapshot in
+//                    
+//                    if let userName = snapshot.value["name"] as? String {
+//                        print(userName)
+//                    }
+//                    
+//                    if let ids = snapshot.value["betagigs"] as? [String] {
+//                        self.myGigIds = ids
+//                    }
+//                    
+//                    for gigId in self.myGigIds {
+//                        print(gigId)
+//                    }
+//                    
+//                    self.getGigData(self.myGigIds)
+//                    
+//                })
+//                
+//            } else {
+//                // No user is signed in
+//            }
+//        })
+        
+        if loggedIn {
+            let uid = "db5ee49a-bb55-4f02-b58f-5fcc19bdb5c9"
+            let userUrl = Firebase(url: "https://betagig1.firebaseio.com/userData/" + uid)
+            
+//            userUrl.observeSingleEventOfType(.Value, withBlock: { snapshot in
+//                
+//                if let userName = snapshot.value["name"] as? String {
+//                    print(userName)
+//                }
+//                
+//                if let ids = snapshot.value["betagigs"] as? [String] {
+//                    self.myGigIds = ids
+//                }
+//                
+//                for gigId in self.myGigIds {
+//                    print(gigId)
+//                }
+//                
+//                self.getGigData(self.myGigIds)
+//                
+//            })
+            
+            
+            
+//            self.myGigIds = ["4", "5"]
+//            self.getGigData(self.myGigIds)
+            
+            self.getHardcodedGigData()
+        }
+    }
+    
+    func getHardcodedGigData(){
+        
+        self.allMyGigs.removeAll()
+        self.myconfirmedGigs.removeAll()
+        self.mypastGigs.removeAll()
+        self.mypendingGigs.removeAll()
+        
+        let betagig1 = BetaGig(testerid: "d7e4c5bf-7c55-4b76-b350-6385e413a220", testername: "Brad Green", testeremail: "brad.green@ucla.edu", id: "4", company: "Vandelay Industries", gig: "IT Administrator", status: "upcoming", date: "Apr 18, 2016", time: "9:00 AM - 5:00 PM", contact: "Marv Marvington", cost: 120.00, street: "6200 Wilshire Blvd", city: "Los Angeles", state: "CA", zip: "90048", lat: "34.062845", long: "-118.363667", key: "")
+        
+        let betagig2 = BetaGig(testerid: "d7e4c5bf-7c55-4b76-b350-6385e413a220", testername: "Nicki Klein", testeremail: "nicki@shortkey.io", id: "5", company: "Vandelay Industries", gig: "IT Administrator", status: "pending", date: "Apr 25, 2016", time: "9:00 AM - 5:00 PM", contact: "Marv Marvington", cost: 120.00, street: "6200 Wilshire Blvd", city: "Los Angeles", state: "CA", zip: "90048", lat: "34.062845", long: "-118.363667", key: "")
+        
+        self.allMyGigs.append(betagig1)
+        self.allMyGigs.append(betagig2)
+        
+        
+        for g in self.allMyGigs {
+            if g.status == "pending" {
+                self.mypendingGigs.append(g)
+            } else if g.status == "upcoming" {
+                self.myconfirmedGigs.append(g)
+            } else if g.status == "completed" {
+                self.mypastGigs.append(g)
             }
-        })
+        }
+        
+        self.hostGigsTableView.reloadData()
+        
     }
     
     func getGigData(myGigIds: [String]){
@@ -119,7 +210,7 @@ class MyHostGigsController: UIViewController, UITableViewDataSource, UITableView
                 }
             }
             
-            self.betaGigsTableView.reloadData()
+            self.hostGigsTableView.reloadData()
             
             
             }, withCancelBlock: { error in
@@ -243,7 +334,7 @@ class MyHostGigsController: UIViewController, UITableViewDataSource, UITableView
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
        // tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
-        self.performSegueWithIdentifier("betaGigDetail", sender: betaGigsTableView.cellForRowAtIndexPath(indexPath))
+        self.performSegueWithIdentifier("hostGigDetail", sender: hostGigsTableView.cellForRowAtIndexPath(indexPath))
     }
     
     
@@ -255,9 +346,9 @@ class MyHostGigsController: UIViewController, UITableViewDataSource, UITableView
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "betaGigDetail"{
+        if segue.identifier == "hostGigDetail"{
             
-            let betagigDetailController = segue.destinationViewController as! BetaGigDetailController
+            let companyBetaGigDetailController = segue.destinationViewController as! CompanyBetaGigDetailController
             
             if sender != nil {
                 
@@ -273,7 +364,7 @@ class MyHostGigsController: UIViewController, UITableViewDataSource, UITableView
                         }
                     }
                     
-                    betagigDetailController.betagig = selectedBetagig
+                    companyBetaGigDetailController.betagig = selectedBetagig
                 }
                 
             }

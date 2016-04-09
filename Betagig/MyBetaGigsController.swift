@@ -24,69 +24,115 @@ class MyBetaGigsController: UIViewController, UITableViewDataSource, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ref.observeAuthEventWithBlock({ authData in
-            if authData != nil {
-                // user authenticated
+//        ref.observeAuthEventWithBlock({ authData in
+//            if authData != nil {
+//                // user authenticated
+//            
+//                
+//                let userUrl = Firebase(url: "https://betagig1.firebaseio.com/userData/" + authData.uid)
+//                
+//                userUrl.observeSingleEventOfType(.Value, withBlock: { snapshot in
+//                    
+//                    if let userName = snapshot.value["name"] as? String {
+//                        print(userName)
+//                    }
+//                    
+//                    if let ids = snapshot.value["betagigs"] as? [String] {
+//                        self.myGigIds = ids
+//                    }
+//                    
+//                    for gigId in self.myGigIds {
+//                        print(gigId)
+//                    }
+//                    
+//                    self.getGigData(self.myGigIds)
+//                    
+//                })
+//                
+//            } else {
+//                // No user is signed in
+//            }
+//        })
+        
+        if loggedIn {
+            let uid = "72e9f24e-793c-4b12-9161-5e5b569cb3b5"
+            let userUrl = Firebase(url: "https://betagig1.firebaseio.com/userData/" + uid)
             
+            userUrl.observeSingleEventOfType(.Value, withBlock: { snapshot in
                 
-                let userUrl = Firebase(url: "https://betagig1.firebaseio.com/userData/" + authData.uid)
+                if let userName = snapshot.value["name"] as? String {
+                    print(userName)
+                }
                 
-                userUrl.observeSingleEventOfType(.Value, withBlock: { snapshot in
-                    
-                    if let userName = snapshot.value["name"] as? String {
-                        print(userName)
-                    }
-                    
-                    if let ids = snapshot.value["betagigs"] as? [String] {
-                        self.myGigIds = ids
-                    }
-                    
-                    for gigId in self.myGigIds {
-                        print(gigId)
-                    }
-                    
-                    self.getGigData(self.myGigIds)
-                    
-                })
+                if let ids = snapshot.value["betagigs"] as? [String] {
+                    self.myGigIds = ids
+                }
                 
-            } else {
-                // No user is signed in
-            }
-        })
+                for gigId in self.myGigIds {
+                    print(gigId)
+                }
+                
+                self.getGigData(self.myGigIds)
+                
+            })
+        }
         
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        ref.observeAuthEventWithBlock({ authData in
-            if authData != nil {
-                // user authenticated
-             
+//        ref.observeAuthEventWithBlock({ authData in
+//            if authData != nil {
+//                // user authenticated
+//             
+//                
+//                let userUrl = Firebase(url: "https://betagig1.firebaseio.com/userData/" + authData.uid)
+//                
+//                userUrl.observeSingleEventOfType(.Value, withBlock: { snapshot in
+//                    
+//                    if let userName = snapshot.value["name"] as? String {
+//                        print(userName)
+//                    }
+//                    
+//                    if let ids = snapshot.value["betagigs"] as? [String] {
+//                        self.myGigIds = ids
+//                    }
+//                    
+//                    for gigId in self.myGigIds {
+//                        print(gigId)
+//                    }
+//                    
+//                    self.getGigData(self.myGigIds)
+//                    
+//                })
+//                
+//            } else {
+//                // No user is signed in
+//            }
+//        })
+        
+        if loggedIn {
+            let uid = "72e9f24e-793c-4b12-9161-5e5b569cb3b5"
+            let userUrl = Firebase(url: "https://betagig1.firebaseio.com/userData/" + uid)
+            
+            userUrl.observeSingleEventOfType(.Value, withBlock: { snapshot in
                 
-                let userUrl = Firebase(url: "https://betagig1.firebaseio.com/userData/" + authData.uid)
+                if let userName = snapshot.value["name"] as? String {
+                    print(userName)
+                }
                 
-                userUrl.observeSingleEventOfType(.Value, withBlock: { snapshot in
-                    
-                    if let userName = snapshot.value["name"] as? String {
-                        print(userName)
-                    }
-                    
-                    if let ids = snapshot.value["betagigs"] as? [String] {
-                        self.myGigIds = ids
-                    }
-                    
-                    for gigId in self.myGigIds {
-                        print(gigId)
-                    }
-                    
-                    self.getGigData(self.myGigIds)
-                    
-                })
+                if let ids = snapshot.value["betagigs"] as? [String] {
+                    self.myGigIds = ids
+                }
                 
-            } else {
-                // No user is signed in
-            }
-        })
+                for gigId in self.myGigIds {
+                    print(gigId)
+                }
+                
+                self.getGigData(self.myGigIds)
+                
+            })
+        }
     }
     
     func getGigData(myGigIds: [String]){
