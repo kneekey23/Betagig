@@ -28,8 +28,11 @@ class BetaGig {
    var long : Double?
    var careerName : String?
    var companyContactUserId : String?
+    var companyContactUserName: String?
+    var startDate: String?
+    var endDate: String?
    var careerId : String?
-   var costPerDay: Int?
+   var costPerDay: String?
    var companyStreet : String?
     var companyCity : String?
     
@@ -55,6 +58,11 @@ class BetaGig {
         companyContactUserId = json["companyContactUserId"].stringValue
         careerId = json["careerId"].stringValue
         companyStreet = json["companyStreet"].stringValue
+        costPerDay = json["costPerDay"].stringValue
+        companyCity = json["companyCity"].stringValue
+        companyContactUserName = json["companyContactUserName"].stringValue
+        startDate = json["startDate"].stringValue
+        endDate = json["endDate"].stringValue
     }
     
     init(){

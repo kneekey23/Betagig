@@ -8,8 +8,9 @@
 
 import UIKit
 import Social
-import Firebase
 import MapKit
+import Alamofire
+import SwiftyJSON
 
 class BetaGigDetailController: UIViewController {
     
@@ -25,6 +26,7 @@ class BetaGigDetailController: UIViewController {
     @IBOutlet weak var contact: UILabel!
     @IBOutlet weak var street: UILabel!
     @IBOutlet weak var city: UILabel!
+     let userId: String = "a2c1144f-6842-4249-b3cd-77bd8571cf04"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,12 +43,12 @@ class BetaGigDetailController: UIViewController {
         gigName.text = betagig!.careerName
         status.text = betagig!.status
         company.text = betagig!.companyName
-        //date.text = betagig!.date
+        date.text = betagig!.startDate! + " - " + betagig!.endDate!
         time.text = betagig!.time
-        cost.text = "$" + String(Int(betagig!.costPerDay!)) + "/per day"
-       // contact.text = betagig!.companyContactUserId
+        cost.text = "$" + betagig!.costPerDay! + "/per day"
+        contact.text = betagig!.companyContactUserName
         street.text = betagig!.companyStreet
-        //city.text = betagig!.companyCity! + ", " + betagig!.companyState! + " " + betagig!.companyZip!
+        city.text = betagig!.companyCity! + ", " + betagig!.companyState! + " " + String(betagig!.companyZip!)
     }
 
     @IBAction func showActionSheet(sender: AnyObject) {
@@ -116,31 +118,41 @@ class BetaGigDetailController: UIViewController {
         
         let deleteActionButton: UIAlertAction = UIAlertAction(title: "Cancel this Betagig request", style: .Default){
             action -> Void in
-          //add code to delete beta gig request. NJK
-            //remove from beta gigs table
-            let urlString: String = "https://betagig1.firebaseio.com/betagigs"
-              let betagigUrl = Firebase(url: urlString)
-            print(urlString)
-            // Attach a closure to read the data
-            betagigUrl.childByAppendingPath(self.betagig!.id).removeValue()
             
-            //remove from users list of beta gigs.
-            let userUrl = "https://betagig1.firebaseio.com/userData/" + self.betagig!.testerUserId! + "/betagigs"
-            let ref = Firebase(url:userUrl)
-            var ids = []
-            ref.observeEventType(.Value, withBlock: { snapshot in
-                
-               ids = snapshot.value as! NSArray
-                let aMutableArray = ids.mutableCopy() as! NSMutableArray
-                if aMutableArray.containsObject(self.betagig!.id!){
-                      aMutableArray.removeObjectAtIndex(Int(self.betagig!.id!)!)
-                }
-              
-                ids = aMutableArray as NSArray
-                ref.setValue(ids)
-                
-            })
-        self.navigationController?.popToRootViewControllerAnimated(true)
+            let apiUrl = "https://qc2n6qlv7g.execute-api.us-west-2.amazonaws.com/dev/betagig";
+            let headers = [
+                "x-api-key": "3euU5d6Khj5YQXZNDBrqq1NDkDytrwek1AyToIHA",
+                "Content-Type": "application/json"
+            ]
+            let body = ["id": String(self.betagig!.id!)]
+            Alamofire.request(.DELETE, apiUrl, parameters: body, headers: headers, encoding: .JSON).validate()
+                .responseJSON { response in
+                    
+                    switch response.result {
+                    case .Success:
+                        //pop a success modal and reload tableview MKH
+                        let msg = "You have successfully cancelled this pending betagig request!"
+                        let alertController = UIAlertController(title: "Betagig Deleted", message: msg, preferredStyle: UIAlertControllerStyle.Alert)
+                        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: {(alertAction: UIAlertAction!) in
+                            self.navigationController?.popToRootViewControllerAnimated(true)
+                        })
+                        alertController.addAction(okAction)
+                        self.presentViewController(alertController, animated: true, completion: nil)
+                        
+                        
+                    case .Failure:
+                        //pop a success modal and reload tableview MKH
+                        let msg = "There was an error cancelling this pending betagig request. Please try again."
+                        let alertController = UIAlertController(title: "Betagig Not Deleted", message: msg, preferredStyle: UIAlertControllerStyle.Alert)
+                        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: {(alertAction: UIAlertAction!) in
+                            self.navigationController?.popToRootViewControllerAnimated(true)
+                        })
+                        alertController.addAction(okAction)
+                        self.presentViewController(alertController, animated: true, completion: nil)
+                    }
+
+                    
+            }
         }
         actionSheetControllerIOS8.addAction(deleteActionButton)
         let subview = actionSheetControllerIOS8.view.subviews.first! as UIView

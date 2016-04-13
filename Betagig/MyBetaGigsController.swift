@@ -21,7 +21,7 @@ class MyBetaGigsController: UIViewController, UITableViewDataSource, UITableView
     var mypastGigs: [BetaGig] = []
    
   
-    //let ref = Firebase(url: "https://betagig1.firebaseio.com")
+
     let userId: String = "a2c1144f-6842-4249-b3cd-77bd8571cf04"
     
     @IBOutlet weak var betaGigsTableView: UITableView!
@@ -41,7 +41,6 @@ class MyBetaGigsController: UIViewController, UITableViewDataSource, UITableView
     func getMyBetaGigs(userId: String){
 
         let apiUrl = "https://qc2n6qlv7g.execute-api.us-west-2.amazonaws.com/dev/betagig/user?id=\(userId)";
-        // let pars2 : Dictionary<String,String> = ["x-api-key":"3euU5d6Khj5YQXZNDBrqq1NDkDytrwek1AyToIHA"]
         let headers = [
             "x-api-key": "3euU5d6Khj5YQXZNDBrqq1NDkDytrwek1AyToIHA",
             "Content-Type": "application/json"
