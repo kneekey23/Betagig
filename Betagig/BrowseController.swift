@@ -40,7 +40,8 @@ class BrowseViewController: UIViewController, UITableViewDataSource, CityListVie
         self.navigationItem.titleView = cityButton
         
         ref.observeAuthEventWithBlock({ authData in
-            if authData != nil {
+//            if authData != nil {
+            if loggedIn {
                 // user authenticated
                 print("logged in")
             } else {

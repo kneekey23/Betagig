@@ -52,16 +52,18 @@ class CompanyBetaGigsController: UIViewController, UITableViewDataSource, UITabl
                 // user authenticated
                 print(authData)
                 
-                let userUrl = Firebase(url: "https://betagig1.firebaseio.com/userData/" + authData.uid)
-                
-                userUrl.observeSingleEventOfType(.Value, withBlock: { snapshot in
-                    
-                    if let userName = snapshot.value["name"] as? String {
-                        print(userName)
-                        self.getGigData(userName)
-                    }
-                    
-                })
+//                let userUrl = Firebase(url: "https://betagig1.firebaseio.com/userData/" + authData.uid)
+//                
+//                userUrl.observeSingleEventOfType(.Value, withBlock: { snapshot in
+//                    
+//                    if let userName = snapshot.value["name"] as? String {
+//                        print(userName)
+//                        self.getGigData(userName)
+//                    }
+//                    
+//                })
+                let userName = "larry@belkin.com"
+                self.getGigData(userName)
                 
             } else {
                 // No user is signed in
