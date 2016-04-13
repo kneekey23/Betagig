@@ -15,14 +15,12 @@ class CompanyBetaGigDetailController: UIViewController {
     
     @IBOutlet weak var location: UILabel!
     @IBOutlet weak var gigName: UILabel!
-    @IBOutlet weak var email: UILabel!
     @IBOutlet weak var time: UILabel!
     @IBOutlet weak var cost: UILabel!
     @IBOutlet weak var gigRequested: UILabel!
     @IBOutlet weak var date: UILabel!
-  
     @IBOutlet weak var status: UILabel!
-    
+    @IBOutlet weak var company: UILabel!
     @IBOutlet weak var nameButton: UIButton!
     
     @IBAction func showActionSheet(sender: AnyObject) {
@@ -95,13 +93,12 @@ class CompanyBetaGigDetailController: UIViewController {
         gigName.text = betagig!.gig
         location.text = betagig!.street
         status.text = betagig!.status
-     
+        company.text = betagig!.company
         nameButton.setTitle(betagig!.testername, forState: UIControlState.Normal)
          nameButton.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Left
         date.text = betagig!.date
         time.text = betagig!.time
         cost.text = "$" + String(Int(betagig!.cost)) + "/per day"
-        email.text = betagig!.testeremail
     }
     
     func updateGigStatus(newStatus: String) {

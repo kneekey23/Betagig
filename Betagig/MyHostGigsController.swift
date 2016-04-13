@@ -17,6 +17,8 @@ class MyHostGigsController: UIViewController, UITableViewDataSource, UITableView
     var mypendingGigs: [BetaGig] = []
     var myconfirmedGigs: [BetaGig] = []
     var mypastGigs: [BetaGig] = []
+    var selectedCellRow: Int = 0
+    var selectedCellSection: Int = 0
     let ref = Firebase(url: "https://betagig1.firebaseio.com")
     
     @IBOutlet weak var hostGigsTableView: UITableView!
@@ -278,6 +280,7 @@ class MyHostGigsController: UIViewController, UITableViewDataSource, UITableView
                 emptyMsg = "No upcoming betagigs"
             } else {
                 item = myconfirmedGigs[indexPath.row]
+                print("upcoming row " + String(indexPath.row))
             }
         }
         else{
@@ -333,7 +336,8 @@ class MyHostGigsController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
        // tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        
+        selectedCellRow = indexPath.row
+        selectedCellSection = indexPath.section
         self.performSegueWithIdentifier("hostGigDetail", sender: hostGigsTableView.cellForRowAtIndexPath(indexPath))
     }
     
@@ -354,15 +358,25 @@ class MyHostGigsController: UIViewController, UITableViewDataSource, UITableView
                 
                 if (sender!.isKindOfClass(UITableViewCell)) {
                     
-                    let cell = sender as! UITableViewCell
-                    let nameOfGig = cell.textLabel?.text
                     var selectedBetagig: BetaGig?
-                    for g in self.allMyGigs {
-                        if g.gig == nameOfGig! {
-                            selectedBetagig = g
-                            break
-                        }
+                    
+                    if selectedCellSection == 0  && mypendingGigs.count > 0 {
+                        selectedBetagig = mypendingGigs[selectedCellRow]
+                    } else if selectedCellSection == 1 && myconfirmedGigs.count > 0 {
+                        selectedBetagig = myconfirmedGigs[selectedCellRow]
+                    } else if selectedCellSection == 3 && mypastGigs.count > 0 {
+                        selectedBetagig = mypastGigs[selectedCellRow]
                     }
+                    
+//                    let cell = sender as! UITableViewCell
+//                    let nameOfGig = cell.textLabel?.text
+//                    var selectedBetagig: BetaGig?
+//                    for g in self.allMyGigs {
+//                        if g.gig == nameOfGig! {
+//                            selectedBetagig = g
+//                            break
+//                        }
+//                    }
                     
                     companyBetaGigDetailController.betagig = selectedBetagig
                 }
