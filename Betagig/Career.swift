@@ -7,73 +7,40 @@
 //
 
 import Foundation
-import Firebase
+import SwiftyJSON
 
 class Career {
     
-    
-    
-    var title: String = ""
-    
-    var icon: String = ""
-    
-    var category: String = ""
-    
+    var id : String?
+    var categoryId : String?
+    var title : String?
+    var iconUrl : String?
     var minCost: Int?
-    
     var maxCost: Int?
-    
     var numBetagigs: Int?
     
-    let ref: Firebase?
-    
-    let key: String!
     
     
     
-    init(snapshot: FDataSnapshot) {
+   required init?(json: JSON) {
         
-        key = snapshot.key
+        id = json["id"].stringValue
         
-        ref = snapshot.ref
+        title = json["title"].stringValue
         
-        title = snapshot.value["title"] as! String
+        iconUrl = json["iconUrl"].stringValue
         
-        icon = snapshot.value["icon"] as! String
-        
-        category = snapshot.value["category"] as! String
-        
-        minCost = snapshot.value["minCost"] as? Int
-        
-        maxCost = snapshot.value["maxCost"] as? Int
-        
-        numBetagigs = snapshot.value["maxCost"] as? Int
+        categoryId = json["categoryId"].stringValue
+
     }
     
-    
-    
-    func toAnyObject() -> AnyObject {
-        
-        return [
-            
-            "title": title,
-            
-            "icon": icon,
-            
-            "category": category
-        ]
-        
-    }
-    
-    
-    
-    init (title: String, icon: String, category: String, minCost: Int, maxCost: Int, numBetagigs: Int, key: String = "") {
+    init (title: String, iconUrl: String, categoryId: String, minCost: Int, maxCost: Int, numBetagigs: Int, id: String) {
         
         self.title = title
         
-        self.icon = icon
+        self.iconUrl = iconUrl
         
-        self.category = category
+        self.categoryId = categoryId
         
         self.minCost = minCost
         
@@ -81,10 +48,12 @@ class Career {
         
         self.numBetagigs = numBetagigs
         
-        self.key = key
+        self.id = id
         
-        self.ref = nil
+   
         
     }
+
+
     
 }

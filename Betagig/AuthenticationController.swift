@@ -23,26 +23,29 @@ class AuthenticationController: UIViewController,UITextFieldDelegate, UITableVie
     @IBAction func login(sender: AnyObject) {
         let loginButton: UIButton = sender as! UIButton
         loginButton.setTitle("Loading...", forState: UIControlState.Normal)
-        ref.authUser(username.text, password: password.text) {
-            error, authData in
-            if error != nil {
-                // an error occured while attempting login
-                
-                self.auth = false
-                if(!self.auth){
-                    self.DisplayErrorAlert("")
-                }
-                
-                // by default, transition
-                
-            } else {
-                self.auth = true
-                self.performSegueWithIdentifier("login", sender: nil)
-                // user is logged in, check authData for data
-                
-                
-            }
-        }
+//        ref.authUser(username.text, password: password.text) {
+//            error, authData in
+//            if error != nil {
+//                // an error occured while attempting login
+//                
+//                self.auth = false
+//                if(!self.auth){
+//                    self.DisplayErrorAlert("")
+//                }
+//                
+//                // by default, transition
+//                
+//            } else {
+//                self.auth = true
+//                self.performSegueWithIdentifier("browse", sender: nil)
+//                // user is logged in, check authData for data
+//            }
+//        }
+        
+        self.auth = true
+        loggedIn = true
+        self.performSegueWithIdentifier("browse", sender: nil)
+        // hard coded to login
     }
     
     override func viewDidLoad() {
@@ -53,7 +56,7 @@ class AuthenticationController: UIViewController,UITextFieldDelegate, UITableVie
 
         username.delegate = self
         password.delegate = self
-        username.text = "nicki@shortkey.io"
+        username.text = "mel.hargis@ucla.edu"
         password.text = "goucla23"
     }
     
@@ -93,13 +96,11 @@ class AuthenticationController: UIViewController,UITextFieldDelegate, UITableVie
         
         if identifier == "login" {
             return auth
-        }else if identifier == "createAccount"{
+        } else if identifier == "createAccount"{
             auth = true
-        }
-        else if identifier == "companySignIn"{
+        } else if identifier == "companySignIn"{
             auth = true
-        }
-        else if identifier == "giftSegue"{
+        } else if identifier == "giftSegue"{
             auth = true
         }
         

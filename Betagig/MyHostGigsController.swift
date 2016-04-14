@@ -19,23 +19,35 @@ class MyHostGigsController: UIViewController, UITableViewDataSource, UITableView
     var mypendingGigs: [BetaGig] = []
     var myconfirmedGigs: [BetaGig] = []
     var mypastGigs: [BetaGig] = []
-    //let ref = Firebase(url: "https://betagig1.firebaseio.com")
     
     let hostUserId: String = "1234"
+
+    var selectedCellRow: Int = 0
+    var selectedCellSection: Int = 0
+
     
-    @IBOutlet weak var betaGigsTableView: UITableView!
+    @IBOutlet weak var hostGigsTableView: UITableView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        getMyHostGigs(hostUserId)
+
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+
         getMyHostGigs(hostUserId)
-    }
+        
+        }
+
     
     func getMyHostGigs(hostUserId: String){
+        self.allMyGigs.removeAll()
+        self.mypendingGigs.removeAll()
+        self.myconfirmedGigs.removeAll()
+        self.mypastGigs.removeAll()
         
         let apiUrl = "https://qc2n6qlv7g.execute-api.us-west-2.amazonaws.com/dev/betagig/host?id=\(hostUserId)";
         let headers = [
@@ -67,13 +79,13 @@ class MyHostGigsController: UIViewController, UITableViewDataSource, UITableView
                         }
                     }
                     
-                    self.betaGigsTableView.reloadData()
+                    self.hostGigsTableView.reloadData()
                     
                 case .Failure(let error):
                     print("Request failed with error: \(error)")
                 }
-                
         }
+
         
     }
     
@@ -136,6 +148,7 @@ class MyHostGigsController: UIViewController, UITableViewDataSource, UITableView
                 emptyMsg = "No upcoming betagigs"
             } else {
                 item = myconfirmedGigs[indexPath.row]
+                print("upcoming row " + String(indexPath.row))
             }
         }
         else{
@@ -182,7 +195,8 @@ class MyHostGigsController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let header: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView //recast your view as a UITableViewHeaderFooterView
-        header.contentView.backgroundColor = UIColor(white: 1, alpha: 0.7) 
+//        header.contentView.backgroundColor = UIColor(white: 1, alpha: 1) // alpha: 0.7
+        header.contentView.backgroundColor = UIColor(hexString: "EDEDED")
         header.textLabel!.textColor = UIColor(hexString: "E65100") //make the text orange
         header.textLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 16)!
 //        header.alpha = 0.5 //make the header transparent
@@ -190,8 +204,9 @@ class MyHostGigsController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
        // tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        
-        self.performSegueWithIdentifier("betaGigDetail", sender: betaGigsTableView.cellForRowAtIndexPath(indexPath))
+        selectedCellRow = indexPath.row
+        selectedCellSection = indexPath.section
+        self.performSegueWithIdentifier("hostGigDetail", sender: hostGigsTableView.cellForRowAtIndexPath(indexPath))
     }
     
     
@@ -203,25 +218,42 @@ class MyHostGigsController: UIViewController, UITableViewDataSource, UITableView
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "betaGigDetail"{
+        if segue.identifier == "hostGigDetail"{
             
-            let betagigDetailController = segue.destinationViewController as! BetaGigDetailController
+            let companyBetaGigDetailController = segue.destinationViewController as! CompanyBetaGigDetailController
             
             if sender != nil {
                 
                 if (sender!.isKindOfClass(UITableViewCell)) {
                     
-                    let cell = sender as! UITableViewCell
-                    let nameOfGig = cell.textLabel?.text
                     var selectedBetagig: BetaGig?
-                    for g in self.allMyGigs {
-                        if g.careerName == nameOfGig! {
-                            selectedBetagig = g
-                            break
-                        }
+
+//                    for g in self.allMyGigs {
+//                        if g.careerName == nameOfGig! {
+//                            selectedBetagig = g
+//                            break
+//                        }
+
+                    
+                    if selectedCellSection == 0  && mypendingGigs.count > 0 {
+                        selectedBetagig = mypendingGigs[selectedCellRow]
+                    } else if selectedCellSection == 1 && myconfirmedGigs.count > 0 {
+                        selectedBetagig = myconfirmedGigs[selectedCellRow]
+                    } else if selectedCellSection == 3 && mypastGigs.count > 0 {
+                        selectedBetagig = mypastGigs[selectedCellRow]
                     }
                     
-                    betagigDetailController.betagig = selectedBetagig
+//                    let cell = sender as! UITableViewCell
+//                    let nameOfGig = cell.textLabel?.text
+//                    var selectedBetagig: BetaGig?
+//                    for g in self.allMyGigs {
+//                        if g.gig == nameOfGig! {
+//                            selectedBetagig = g
+//                            break
+//                        }
+//                    }
+                    
+                    companyBetaGigDetailController.betagig = selectedBetagig
                 }
                 
             }

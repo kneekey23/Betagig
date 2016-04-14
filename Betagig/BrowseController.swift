@@ -10,7 +10,8 @@
 
 import Foundation
 import UIKit
-import Firebase
+import Alamofire
+import SwiftyJSON
 
 
 class BrowseViewController: UIViewController, UITableViewDataSource, CityListViewControllerDelegate, LoginViewControllerDelegate {
@@ -22,7 +23,12 @@ class BrowseViewController: UIViewController, UITableViewDataSource, CityListVie
     var categories: [Category] = []
     var careers: [Career] = []
     var cityButton: UIButton?
-    
+    var city:String?
+  
+    let headers = [
+        "x-api-key": "3euU5d6Khj5YQXZNDBrqq1NDkDytrwek1AyToIHA",
+        "Content-Type": "application/json"
+    ]
     
     override func viewDidLoad() {
         
@@ -36,10 +42,20 @@ class BrowseViewController: UIViewController, UITableViewDataSource, CityListVie
         cityButton!.tintColor = UIColor.blackColor()
         cityButton!.setTitle("San Francisco" + " \u{25BE}", forState: UIControlState.Normal)
         cityButton!.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
-        cityButton!.addTarget(self, action: Selector("clickOnButton:"), forControlEvents: UIControlEvents.TouchUpInside)
+        cityButton!.addTarget(self, action: #selector(BrowseViewController.clickOnButton(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         self.navigationItem.titleView = cityButton
         
-        self.performSegueWithIdentifier("loginSegue", sender: self)
+//        ref.observeAuthEventWithBlock({ authData in
+////            if authData != nil {
+//            if loggedIn {
+//                // user authenticated
+//                print("logged in")
+//            } else {
+//                // No user is signed in
+//                self.performSegueWithIdentifier("loginSegue", sender: self)
+//            }
+//        })
+//        self.performSegueWithIdentifier("loginSegue", sender: self)
     }
     
     func clickOnButton(button: UIButton) {
@@ -47,74 +63,77 @@ class BrowseViewController: UIViewController, UITableViewDataSource, CityListVie
     }
     
     func sendValue(value: NSString) {
-        let city = value as String
-        cityButton!.setTitle(city + " \u{25BE}", forState: UIControlState.Normal)
+        city = value as String
+        cityButton!.setTitle(city! + " \u{25BE}", forState: UIControlState.Normal)
         
     }
     
     func getData(){
         
-        let ref = Firebase(url: "https://betagig1.firebaseio.com/categories")
+        let apiUrl = "https://qc2n6qlv7g.execute-api.us-west-2.amazonaws.com/dev/categories";
+
         
-        // Attach a closure to read the data
-        ref.observeSingleEventOfType(.Value, withBlock: { snapshot in
-            
-            var categories = [Category]()
-            
-            for item in snapshot.children {
-                let category = Category(snapshot: item as! FDataSnapshot)
-                categories.append(category)
-            }
-            
-            for c in categories {
-                print(c.name)
-            }
-            
-            self.categories = categories
-            
-            self.refreshCareers()
-            
-            }, withCancelBlock: { error in
-                print(error.description)
-        })
-        
+        Alamofire.request(.GET, apiUrl, headers: headers).validate()
+            .responseJSON { response in
+                
+                switch response.result {
+                case .Success(let data):
+                    let json = JSON(data)
+                    let list: Array<JSON> = json["Items"].arrayValue
+                    for item in list{
+                        
+                        
+                        self.categories.append(Category(json: item)!)
+                        
+                    }
+                    
+                    
+                    self.refreshCareers()
+                    
+                case .Failure(let error):
+                    print("Request failed with error: \(error)")
+                }
+                
+        }
     }
     
     func refreshCareers(){
         
-        let ref = Firebase(url: "https://betagig1.firebaseio.com/careers")
+        let apiUrl = "https://qc2n6qlv7g.execute-api.us-west-2.amazonaws.com/dev/career";
         
-        // Attach a closure to read the data
-        ref.observeSingleEventOfType(.Value, withBlock: { snapshot in
-            
-            var careers = [Career]()
- 
-            for item in snapshot.children {
-                let career = Career(snapshot: item as! FDataSnapshot)
-                careers.append(career)
-            }
-            
-            self.careers = careers
-            
-            self.getCareerDetails()
-            
-            }, withCancelBlock: { error in
-                print(error.description)
-        })
+        Alamofire.request(.GET, apiUrl, headers: headers).validate()
+            .responseJSON { response in
+                
+                switch response.result {
+                case .Success(let data):
+                    let json = JSON(data)
+                    let list: Array<JSON> = json["Items"].arrayValue
+                    for item in list{
+                
+                        self.careers.append(Career(json: item)!)
+                        
+                    }
+                    
+                    for cat in self.categories{
+                        for c in self.careers{
+                            if c.categoryId == cat.id{
+                                cat.careers.append(c.title!)
+                            }
+                        }
+                    }
+                    
+                    self.getCareerDetails()
+                    
+                case .Failure(let error):
+                    print("Request failed with error: \(error)")
+                }
+                
+        }
         
     }
     
     func getCareerDetails() {
         
-        let refCompanies = Firebase(url: "https://betagig1.firebaseio.com/companies")
-        refCompanies.observeSingleEventOfType(.Value, withBlock: { snapshot in
-            
-            var companies = [Company]()
-            
-            for item in snapshot.children {
-                let company = Company(snapshot: item as! FDataSnapshot)
-                companies.append(company)
-            }
             
             for cat in self.categories {
                 
@@ -123,32 +142,50 @@ class BrowseViewController: UIViewController, UITableViewDataSource, CityListVie
                     var companiesInCat = [Company]()
                     for career in self.careers {
                         if career.title == c {
+                        
+                            //Get Companies by Career Id
+                            let apiUrl = "https://qc2n6qlv7g.execute-api.us-west-2.amazonaws.com/dev/company?id=\(career.id!)";
+                          
                             
-                            
-                            // Get all companies for that career
-                            for c in companies {
-                                for gig in c.gigs {
-                                    if gig == career.title {
-                                        companiesInCat.append(c)
+                            Alamofire.request(.GET, apiUrl, headers: headers).validate()
+                                .responseJSON { response in
+                                    
+                                    switch response.result {
+                                    case .Success(let data):
+                                        let json = JSON(data)
+                                        let list: Array<JSON> = json["Items"].arrayValue
+                                        for item in list{
+                                            
+                                            
+                                            companiesInCat.append(Company(json: item)!)
+                                            
+                                        }
+                                        
+                                    case .Failure(let error):
+                                        print("Request failed with error: \(error)")
                                     }
-                                }
+                                    
                             }
                             
                             // Determine min and max costs for this career
                             var costs: [Int] = []
                             for c in companiesInCat {
-                                costs.append(c.cost)
+                                costs.append(c.costPerDay!)
                             }
                             
                             costs.sortInPlace {
                                 return $0 < $1
                             }
-                            
-                            let min = costs[0]
-                            let max = costs[costs.count - 1]
+                            var min: Int = 0
+                            var max: Int = 0
+                            if costs.count > 0{
+                                 min = costs[0]
+                                 max = costs[costs.count - 1]
+                            }
+                          
                             let numBetagigs = companiesInCat.count
                             
-                            cat.careerDetails.append(Career(title: career.title, icon: career.icon, category: career.category, minCost: min, maxCost: max, numBetagigs: numBetagigs))
+                            cat.careerDetails.append(Career(title: career.title!, iconUrl: career.iconUrl!, categoryId: career.categoryId!, minCost: min, maxCost: max, numBetagigs: numBetagigs, id: career.id!))
                             
                         }
                     }
@@ -157,9 +194,6 @@ class BrowseViewController: UIViewController, UITableViewDataSource, CityListVie
             
             self.categoryTableView.reloadData()
             
-            }, withCancelBlock: { error in
-                print(error.description)
-        })
         
     }
     
@@ -224,7 +258,8 @@ class BrowseViewController: UIViewController, UITableViewDataSource, CityListVie
                     
                     let cell = sender as! CollectionViewCell
                     print(cell.title.text!)
-                    companyController.career = cell.title.text!
+                    companyController.careerName = cell.title.text!
+                    companyController.careerId = cell.careerId!
                     
                 }
                 

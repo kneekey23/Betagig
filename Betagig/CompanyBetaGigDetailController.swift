@@ -7,7 +7,8 @@
 //
 
 import UIKit
-import Firebase
+import Alamofire
+import SwiftyJSON
 
 class CompanyBetaGigDetailController: UIViewController {
     
@@ -15,14 +16,12 @@ class CompanyBetaGigDetailController: UIViewController {
     
     @IBOutlet weak var location: UILabel!
     @IBOutlet weak var gigName: UILabel!
-    @IBOutlet weak var email: UILabel!
     @IBOutlet weak var time: UILabel!
     @IBOutlet weak var cost: UILabel!
     @IBOutlet weak var gigRequested: UILabel!
     @IBOutlet weak var date: UILabel!
-  
     @IBOutlet weak var status: UILabel!
-    
+    @IBOutlet weak var company: UILabel!
     @IBOutlet weak var nameButton: UIButton!
     
     @IBAction func showActionSheet(sender: AnyObject) {
@@ -95,22 +94,37 @@ class CompanyBetaGigDetailController: UIViewController {
         gigName.text = betagig!.careerName
         location.text = betagig!.companyStreet
         status.text = betagig!.status
-     
+        company.text = betagig!.companyName!
         nameButton.setTitle(betagig!.testerName, forState: UIControlState.Normal)
          nameButton.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Left
-//        date.text = betagig!.date
-        time.text = betagig!.time
-        cost.text = "$" + String(Int(betagig!.costPerDay!)) + "/per day"
-        email.text = betagig!.testerEmail
+        date.text = betagig!.startDate! + " - " + betagig!.endDate!
+        time.text = betagig!.time!
+
+        cost.text = "$" + betagig!.costPerDay! + "/per day"
+
     }
     
     func updateGigStatus(newStatus: String) {
-        let id = String(betagig!.id)
-        let ref = Firebase(url: "https://betagig1.firebaseio.com/betagigs")
         
-        //add beta gigs to beta gig table.
-        let updatedStatus = ["status": newStatus]
-        ref.childByAppendingPath(id).updateChildValues(updatedStatus)
+        let apiUrl = "https://qc2n6qlv7g.execute-api.us-west-2.amazonaws.com/dev/betagig/status";
+        let headers = [
+            "x-api-key": "3euU5d6Khj5YQXZNDBrqq1NDkDytrwek1AyToIHA",
+            "Content-Type": "application/json"
+        ]
+        let body = ["id": String(self.betagig!.id!), "status": newStatus]
+        Alamofire.request(.POST, apiUrl, parameters: body, headers: headers, encoding: .JSON).validate()
+            .responseJSON { response in
+                
+                switch response.result {
+                case .Success:
+               print("success")
+                    
+                case .Failure:
+                 print("failure")
+                }
+                
+        }
+        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

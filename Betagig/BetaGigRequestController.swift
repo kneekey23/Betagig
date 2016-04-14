@@ -7,7 +7,8 @@
 //
 
 import UIKit
-import Firebase
+import Alamofire
+import SwiftyJSON
 
 class BetaGigRequestController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextViewDelegate, BetaGigRequestDelegate {
     
@@ -18,8 +19,7 @@ class BetaGigRequestController: UIViewController, UIPickerViewDataSource, UIPick
     var durationArray: [String] = ["1","3", "5"]
     var selectedCompany: Company?
     var selectedCareer: String?
-      let ref = Firebase(url: "https://betagig1.firebaseio.com/betagigs")
-     let dbRef = Firebase(url: "https://betagig1.firebaseio.com")
+    let userId: String = "a2c1144f-6842-4249-b3cd-77bd8571cf04"
     
     @IBOutlet weak var durationTextField: UITextField!
  
@@ -44,10 +44,10 @@ class BetaGigRequestController: UIViewController, UIPickerViewDataSource, UIPick
         
         inputView.addSubview(doneButton) // add Button to UIView
         
-        doneButton.addTarget(self, action: "doneStartDateButton:", forControlEvents: UIControlEvents.TouchUpInside) // set button click event
+        doneButton.addTarget(self, action: #selector(BetaGigRequestController.doneStartDateButton(_:)), forControlEvents: UIControlEvents.TouchUpInside) // set button click event
         
         sender.inputView = inputView
-        datePickerView.addTarget(self, action: Selector("startDatePickerValueChanged:"), forControlEvents: UIControlEvents.ValueChanged)
+        datePickerView.addTarget(self, action: #selector(BetaGigRequestController.startDatePickerValueChanged(_:)), forControlEvents: UIControlEvents.ValueChanged)
         
        // handleStartDatePicker(datePickerView) // Set the date on start.
     }
@@ -70,74 +70,71 @@ class BetaGigRequestController: UIViewController, UIPickerViewDataSource, UIPick
         
         inputView.addSubview(doneButton) // add Button to UIView
         
-        doneButton.addTarget(self, action: "doneEndDateButton:", forControlEvents: UIControlEvents.TouchUpInside) // set button click event
+        doneButton.addTarget(self, action: #selector(BetaGigRequestController.doneEndDateButton(_:)), forControlEvents: UIControlEvents.TouchUpInside) // set button click event
         
         sender.inputView = inputView
-        datePickerView.addTarget(self, action: Selector("endDatePickerValueChanged:"), forControlEvents: UIControlEvents.ValueChanged)
+        datePickerView.addTarget(self, action: #selector(BetaGigRequestController.endDatePickerValueChanged(_:)), forControlEvents: UIControlEvents.ValueChanged)
         
       //  handleEndDatePicker(datePickerView) // Set the date on start.
     }
     @IBAction func requestAction(sender: AnyObject) {
         
-        // Attach a closure to read the data
-//        ref.observeSingleEventOfType(.Value, withBlock: { snapshot in
-//            
-//            var betagigs = [BetaGig]()
-//            
-//            for item in snapshot.children {
-//                let betagig = BetaGig(dictionary: item as! FDataSnapshot)
-//                betagigs.append(betagig)
-//            }
-//            
-//            let newId = String(betagigs.count)
-//            
-//            
-//            //add beta gig id to users list of beta gigs.
-//            self.dbRef.observeAuthEventWithBlock({ authData in
-//                if authData != nil {
-//                    // user authenticated
-//                    
-//                    
-//                    let userUrl = Firebase(url: "https://betagig1.firebaseio.com/userData/" + authData.uid)
-//                    
-//                    userUrl.observeSingleEventOfType(.Value, withBlock: { snapshot in
-//                        
-//                        if var ids = snapshot.value["betagigs"] as? [String] {
-//                           ids.append(newId)
-//                            let newIdObj = [newId: newId]
-//                            userUrl.childByAppendingPath("betagigs").updateChildValues(newIdObj)
-//                        }
-//                       
-//                        var testername: String = ""
-//                        if let userName = snapshot.value["name"] as? String {
-//                            print(userName)
-//                            testername = userName
-//                        }
-//                        
-//                        var testeremail: String = ""
-//                        if let userEmail = snapshot.value["email"] as? String {
-//                            print(testeremail)
-//                            testeremail = userEmail
-//                        }
-//                        
-//                        
-//                        let newBetaGig = ["id": newId, "company": (self.selectedCompany?.name)!, "gig": self.selectedCareer!, "status": "pending", "date": "Mar 9 - 11, 2016", "time": "10:00 AM - 6:00 PM", "contact": "Aiko Rogers", "cost": (self.selectedCompany?.cost)!, "street": (self.selectedCompany?.street)!, "city": (self.selectedCompany?.city)!, "state": (self.selectedCompany?.state)!, "zip": (self.selectedCompany?.zip)!, "testerid" : String(authData.uid), "testername" : testername, "testeremail" : testeremail, "lat" : (self.selectedCompany?.lat)!, "long" : (self.selectedCompany?.long)!]
-//                        //add beta gigs to beta gig table.
-//                        self.ref.childByAppendingPath(newId).setValue(newBetaGig)
-//                    })
-//                    
-//                } else {
-//                    // No user is signed in
-//                }
-//            })
-//            
-//            
-//            }, withCancelBlock: { error in
-//                print(error.description)
-//        })
-        
-        
+        let apiUrl = "https://qc2n6qlv7g.execute-api.us-west-2.amazonaws.com/dev/user?id=\(userId)";
+        let headers = [
+            "x-api-key": "3euU5d6Khj5YQXZNDBrqq1NDkDytrwek1AyToIHA",
+            "Content-Type": "application/json"
+        ]
+        Alamofire.request(.GET, apiUrl, headers: headers).validate()
+            .responseJSON { response in
+                
+                switch response.result {
+                case .Success(let data):
+                    let json = JSON(data)
+                    let user = User(json: json)
+                    let testername = (user?.firstName)! + " " + (user?.lastName)!
+                    
+                    var dict : [String: AnyObject] = [:]
+                    dict["companyName"] = (self.selectedCompany?.name)!
+                    dict["careerName"] = self.selectedCareer
+                    dict["careerId"] = "1234"
+                    dict["startDate"] = self.startDateTextField?.text!
+                    dict["endDate"] = self.startDateTextField?.text!
+                    dict["time"] = "10:00AM - 6:00 PM"
+                    dict["companyContactUserName"] = "Aiko Rogers"
+                    dict["companyContactUserId"] = "4567"
+                    dict["id"] = ""
+                    dict["companyStreet"] = (self.selectedCompany?.street)!
+                    dict["companyCity"] = (self.selectedCompany?.city)!
+                    dict["companyState"] = (self.selectedCompany?.state)!
+                    dict["companyZip"] = Int((self.selectedCompany?.zip)!)
+                    dict["lat"] = Double((self.selectedCompany?.lat)!)
+                    dict["long"] = Double((self.selectedCompany?.long)!)
+                    dict["testerName"] = testername
+                    dict["testerEmail"] = user?.email
+                    dict["testerUserId"] = user?.id
+                    dict["costPerDay"] = (self.selectedCompany?.costPerDay)!
+                    
+                    let betagigUrl = "https://qc2n6qlv7g.execute-api.us-west-2.amazonaws.com/dev/betagig"
+                  
+                    
+                    Alamofire.request(.POST, betagigUrl, headers: headers, parameters: dict, encoding: .JSON)
+                        .responseJSON{ response in
+                            switch response.result{
+                            case .Success:
+                                self.performSegueWithIdentifier("successSegue", sender: nil)
+                            case .Failure(let error):
+                                 print("Request failed with error: \(error)")
+                            }
+                            
+                    }
+                
+                    
+                case .Failure(let error):
+                    print("Request failed with error: \(error)")
+                }
+        }
     }
+    
     @IBOutlet weak var duration: UIPickerView!
     @IBOutlet weak var companyNote: UITextView!
     override func viewDidLoad() {
@@ -154,9 +151,9 @@ class BetaGigRequestController: UIViewController, UIPickerViewDataSource, UIPick
         toolBar.tintColor = UIColor(hexString: "B048B5")
         toolBar.sizeToFit()
         
-        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Plain, target: self, action: "donePicker")
+        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(BetaGigRequestController.donePicker))
         let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
-        let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.Plain, target: self, action: "donePicker")
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(BetaGigRequestController.donePicker))
         
         toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
         toolBar.userInteractionEnabled = true

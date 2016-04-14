@@ -46,7 +46,7 @@ class BetaGig {
         testerName = json["testerName"].stringValue
         tablePrefix = json["tablePrefix"].stringValue
         tableName = json["tableName"].stringValue
-        status = json["status"].stringValue
+        status = json["statusString"].stringValue
         time = json["time"].stringValue
         id = json["id"].stringValue
         isDeleted = json["isDeleted"].stringValue

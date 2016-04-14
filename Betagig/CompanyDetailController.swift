@@ -39,13 +39,16 @@ class CompanyDetailController: UIViewController {
     }
     
     func setFields() {
-        let addressText = company!.street + "\n" + company!.city + ", " + company!.state + " " + company!.zip
+        var addressText = (company?.street)!
+        addressText += "\n" + (company?.city)!
+        addressText += ", " + (company?.state)!
+        addressText += " " + String(company?.zip)
         address.text = addressText
         duration.text = "1, 3, or 5 days"
         companyTitle.text = company!.name
-        companyDesc.text = company!.longdesc
-        companyImage.image = UIImage(named: company!.image)
-        let costText = "$" + String(company!.cost) + "/per day"
+        companyDesc.text = company!.longDesc
+        companyImage.image = UIImage(named: company!.imageUrl!)
+        let costText = "$" + String(company!.costPerDay!) + "/per day"
         cost.text = costText
         gigs.text = career!
     }

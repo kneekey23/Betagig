@@ -19,8 +19,6 @@ class MyBetaGigsController: UIViewController, UITableViewDataSource, UITableView
     var mypendingGigs: [BetaGig] = []
     var myconfirmedGigs: [BetaGig] = []
     var mypastGigs: [BetaGig] = []
-   
-  
 
     let userId: String = "a2c1144f-6842-4249-b3cd-77bd8571cf04"
     
@@ -28,17 +26,23 @@ class MyBetaGigsController: UIViewController, UITableViewDataSource, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       // getMyBetaGigs(userId)
-        
+        getMyBetaGigs(userId)
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+
          getMyBetaGigs(userId)
+
     }
 
 
     func getMyBetaGigs(userId: String){
+        
+        self.allMyGigs.removeAll()
+        self.mypendingGigs.removeAll()
+        self.myconfirmedGigs.removeAll()
+        self.mypastGigs.removeAll()
 
         let apiUrl = "https://qc2n6qlv7g.execute-api.us-west-2.amazonaws.com/dev/betagig/user?id=\(userId)";
         let headers = [
