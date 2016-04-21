@@ -138,7 +138,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Betagig" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eIO-xR-5zW">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Betagig" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eIO-xR-5zW">
                                 <rect key="frame" x="164" y="73" width="137" height="61"/>
                                 <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="33"/>
                                 <color key="textColor" red="0.90196078430000004" green="0.31764705879999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -191,7 +191,7 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <state key="normal" image="Delete Filled-50 white"/>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BetaGigAppIconV2" translatesAutoresizingMaskIntoConstraints="NO" id="g6n-0y-FTr">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="BetaGigAppIconV2" translatesAutoresizingMaskIntoConstraints="NO" id="g6n-0y-FTr">
                                 <rect key="frame" x="90" y="77" width="60" height="53"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="54" id="5Zk-0Q-K7U"/>
@@ -3635,6 +3635,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="91e-jc-6Wx"/>
-        <segue reference="GfH-ad-YLU"/>
+        <segue reference="4eW-Uv-fDC"/>
     </inferredMetricsTieBreakers>
 </document>
