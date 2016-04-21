@@ -18,4 +18,6 @@ class CollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var subtitle: UILabel!
     
+    var careerId: String?
+    
 }

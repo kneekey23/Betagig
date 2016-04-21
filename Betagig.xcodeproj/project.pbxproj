@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		813039AC1CC044CB003B5F65 /* LoginMainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813039AB1CC044CB003B5F65 /* LoginMainController.swift */; };
 		813524701C8207990018FB29 /* StaticTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8135246F1C8207990018FB29 /* StaticTableCell.swift */; };
 		816D77A51C8247E90062594C /* CompanyCreateAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816D77A41C8247E90062594C /* CompanyCreateAccountController.swift */; };
 		816D77A71C8273650062594C /* Betagig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816D77A61C8273650062594C /* Betagig.swift */; };
@@ -16,16 +17,16 @@
 		816D77B01C82D4B40062594C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 816D77AE1C82D4B40062594C /* Main.storyboard */; };
 		816D77B21C82E19A0062594C /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816D77B11C82E19A0062594C /* PaymentViewController.swift */; };
 		816D77B41C835C140062594C /* CompanyBetaGigDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816D77B31C835C140062594C /* CompanyBetaGigDetailController.swift */; };
-		816D77B91C8364A10062594C /* TwitterAuthHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 816D77B81C8364A10062594C /* TwitterAuthHelper.m */; };
 		816D77BB1C8818320062594C /* CompanyUserProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816D77BA1C8818320062594C /* CompanyUserProfileController.swift */; };
 		816D77BD1C8909FE0062594C /* GiftAUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816D77BC1C8909FE0062594C /* GiftAUserController.swift */; };
 		81AC3D5A1C82270A0006BAFB /* CompanyAuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AC3D591C82270A0006BAFB /* CompanyAuthController.swift */; };
 		81AC3D5C1C82363F0006BAFB /* CompanyBetaGigsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AC3D5B1C82363F0006BAFB /* CompanyBetaGigsController.swift */; };
 		81AC3D5E1C8240940006BAFB /* CompanyProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AC3D5D1C8240940006BAFB /* CompanyProfileController.swift */; };
+		81D52C0A1CC538E6001972E2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D52C091CC538E6001972E2 /* Constants.swift */; };
+		81D52C0C1CC53E7B001972E2 /* AmazonCognitoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D52C0B1CC53E7B001972E2 /* AmazonCognitoManager.swift */; };
 		81D913C91C810E2E0071F627 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D913C81C810E2E0071F627 /* AppDelegate.swift */; };
 		81D913CB1C810E2E0071F627 /* AuthenticationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D913CA1C810E2E0071F627 /* AuthenticationController.swift */; };
 		81D913D01C810E2E0071F627 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81D913CF1C810E2E0071F627 /* Assets.xcassets */; };
-		81D913D31C810E2E0071F627 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81D913D11C810E2E0071F627 /* LaunchScreen.storyboard */; };
 		81FA7B721C811670000BACBD /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FA7B711C811670000BACBD /* MainController.swift */; };
 		81FA7B741C8116FC000BACBD /* BrowseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FA7B731C8116FC000BACBD /* BrowseController.swift */; };
 		81FA7B761C81173A000BACBD /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FA7B751C81173A000BACBD /* ProfileController.swift */; };
@@ -53,6 +54,7 @@
 		23905999118BA3E9D5D2DEA0 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E7CA78C2ADCFD173431136D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		48F8223402CA9FE90A1FE0B7 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		813039AB1CC044CB003B5F65 /* LoginMainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginMainController.swift; sourceTree = "<group>"; };
 		8135246F1C8207990018FB29 /* StaticTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticTableCell.swift; sourceTree = "<group>"; };
 		816D77A41C8247E90062594C /* CompanyCreateAccountController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyCreateAccountController.swift; sourceTree = "<group>"; };
 		816D77A61C8273650062594C /* Betagig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Betagig.swift; sourceTree = "<group>"; };
@@ -61,14 +63,14 @@
 		816D77AF1C82D4B40062594C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		816D77B11C82E19A0062594C /* PaymentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		816D77B31C835C140062594C /* CompanyBetaGigDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyBetaGigDetailController.swift; sourceTree = "<group>"; };
-		816D77B61C8364750062594C /* TwitterAuthHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TwitterAuthHelper.h; sourceTree = "<group>"; };
-		816D77B71C8364A00062594C /* Betagig-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Betagig-Bridging-Header.h"; sourceTree = "<group>"; };
-		816D77B81C8364A10062594C /* TwitterAuthHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterAuthHelper.m; sourceTree = "<group>"; };
 		816D77BA1C8818320062594C /* CompanyUserProfileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyUserProfileController.swift; sourceTree = "<group>"; };
 		816D77BC1C8909FE0062594C /* GiftAUserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiftAUserController.swift; sourceTree = "<group>"; };
 		81AC3D591C82270A0006BAFB /* CompanyAuthController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyAuthController.swift; sourceTree = "<group>"; };
 		81AC3D5B1C82363F0006BAFB /* CompanyBetaGigsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyBetaGigsController.swift; sourceTree = "<group>"; };
 		81AC3D5D1C8240940006BAFB /* CompanyProfileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyProfileController.swift; sourceTree = "<group>"; };
+		81D52C091CC538E6001972E2 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		81D52C0B1CC53E7B001972E2 /* AmazonCognitoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmazonCognitoManager.swift; sourceTree = "<group>"; };
+		81D52C0F1CC56F52001972E2 /* Betagig-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Betagig-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		81D913C51C810E2E0071F627 /* Betagig.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Betagig.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81D913C81C810E2E0071F627 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81D913CA1C810E2E0071F627 /* AuthenticationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationController.swift; sourceTree = "<group>"; };
@@ -117,16 +119,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		816D77B51C83645D0062594C /* TwitterFiles */ = {
-			isa = PBXGroup;
-			children = (
-				816D77B61C8364750062594C /* TwitterAuthHelper.h */,
-				816D77B81C8364A10062594C /* TwitterAuthHelper.m */,
-				816D77B71C8364A00062594C /* Betagig-Bridging-Header.h */,
-			);
-			name = TwitterFiles;
-			sourceTree = "<group>";
-		};
 		81AC3D5F1C8241000006BAFB /* UserControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -173,7 +165,7 @@
 		81D913C71C810E2E0071F627 /* Betagig */ = {
 			isa = PBXGroup;
 			children = (
-				816D77B51C83645D0062594C /* TwitterFiles */,
+				81D52C0F1CC56F52001972E2 /* Betagig-Bridging-Header.h */,
 				816D77AE1C82D4B40062594C /* Main.storyboard */,
 				81AC3D601C8241080006BAFB /* CompanyControllers */,
 				81AC3D5F1C8241000006BAFB /* UserControllers */,
@@ -198,6 +190,9 @@
 				816D77BC1C8909FE0062594C /* GiftAUserController.swift */,
 				8B9724EC1CAB6B8E00788017 /* LoginController.swift */,
 				8BBFC3891CB5B886002805CB /* MessagesController.swift */,
+				813039AB1CC044CB003B5F65 /* LoginMainController.swift */,
+				81D52C091CC538E6001972E2 /* Constants.swift */,
+				81D52C0B1CC53E7B001972E2 /* AmazonCognitoManager.swift */,
 			);
 			path = Betagig;
 			sourceTree = "<group>";
@@ -237,6 +232,7 @@
 				81D913C31C810E2E0071F627 /* Resources */,
 				2284BD9B13BC3D109D3EF30C /* Embed Pods Frameworks */,
 				174BD7E625A8AD069FC96E57 /* Copy Pods Resources */,
+				81D52C0D1CC54424001972E2 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -254,11 +250,17 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = shortkey;
 				TargetAttributes = {
 					81D913C41C810E2E0071F627 = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = PV9BKQHV9Z;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -286,7 +288,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				816D77AD1C82BDBB0062594C /* LaunchScreen.storyboard in Resources */,
-				81D913D31C810E2E0071F627 /* LaunchScreen.storyboard in Resources */,
 				81D913D01C810E2E0071F627 /* Assets.xcassets in Resources */,
 				816D77B01C82D4B40062594C /* Main.storyboard in Resources */,
 			);
@@ -340,6 +341,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		81D52C0D1CC54424001972E2 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/Fabric.framework/run\" 11ba16be2852bd8c327efcbb21f0fd3baa96de13 d5e494f531200f4869132a0bfea1be0f8781ceb510244efeb8a0e3317078c963";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -349,6 +363,8 @@
 			files = (
 				8B01E2E61C8834A30056D323 /* MapAnnotation.swift in Sources */,
 				81FA7B761C81173A000BACBD /* ProfileController.swift in Sources */,
+				81D52C0C1CC53E7B001972E2 /* AmazonCognitoManager.swift in Sources */,
+				813039AC1CC044CB003B5F65 /* LoginMainController.swift in Sources */,
 				816D77BD1C8909FE0062594C /* GiftAUserController.swift in Sources */,
 				81AC3D5C1C82363F0006BAFB /* CompanyBetaGigsController.swift in Sources */,
 				81AC3D5E1C8240940006BAFB /* CompanyProfileController.swift in Sources */,
@@ -377,11 +393,11 @@
 				81FA7B7A1C81426F000BACBD /* CategoryRow.swift in Sources */,
 				8BD7088F1C8194C000ACAD53 /* Category.swift in Sources */,
 				8B04738F1C82ABB400FA0BF0 /* User.swift in Sources */,
-				816D77B91C8364A10062594C /* TwitterAuthHelper.m in Sources */,
 				81FA7B801C816584000BACBD /* BetaGigRequestController.swift in Sources */,
 				8BBFC3881CB5B0C6002805CB /* MyHostGigsController.swift in Sources */,
 				81D913C91C810E2E0071F627 /* AppDelegate.swift in Sources */,
 				81FA7B741C8116FC000BACBD /* BrowseController.swift in Sources */,
+				81D52C0A1CC538E6001972E2 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -494,11 +510,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Betagig/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.shortkey.Betagig;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Betagig/Betagig-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Betagig-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -509,11 +526,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Betagig/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.shortkey.Betagig;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Betagig/Betagig-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Betagig-Bridging-Header.h";
 			};
 			name = Release;
 		};

@@ -7,7 +7,8 @@
 //
 
 import UIKit
-import Firebase
+import Alamofire
+import SwiftyJSON
 
 class CompanyBetaGigDetailController: UIViewController {
     
@@ -70,7 +71,7 @@ class CompanyBetaGigDetailController: UIViewController {
         let emailActionButton: UIAlertAction = UIAlertAction(title: "Email Betagig Requester", style: .Default){
             action -> Void in
             
-            let url = NSURL(string: "mailto:\(self.betagig!.testeremail)")!
+            let url = NSURL(string: "mailto:\(self.betagig!.testerEmail)")!
             UIApplication.sharedApplication().openURL(url)
         }
         actionSheetControllerIOS8.addAction(emailActionButton)
@@ -85,35 +86,48 @@ class CompanyBetaGigDetailController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(betagig!.gig)
+        print(betagig!.careerName)
         setFields()
     }
     
     func setFields() {
-        gigName.text = betagig!.gig
-        location.text = betagig!.street
+        gigName.text = betagig!.careerName
+        location.text = betagig!.companyStreet
         status.text = betagig!.status
-        company.text = betagig!.company
-        nameButton.setTitle(betagig!.testername, forState: UIControlState.Normal)
+        company.text = betagig!.companyName!
+        nameButton.setTitle(betagig!.testerName, forState: UIControlState.Normal)
          nameButton.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Left
-        date.text = betagig!.date
-        time.text = betagig!.time
-        cost.text = "$" + String(Int(betagig!.cost)) + "/per day"
+        date.text = betagig!.startDate! + " - " + betagig!.endDate!
+        time.text = betagig!.time!
+
+        cost.text = "$" + betagig!.costPerDay! + "/per day"
+
     }
     
     func updateGigStatus(newStatus: String) {
-        let id = String(betagig!.id)
-        let ref = Firebase(url: "https://betagig1.firebaseio.com/betagigs")
         
-        //add beta gigs to beta gig table.
-        let updatedStatus = ["status": newStatus]
-        ref.childByAppendingPath(id).updateChildValues(updatedStatus)
+        let apiUrl = "https://qc2n6qlv7g.execute-api.us-west-2.amazonaws.com/dev/betagig/status";
+
+        let body = ["id": String(self.betagig!.id!), "status": newStatus]
+        Alamofire.request(.POST, apiUrl, parameters: body, headers: Constants.headers, encoding: .JSON).validate()
+            .responseJSON { response in
+                
+                switch response.result {
+                case .Success:
+               print("success")
+                    
+                case .Failure:
+                 print("failure")
+                }
+                
+        }
+        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "userProfileSegue"{
             let userProfileController = segue.destinationViewController as! CompanyUserProfileController
-            userProfileController.userName = self.betagig!.testername
+            userProfileController.userName = self.betagig!.testerName
             
         }
     }

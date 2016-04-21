@@ -7,63 +7,28 @@
 //
 
 import Foundation
-import Firebase
+import SwiftyJSON
 
 class Category {
     
     
+   
+    var name : String?
+    var id : String?
+    var careers : [String]
+    var careerDetails: [Career]
     
-    var name: String = ""
-    
-    var careers: [String] = []
-    
-    var careerDetails: [Career?] = []
-    
-    let ref: Firebase?
-    
-    let key: String!
-    
-    
-    
-    init(snapshot: FDataSnapshot) {
+    required init?(json: JSON) {
         
-        key = snapshot.key
-        
-        ref = snapshot.ref
-        
-        name = snapshot.value["name"] as! String
-        
-        careers = snapshot.value["careers"] as! [String]
+        name = json["name"].stringValue
+        id = json["id"].stringValue
+        careers = []
+        careerDetails = []
         
     }
     
+
     
-    
-    func toAnyObject() -> AnyObject {
-        
-        return [
-            
-            "name": name,
-            
-            "careers" : careers
-            
-        ]
-        
-    }
-    
-    
-    
-    init (name: String, careers: [String], careerDetails: [Career?], key: String = "") {
-        
-        self.name = name
-        
-        self.careers = careers
-        
-        self.key = key
-        
-        self.ref = nil
-        
-        self.careerDetails = careerDetails
-    }
+
     
 }

@@ -50,14 +50,15 @@ extension CategoryRow : UICollectionViewDataSource {
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("careerCell", forIndexPath: indexPath) as! CollectionViewCell
         
-        let imgName: String = category!.careerDetails[indexPath.row]!.icon
+        let imgName: String = category!.careerDetails[indexPath.row].iconUrl!
         cell.pinImage.image = UIImage(named: imgName)
+        cell.careerId = category!.careerDetails[indexPath.row].id
         
-        cell.title.text = category!.careerDetails[indexPath.row]!.title
+        cell.title.text = category!.careerDetails[indexPath.row].title
         
         var subtitle: String = ""
-        let numCompanies: String = String(category!.careerDetails[indexPath.row]!.numBetagigs!) + " betagigs"
-        let priceRange: String = "$" + String(category!.careerDetails[indexPath.row]!.minCost!) + "-$" + String(category!.careerDetails[indexPath.row]!.maxCost!)
+        let numCompanies: String = String(category!.careerDetails[indexPath.row].numBetagigs!) + " betagigs"
+        let priceRange: String = "$" + String(category!.careerDetails[indexPath.row].minCost!) + "-$" + String(category!.careerDetails[indexPath.row].maxCost!)
         
         subtitle = numCompanies + ", " + priceRange
         cell.subtitle.text = subtitle

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-var loggedIn = false
+//var loggedIn = false
 
 class MainViewController : UITabBarController {
     

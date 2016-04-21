@@ -7,11 +7,14 @@
 //
 
 import UIKit
-import Firebase
+import Alamofire
+import SwiftyJSON
 
 class CompanyListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var companies: [Company] = []
-    var career: String?
+    var careerId: String?
+    var careerName: String?
+
    
     @IBOutlet weak var companyListTableView: UITableView!
     override func viewDidLoad() {
@@ -20,37 +23,61 @@ class CompanyListViewController: UIViewController, UITableViewDataSource, UITabl
         
         companyListTableView.tableFooterView = UIView(frame: CGRectZero)
        // self.navigationController?.navigationBar = career!
-        self.title = career!
+        self.title = careerName!
         getData()
     }
 
     func getData(){
         
-        let ref = Firebase(url: "https://betagig1.firebaseio.com/companies")
+//        let ref = Firebase(url: "https://betagig1.firebaseio.com/companies")
+//        
+//        // Attach a closure to read the data
+//        ref.observeSingleEventOfType(.Value, withBlock: { snapshot in
+//            
+//            var companies = [Company]()
+//            
+//            for item in snapshot.children {
+//                let company = Company(json: item as! FDataSnapshot)
+//                companies.append(company)
+//            }
+//            
+//            for c in companies {
+//                for gig in c.gigs {
+//                    if gig == self.career {
+//                        self.companies.append(c)
+//                    }
+//                }
+//            }
+//            
+//            self.companyListTableView.reloadData()
+//            
+//            }, withCancelBlock: { error in
+//                print(error.description)
+//        })
         
-        // Attach a closure to read the data
-        ref.observeSingleEventOfType(.Value, withBlock: { snapshot in
-            
-            var companies = [Company]()
-            
-            for item in snapshot.children {
-                let company = Company(snapshot: item as! FDataSnapshot)
-                companies.append(company)
-            }
-            
-            for c in companies {
-                for gig in c.gigs {
-                    if gig == self.career {
-                        self.companies.append(c)
+        let apiUrl = "https://qc2n6qlv7g.execute-api.us-west-2.amazonaws.com/dev/company/all?id=\(careerId!)";
+        
+        
+        Alamofire.request(.GET, apiUrl, headers: Constants.headers).validate()
+            .responseJSON { response in
+                
+                switch response.result {
+                case .Success(let data):
+                    let json = JSON(data)
+                    let list: Array<JSON> = json["Items"].arrayValue
+                    for item in list{
+                        
+                        
+                        self.companies.append(Company(json: item)!)
+                        
                     }
+                    self.companyListTableView.reloadData()
+                    
+                case .Failure(let error):
+                    print("Request failed with error: \(error)")
                 }
-            }
-            
-            self.companyListTableView.reloadData()
-            
-            }, withCancelBlock: { error in
-                print(error.description)
-        })
+                
+        }
         
     }
     
@@ -67,7 +94,7 @@ class CompanyListViewController: UIViewController, UITableViewDataSource, UITabl
        
         let item = self.companies[indexPath.row]
         cell.textLabel?.text = item.name
-        cell.detailTextLabel?.text = "$" + String(item.cost) + "/per day"
+        cell.detailTextLabel?.text = "$" + String(item.costPerDay!) + "/per day"
         
         return cell
         
@@ -84,8 +111,6 @@ class CompanyListViewController: UIViewController, UITableViewDataSource, UITabl
         if segue.identifier == "companyDetailSegue" {
             
             let companyDetailController = segue.destinationViewController as! CompanyDetailController
-            
-            
             
             //make call to db to load list of projects and populate a project array based off what they selected
             
@@ -108,7 +133,7 @@ class CompanyListViewController: UIViewController, UITableViewDataSource, UITabl
                 }
                 
             }
-            companyDetailController.career = career
+            companyDetailController.career = careerName
             
         }
         

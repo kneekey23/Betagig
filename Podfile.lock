@@ -1,10 +1,138 @@
 PODS:
-  - Firebase (2.5.1)
+  - Alamofire (3.3.1)
+  - AWSAutoScaling (2.3.6):
+    - AWSCore (= 2.3.6)
+  - AWSCloudWatch (2.3.6):
+    - AWSCore (= 2.3.6)
+  - AWSCognito (2.3.6):
+    - AWSCore (= 2.3.6)
+  - AWSCore (2.3.6)
+  - AWSDynamoDB (2.3.6):
+    - AWSCore (= 2.3.6)
+  - AWSEC2 (2.3.6):
+    - AWSCore (= 2.3.6)
+  - AWSElasticLoadBalancing (2.3.6):
+    - AWSCore (= 2.3.6)
+  - AWSiOSSDKv2 (2.3.6):
+    - AWSiOSSDKv2/AutoScaling (= 2.3.6)
+    - AWSiOSSDKv2/AWSCore (= 2.3.6)
+    - AWSiOSSDKv2/CloudWatch (= 2.3.6)
+    - AWSiOSSDKv2/DynamoDB (= 2.3.6)
+    - AWSiOSSDKv2/EC2 (= 2.3.6)
+    - AWSiOSSDKv2/ElasticLoadBalancing (= 2.3.6)
+    - AWSiOSSDKv2/Kinesis (= 2.3.6)
+    - AWSiOSSDKv2/MobileAnalytics (= 2.3.6)
+    - AWSiOSSDKv2/S3 (= 2.3.6)
+    - AWSiOSSDKv2/SES (= 2.3.6)
+    - AWSiOSSDKv2/SimpleDB (= 2.3.6)
+    - AWSiOSSDKv2/SNS (= 2.3.6)
+    - AWSiOSSDKv2/SQS (= 2.3.6)
+  - AWSiOSSDKv2/AutoScaling (2.3.6):
+    - AWSAutoScaling (= 2.3.6)
+  - AWSiOSSDKv2/AWSCore (2.3.6):
+    - AWSCore (= 2.3.6)
+  - AWSiOSSDKv2/CloudWatch (2.3.6):
+    - AWSCloudWatch (= 2.3.6)
+  - AWSiOSSDKv2/DynamoDB (2.3.6):
+    - AWSDynamoDB (= 2.3.6)
+  - AWSiOSSDKv2/EC2 (2.3.6):
+    - AWSEC2 (= 2.3.6)
+  - AWSiOSSDKv2/ElasticLoadBalancing (2.3.6):
+    - AWSElasticLoadBalancing (= 2.3.6)
+  - AWSiOSSDKv2/Kinesis (2.3.6):
+    - AWSKinesis (= 2.3.6)
+  - AWSiOSSDKv2/MobileAnalytics (2.3.6):
+    - AWSMobileAnalytics (= 2.3.6)
+  - AWSiOSSDKv2/S3 (2.3.6):
+    - AWSS3 (= 2.3.6)
+  - AWSiOSSDKv2/SES (2.3.6):
+    - AWSSES (= 2.3.6)
+  - AWSiOSSDKv2/SimpleDB (2.3.6):
+    - AWSSimpleDB (= 2.3.6)
+  - AWSiOSSDKv2/SNS (2.3.6):
+    - AWSSNS (= 2.3.6)
+  - AWSiOSSDKv2/SQS (2.3.6):
+    - AWSSQS (= 2.3.6)
+  - AWSKinesis (2.3.6):
+    - AWSCore (= 2.3.6)
+  - AWSMobileAnalytics (2.3.6):
+    - AWSCore (= 2.3.6)
+  - AWSS3 (2.3.6):
+    - AWSCore (= 2.3.6)
+  - AWSSES (2.3.6):
+    - AWSCore (= 2.3.6)
+  - AWSSimpleDB (2.3.6):
+    - AWSCore (= 2.3.6)
+  - AWSSNS (2.3.6):
+    - AWSCore (= 2.3.6)
+  - AWSSQS (2.3.6):
+    - AWSCore (= 2.3.6)
+  - Bolts (1.7.0):
+    - Bolts/AppLinks (= 1.7.0)
+    - Bolts/Tasks (= 1.7.0)
+  - Bolts/AppLinks (1.7.0):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.7.0)
+  - CryptoSwift (0.3.1)
+  - Fabric (1.5.5):
+    - Fabric/Base (= 1.5.5)
+  - Fabric/Base (1.5.5)
+  - FBSDKCoreKit (4.11.0):
+    - Bolts (~> 1.7)
+  - FBSDKLoginKit (4.11.0):
+    - FBSDKCoreKit
+  - FBSDKShareKit (4.11.0):
+    - FBSDKCoreKit
+  - google-plus-ios-sdk (1.7.1)
+  - SwiftyJSON (2.3.2)
+  - TwitterCore (1.12.1):
+    - Fabric
+  - TwitterKit (1.12.1):
+    - TwitterCore (= 1.12.1)
+  - UICKeyChainStore (2.0.7)
 
 DEPENDENCIES:
-  - Firebase (>= 2.5.0)
+  - Alamofire (~> 3.0)
+  - AWSCognito
+  - AWSiOSSDKv2
+  - CryptoSwift
+  - Fabric (~> 1.5.0)
+  - FBSDKCoreKit (~> 4.11.0)
+  - FBSDKLoginKit (~> 4.11.0)
+  - FBSDKShareKit (~> 4.11.0)
+  - google-plus-ios-sdk (~> 1.7.1)
+  - SwiftyJSON
+  - TwitterCore (~> 1.12.0)
+  - TwitterKit (~> 1.12.0)
+  - UICKeyChainStore (~> 2.0.6)
 
 SPEC CHECKSUMS:
-  Firebase: 3565ea88b830f28f2c77ecc524622bc71a20d085
+  Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
+  AWSAutoScaling: 49d9f49984a82852511be4caa2a510f522cd8de1
+  AWSCloudWatch: 45fb53f7b76b4d0260d54b3284fc30cb6c7ebdef
+  AWSCognito: af54fe65171c7c994c134e5d29b1ee60ee234825
+  AWSCore: 917d84b32974136194a905b98c0ae25c9f3350b8
+  AWSDynamoDB: 0bfd95eb10363090d8570a48d5feb4e3d7ec5264
+  AWSEC2: 42f0db0be7ded684b5d5ecf5aa444689fa2bc8ce
+  AWSElasticLoadBalancing: b68b0bb0dce50cc4d1c193c53a42b5963fe78381
+  AWSiOSSDKv2: d32aaf6558ed9a8c939f6585c2195d7e2f3cb77d
+  AWSKinesis: 89c0042637c088ba54f2bb892d285693b44d93e8
+  AWSMobileAnalytics: 56ce9e671640fbd702f8ce52b0f128e525f3e51c
+  AWSS3: 1caaf6b45100503fecf3d418c394519a89409a74
+  AWSSES: 8d33c48393d459c649cca781a4a4ae553379f846
+  AWSSimpleDB: 0e4f2160b572be584baf8e2ef6ba257117f75114
+  AWSSNS: 37c7f4c80657a621fbabccf7d0f352e3c018fbd0
+  AWSSQS: aa53b836c21a10611120e8bf361feef54fd73ae1
+  Bolts: a0058fa3b331c5a1e4402d534f2dae36dbff31e4
+  CryptoSwift: baf01e3fb3226c0155cd54c266be882b13d45d5e
+  Fabric: 190bf1a6eb65f7500de1347d027d2e59a7e53db1
+  FBSDKCoreKit: 686ac982723a14ec9ddb85e2f81235d7706c891b
+  FBSDKLoginKit: bade9fc78277764149ccc5bfaadbf13c83175c6a
+  FBSDKShareKit: 2d1746144cfc8a9dbbd24997c34ee0471be51b6a
+  google-plus-ios-sdk: 47adbe03ea904bdb7aa1c0eca282a23c4686e1bc
+  SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
+  TwitterCore: 2b1bdd58dfba3f21b416d2a0d1ca74173e3b0eea
+  TwitterKit: 7f55ebb8d2a1476f7ef2d6fedd40090d4b349b40
+  UICKeyChainStore: 696cd35083f7c8fb5e201d909b7e6aea6b478575
 
 COCOAPODS: 0.39.0

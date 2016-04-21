@@ -10,7 +10,7 @@ import UIKit
 
 class CityListController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var cities: [String] = ["Los Angeles", "San Francisco", "New York", "Chicago", "Miami", "Dallas", "New Orleans", "San Diego", "Atlanta", "Las Vegas", "Austin"]
+    var cities: [String] = ["Los Angeles", "San Francisco"]
     
     var delegate:CityListViewControllerDelegate!
     
@@ -47,6 +47,6 @@ class CityListController: UIViewController, UITableViewDataSource, UITableViewDe
 
 protocol CityListViewControllerDelegate
 {
-    func sendValue(var value : NSString)
+    func sendValue(value : NSString)
 }
 

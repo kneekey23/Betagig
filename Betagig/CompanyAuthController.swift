@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Firebase
 
 class CompanyAuthController: UIViewController, UITextFieldDelegate {
     
@@ -16,31 +15,30 @@ class CompanyAuthController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var username: UITextField!
     var auth: Bool = false
 
-    let ref = Firebase(url: "https://betagig1.firebaseio.com")
     
     @IBAction func companyLogin(sender: AnyObject) {
-        let loginButton: UIButton = sender as! UIButton
-                loginButton.setTitle("Loading...", forState: UIControlState.Normal)
-                ref.authUser(username.text, password: password.text) {
-                    error, authData in
-                    if error != nil {
-                        // an error occured while attempting login
-        
-                        self.auth = false
-                        if(!self.auth){
-                            self.DisplayErrorAlert("")
-                        }
-        
-                        // by default, transition
-        
-                    } else {
-                        self.auth = true
-                        self.performSegueWithIdentifier("companyLogin", sender: nil)
-                        // user is logged in, check authData for data
-                        
-                        
-                    }
-                }
+//        let loginButton: UIButton = sender as! UIButton
+//                loginButton.setTitle("Loading...", forState: UIControlState.Normal)
+//                ref.authUser(username.text, password: password.text) {
+//                    error, authData in
+//                    if error != nil {
+//                        // an error occured while attempting login
+//        
+//                        self.auth = false
+//                        if(!self.auth){
+//                            self.DisplayErrorAlert("")
+//                        }
+//        
+//                        // by default, transition
+//        
+//                    } else {
+//                        self.auth = true
+//                        self.performSegueWithIdentifier("companyLogin", sender: nil)
+//                        // user is logged in, check authData for data
+//                        
+//                        
+//                    }
+//                }
     }
  
     

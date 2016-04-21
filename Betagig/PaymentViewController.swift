@@ -7,39 +7,39 @@
 //
 
 import UIKit
-import Firebase
+
 
 class PaymentViewController: UITableViewController {
 
-let dbRef = Firebase(url: "https://betagig1.firebaseio.com")
+//let dbRef = Firebase(url: "https://betagig1.firebaseio.com")
     @IBOutlet weak var nameOnCArd: UITextField!
     @IBOutlet weak var cardNumber: UITextField!
     @IBOutlet weak var expirationDate: UITextField!
     @IBOutlet weak var securityCode: UITextField!
     @IBAction func saveCreditCardInfo(sender: AnyObject) {
-        self.dbRef.observeAuthEventWithBlock({ authData in
-            if authData != nil {
-                // user authenticated
-                print(authData)
-                
-            let userUrl = Firebase(url: "https://betagig1.firebaseio.com/userData/" + authData.uid)
-            let creditCardInfo = ["nameOnCard": self.nameOnCArd.text!, "cardNumber": self.cardNumber.text!, "expirationDate": self.expirationDate.text!, "securityCode": self.securityCode.text!]
-                
-             userUrl.childByAppendingPath("creditCard").setValue(creditCardInfo)
-                
-               let alertController = UIAlertController(title:"Confirmation Message",
-                    message: "Payment Saved",
-                    preferredStyle: .Alert)
-                let tryAgainAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: {(alertAction: UIAlertAction!) in
-                    self.navigationController?.popToRootViewControllerAnimated(true)
-                })
-                alertController.addAction(tryAgainAction)
-                  self.presentViewController(alertController, animated: true, completion: nil)
-                
-            } else {
-                // No user is signed in
-            }
-        })
+//        self.dbRef.observeAuthEventWithBlock({ authData in
+//            if authData != nil {
+//                // user authenticated
+//                print(authData)
+//                
+//            let userUrl = Firebase(url: "https://betagig1.firebaseio.com/userData/" + authData.uid)
+//            let creditCardInfo = ["nameOnCard": self.nameOnCArd.text!, "cardNumber": self.cardNumber.text!, "expirationDate": self.expirationDate.text!, "securityCode": self.securityCode.text!]
+//                
+//             userUrl.childByAppendingPath("creditCard").setValue(creditCardInfo)
+//                
+//               let alertController = UIAlertController(title:"Confirmation Message",
+//                    message: "Payment Saved",
+//                    preferredStyle: .Alert)
+//                let tryAgainAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: {(alertAction: UIAlertAction!) in
+//                    self.navigationController?.popToRootViewControllerAnimated(true)
+//                })
+//                alertController.addAction(tryAgainAction)
+//                  self.presentViewController(alertController, animated: true, completion: nil)
+//                
+//            } else {
+//                // No user is signed in
+//            }
+//        })
         
     }
     

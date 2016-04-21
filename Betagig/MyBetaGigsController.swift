@@ -7,8 +7,9 @@
 //
 
 import UIKit
-import Firebase
 import Foundation
+import Alamofire
+import SwiftyJSON
 
 class MyBetaGigsController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
@@ -17,161 +18,96 @@ class MyBetaGigsController: UIViewController, UITableViewDataSource, UITableView
     var mypendingGigs: [BetaGig] = []
     var myconfirmedGigs: [BetaGig] = []
     var mypastGigs: [BetaGig] = []
-    let ref = Firebase(url: "https://betagig1.firebaseio.com")
+    var needsToRefresh = true
     
     @IBOutlet weak var betaGigsTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        ref.observeAuthEventWithBlock({ authData in
-//            if authData != nil {
-//                // user authenticated
-//            
-//                
-//                let userUrl = Firebase(url: "https://betagig1.firebaseio.com/userData/" + authData.uid)
-//                
-//                userUrl.observeSingleEventOfType(.Value, withBlock: { snapshot in
-//                    
-//                    if let userName = snapshot.value["name"] as? String {
-//                        print(userName)
-//                    }
-//                    
-//                    if let ids = snapshot.value["betagigs"] as? [String] {
-//                        self.myGigIds = ids
-//                    }
-//                    
-//                    for gigId in self.myGigIds {
-//                        print(gigId)
-//                    }
-//                    
-//                    self.getGigData(self.myGigIds)
-//                    
-//                })
-//                
-//            } else {
-//                // No user is signed in
-//            }
-//        })
-        
-        if loggedIn {
-            let uid = "72e9f24e-793c-4b12-9161-5e5b569cb3b5"
-            let userUrl = Firebase(url: "https://betagig1.firebaseio.com/userData/" + uid)
-            
-            userUrl.observeSingleEventOfType(.Value, withBlock: { snapshot in
-                
-                if let userName = snapshot.value["name"] as? String {
-                    print(userName)
-                }
-                
-                if let ids = snapshot.value["betagigs"] as? [String] {
-                    self.myGigIds = ids
-                }
-                
-                for gigId in self.myGigIds {
-                    print(gigId)
-                }
-                
-                self.getGigData(self.myGigIds)
-                
-            })
-        }
-        
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-//        ref.observeAuthEventWithBlock({ authData in
-//            if authData != nil {
-//                // user authenticated
-//             
-//                
-//                let userUrl = Firebase(url: "https://betagig1.firebaseio.com/userData/" + authData.uid)
-//                
-//                userUrl.observeSingleEventOfType(.Value, withBlock: { snapshot in
-//                    
-//                    if let userName = snapshot.value["name"] as? String {
-//                        print(userName)
-//                    }
-//                    
-//                    if let ids = snapshot.value["betagigs"] as? [String] {
-//                        self.myGigIds = ids
-//                    }
-//                    
-//                    for gigId in self.myGigIds {
-//                        print(gigId)
-//                    }
-//                    
-//                    self.getGigData(self.myGigIds)
-//                    
-//                })
-//                
-//            } else {
-//                // No user is signed in
-//            }
-//        })
         
-        if loggedIn {
-            let uid = "72e9f24e-793c-4b12-9161-5e5b569cb3b5"
-            let userUrl = Firebase(url: "https://betagig1.firebaseio.com/userData/" + uid)
+        if AmazonCognitoManager.sharedInstance.isLoggedIn() {
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = true
             
-            userUrl.observeSingleEventOfType(.Value, withBlock: { snapshot in
-                
-                if let userName = snapshot.value["name"] as? String {
-                    print(userName)
-                }
-                
-                if let ids = snapshot.value["betagigs"] as? [String] {
-                    self.myGigIds = ids
-                }
-                
-                for gigId in self.myGigIds {
-                    print(gigId)
-                }
-                
-                self.getGigData(self.myGigIds)
-                
-            })
-        }
-    }
-    
-    func getGigData(myGigIds: [String]){
-        
-        let betagigUrl = Firebase(url: "https://betagig1.firebaseio.com/betagigs")
-        
-        // Attach a closure to read the data
-        betagigUrl.observeSingleEventOfType(.Value, withBlock: { snapshot in
-            self.allMyGigs.removeAll()
-            self.myconfirmedGigs.removeAll()
-            self.mypastGigs.removeAll()
-            self.mypendingGigs.removeAll()
-            for item in snapshot.children {
-                let betagig = BetaGig(snapshot: item as! FDataSnapshot)
-                
-                for myId in myGigIds {
-                    if myId == betagig.id {
-                        self.allMyGigs.append(betagig)
+            AmazonCognitoManager.sharedInstance.resumeSession {
+                (task) -> AnyObject! in
+                dispatch_async(dispatch_get_main_queue()) {
+                    if self.needsToRefresh {
+                        self.getMyBetaGigs(AmazonCognitoManager.sharedInstance.currentUserId!)
+                        self.needsToRefresh = false
                     }
-                }
-            }
-            
-            for g in self.allMyGigs {
-                if g.status == "pending" {
-                    self.mypendingGigs.append(g)
-                } else if g.status == "upcoming" {
-                    self.myconfirmedGigs.append(g)
-                } else if g.status == "completed" {
-                    self.mypastGigs.append(g)
-                }
-            }
-            
-            self.betaGigsTableView.reloadData()
-            
-            
-            }, withCancelBlock: { error in
-                print(error.description)
-        })
         
+                    
+                }
+                return nil
+            }
+        } else {
+            
+            let backgroundView: UIView = UIView.init(frame: self.view.frame)
+            backgroundView.userInteractionEnabled = false;
+            backgroundView.backgroundColor =  UIColor.whiteColor()
+            let loginButton: UIButton = UIButton.init(type: .Custom)
+            loginButton.frame = CGRectMake(self.view.frame.size.width/2 - loginButton.frame.size.width/2, self.view.frame.size.height/2 - loginButton.frame.size.height/2, loginButton.frame.size.width, loginButton.frame.size.height);
+            loginButton.tintColor = UIColor(hexString: "B048B5")
+            loginButton.titleLabel?.text = "Login"
+            loginButton.titleLabel?.textColor = UIColor.whiteColor()
+            backgroundView.addSubview(loginButton)
+            self.view.addSubview(backgroundView)
+      
+        }
+
+    }
+
+
+    func getMyBetaGigs(userId: String){
+        
+        self.allMyGigs.removeAll()
+        self.mypendingGigs.removeAll()
+        self.myconfirmedGigs.removeAll()
+        self.mypastGigs.removeAll()
+
+        let apiUrl = "https://qc2n6qlv7g.execute-api.us-west-2.amazonaws.com/dev/betagig/user?id=\(userId)";
+
+        
+        Alamofire.request(.GET, apiUrl, headers: Constants.headers).validate()
+            .responseJSON { response in
+                
+        switch response.result {
+                case .Success(let data):
+                    let json = JSON(data)
+                    let list: Array<JSON> = json["Items"].arrayValue
+                        for item in list{
+                            
+                            
+                            self.allMyGigs.append(BetaGig(json: item)!)
+                            
+                        }
+                        
+                        for g in self.allMyGigs {
+                            if g.status == "pending" {
+                                self.mypendingGigs.append(g)
+                            } else if g.status == "upcoming" {
+                                self.myconfirmedGigs.append(g)
+                            } else if g.status == "completed" {
+                                self.mypastGigs.append(g)
+                            }
+                        }
+                        
+                        self.betaGigsTableView.reloadData()
+                    
+                case .Failure(let error):
+                    print("Request failed with error: \(error)")
+                }
+            
+                
+
+                
+                
+        }
+    
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -245,8 +181,8 @@ class MyBetaGigsController: UIViewController, UITableViewDataSource, UITableView
         }
 
         if showEmptyMsg == false {
-            cell.textLabel?.text = item?.gig
-            cell.detailTextLabel?.text = (item?.company)! + ", " + (item?.date)!
+            cell.textLabel?.text = item?.careerName
+            cell.detailTextLabel?.text = (item?.companyName)! + ", " + (item?.time)!
             cell.selectionStyle = .Default
             cell.accessoryType = .DisclosureIndicator
             cell.userInteractionEnabled = true
@@ -287,7 +223,7 @@ class MyBetaGigsController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
        // tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
         self.performSegueWithIdentifier("betaGigDetail", sender: betaGigsTableView.cellForRowAtIndexPath(indexPath))
     }
     
@@ -312,7 +248,7 @@ class MyBetaGigsController: UIViewController, UITableViewDataSource, UITableView
                     let nameOfGig = cell.textLabel?.text
                     var selectedBetagig: BetaGig?
                     for g in self.allMyGigs {
-                        if g.gig == nameOfGig! {
+                        if g.careerName == nameOfGig! {
                             selectedBetagig = g
                             break
                         }

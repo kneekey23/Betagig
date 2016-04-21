@@ -7,38 +7,40 @@
 //
 
 import Foundation
-import Firebase
+import SwiftyJSON
 
 class User {
     
-    var name: String = ""
-    var betagigs: [Int] = []
-    let ref: Firebase?
-    let key: String!
+    var birthDate : String?
+    var passwordHash : String?
+    var id : String?
+    var isDeleted : String?
+    var isStudent : String?
+    var agreedToTerms : String?
+    var nameOfSchool : String?
+    var lastName : String?
+    var companyId : String?
+    var referralSource : String?
+    var email : String?
+    var firstName : String?
     
-    init(snapshot: FDataSnapshot) {
+    required init?(json: JSON) {
         
-        key = snapshot.key
-        ref = snapshot.ref
-        name = snapshot.value["name"] as! String
-        betagigs = snapshot.value["betagigs"] as! [Int]
+        birthDate = json["birthDate"].stringValue
+        passwordHash = json["passwordHash"].stringValue
+        id = json["id"].stringValue
+        isDeleted = json["isDeleted"].stringValue
+        isStudent = json["isStudent"].stringValue
+        agreedToTerms = json["agreedToTerms"].stringValue
+        nameOfSchool = json["nameOfSchool"].stringValue
+        lastName = json["lastName"].stringValue
+        companyId = json["companyId"].stringValue
+        referralSource = json["referralSource"].stringValue
+        email = json["email"].stringValue
+        firstName = json["firstName"].stringValue
     }
     
-    
-    func toAnyObject() -> AnyObject {
+    init(){
         
-        return [
-            "company": name,
-            "betagigs": betagigs,
-        ]
-        
-    }
-    
-    
-    init (name: String, betagigs: [Int], key: String = "") {
-        self.name = name
-        self.betagigs = betagigs
-        self.key = key
-        self.ref = nil
     }
 }
