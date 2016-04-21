@@ -29,3 +29,18 @@ extension UIColor {
         self.init(red: CGFloat(r) / 255, green: CGFloat(g) / 255, blue: CGFloat(b) / 255, alpha: CGFloat(a) / 255)
     }
 }
+
+extension UIViewController {
+    
+    func presentViewControllerFromVisibleViewController(viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)? = nil) {
+        if let tabBarController = self as? MainViewController {
+            tabBarController.selectedIndex = 0
+            let topViewController = tabBarController.selectedViewController as! UINavigationController;
+            topViewController.presentViewControllerFromVisibleViewController(viewControllerToPresent, animated: true, completion: completion)
+        } else if (presentedViewController != nil) {
+            presentedViewController!.presentViewControllerFromVisibleViewController(viewControllerToPresent, animated: true, completion: completion)
+        } else {
+            presentViewController(viewControllerToPresent, animated: true, completion: completion)
+        }
+    }
+}

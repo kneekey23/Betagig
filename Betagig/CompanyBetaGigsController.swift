@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Firebase
 
 class CompanyBetaGigsController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
@@ -15,43 +14,18 @@ class CompanyBetaGigsController: UIViewController, UITableViewDataSource, UITabl
     var mypendingGigs: [BetaGig] = []
     var myconfirmedGigs: [BetaGig] = []
     var mypastGigs: [BetaGig] = []
-    let ref = Firebase(url: "https://betagig1.firebaseio.com")
+    //let ref = Firebase(url: "https://betagig1.firebaseio.com")
     
     @IBOutlet weak var betaGigsTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ref.observeAuthEventWithBlock({ authData in
-            if authData != nil {
-                // user authenticated
-                print(authData)
-                
-                let userUrl = Firebase(url: "https://betagig1.firebaseio.com/userData/" + authData.uid)
-                
-                userUrl.observeSingleEventOfType(.Value, withBlock: { snapshot in
-                    
-                    if let userName = snapshot.value["name"] as? String {
-                        print(userName)
-                        self.getGigData(userName)
-                    }
-                    
-                })
-                
-            } else {
-                // No user is signed in
-            }
-        })
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        ref.observeAuthEventWithBlock({ authData in
-            if authData != nil {
-                // user authenticated
-                print(authData)
-                
+//        ref.observeAuthEventWithBlock({ authData in
+//            if authData != nil {
+//                // user authenticated
+//                print(authData)
+//                
 //                let userUrl = Firebase(url: "https://betagig1.firebaseio.com/userData/" + authData.uid)
 //                
 //                userUrl.observeSingleEventOfType(.Value, withBlock: { snapshot in
@@ -62,13 +36,38 @@ class CompanyBetaGigsController: UIViewController, UITableViewDataSource, UITabl
 //                    }
 //                    
 //                })
-                let userName = "larry@belkin.com"
-                self.getGigData(userName)
-                
-            } else {
-                // No user is signed in
-            }
-        })
+//                
+//            } else {
+//                // No user is signed in
+//            }
+//        })
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+//        ref.observeAuthEventWithBlock({ authData in
+//            if authData != nil {
+//                // user authenticated
+//                print(authData)
+//                
+////                let userUrl = Firebase(url: "https://betagig1.firebaseio.com/userData/" + authData.uid)
+////                
+////                userUrl.observeSingleEventOfType(.Value, withBlock: { snapshot in
+////                    
+////                    if let userName = snapshot.value["name"] as? String {
+////                        print(userName)
+////                        self.getGigData(userName)
+////                    }
+////                    
+////                })
+//                let userName = "larry@belkin.com"
+//                self.getGigData(userName)
+//                
+//            } else {
+//                // No user is signed in
+//            }
+//        })
     }
     
     func getGigData(userName: String){

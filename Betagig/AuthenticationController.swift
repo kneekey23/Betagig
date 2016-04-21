@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Firebase
+import AWSCore
 
 
 class AuthenticationController: UIViewController,UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
@@ -16,7 +16,7 @@ class AuthenticationController: UIViewController,UITextFieldDelegate, UITableVie
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var closeBtn: UIButton!
-    let ref = Firebase(url: "https://betagig1.firebaseio.com")
+
     
        var auth: Bool = false
 
@@ -41,11 +41,15 @@ class AuthenticationController: UIViewController,UITextFieldDelegate, UITableVie
 //                // user is logged in, check authData for data
 //            }
 //        }
-        
-        self.auth = true
-        loggedIn = true
-        self.performSegueWithIdentifier("browse", sender: nil)
-        // hard coded to login
+        AmazonCognitoManager.sharedInstance.loginFromView(self, provider: "betagig", username: username.text!, password: password.text!) {
+            (task: AWSTask!) -> AnyObject! in
+            dispatch_async(dispatch_get_main_queue()) {
+                   self.auth = true
+                 self.performSegueWithIdentifier("browse", sender: nil)
+            }
+            return nil
+        }
+
     }
     
     override func viewDidLoad() {
@@ -56,7 +60,7 @@ class AuthenticationController: UIViewController,UITextFieldDelegate, UITableVie
 
         username.delegate = self
         password.delegate = self
-        username.text = "mel.hargis@ucla.edu"
+        username.text = "nicki@betagig.com"
         password.text = "goucla23"
     }
     

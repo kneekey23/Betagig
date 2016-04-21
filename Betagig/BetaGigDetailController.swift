@@ -26,7 +26,7 @@ class BetaGigDetailController: UIViewController {
     @IBOutlet weak var contact: UILabel!
     @IBOutlet weak var street: UILabel!
     @IBOutlet weak var city: UILabel!
-     let userId: String = "a2c1144f-6842-4249-b3cd-77bd8571cf04"
+     //let userId: String = "a2c1144f-6842-4249-b3cd-77bd8571cf04"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -120,12 +120,10 @@ class BetaGigDetailController: UIViewController {
             action -> Void in
             
             let apiUrl = "https://qc2n6qlv7g.execute-api.us-west-2.amazonaws.com/dev/betagig";
-            let headers = [
-                "x-api-key": "3euU5d6Khj5YQXZNDBrqq1NDkDytrwek1AyToIHA",
-                "Content-Type": "application/json"
-            ]
+
             let body = ["id": String(self.betagig!.id!)]
-            Alamofire.request(.DELETE, apiUrl, parameters: body, headers: headers, encoding: .JSON).validate()
+            
+            Alamofire.request(.DELETE, apiUrl, parameters: body, headers: Constants.headers, encoding: .JSON).validate()
                 .responseJSON { response in
                     
                     switch response.result {

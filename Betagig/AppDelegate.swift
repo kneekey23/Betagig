@@ -7,22 +7,56 @@
 //
 
 import UIKit
-import Firebase
+import TwitterKit
+import Fabric
+import AWSCognito
+import AWSCore
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-    override init() {
-        super.init()
-        Firebase.defaultConfig().persistenceEnabled = true
+    
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+        return AmazonCognitoManager.sharedInstance.application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
     }
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        UITabBar.appearance().tintColor = UIColor(hexString: "E65100")
-        return true
+        //UITabBar.appearance().tintColor = UIColor(hexString: "E65100")
+        
+        if AWSCognito.cognitoDeviceId() != nil {
+            let canRegisterApp : UIApplication? = application
+            canRegisterApp?.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: UIUserNotificationType.Alert, categories: nil))
+        }
+        
+        Fabric.with([Twitter.self, AWSCognito.self])
+        return AmazonCognitoManager.sharedInstance.application(application, didFinishLaunchingWithOptions: launchOptions)
+    }
+    
+    func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings) {
+        application.registerForRemoteNotifications()
+    }
+    
+    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        userDefaults.setObject(deviceToken, forKey: Constants.DEVICE_TOKEN_KEY)
+        userDefaults.synchronize()
+    }
+    
+    func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
+        print("Error in registering for push notifications: " + error.localizedDescription)
+    }
+    
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
+        NSNotificationCenter.defaultCenter().postNotificationName(Constants.COGNITO_PUSH_NOTIF, object: userInfo)
+    }
+    
+    func popLoginModal(){
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewControllerWithIdentifier("loginModalController")
+        self.window?.rootViewController?.presentViewController(vc, animated: true, completion: nil)
     }
 
     func applicationWillResignActive(application: UIApplication) {

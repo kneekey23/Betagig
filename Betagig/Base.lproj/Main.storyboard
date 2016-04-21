@@ -10,7 +10,7 @@
         <!--Login Controller-->
         <scene sceneID="f2a-hU-e6i">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="ho2-r3-vmx" customClass="LoginController" customModule="Betagig" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginModalController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ho2-r3-vmx" customClass="LoginController" customModule="Betagig" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="e59-RO-jeK"/>
                         <viewControllerLayoutGuide type="bottom" id="c4u-Iq-OXf"/>
@@ -33,7 +33,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="presentation" id="GfH-ad-YLU"/>
+                                    <segue destination="zNJ-cN-Uwg" kind="show" id="ggm-R9-LrV"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eps-FO-P2O">
@@ -79,6 +79,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <state key="normal" image="Delete Filled-50 orange"/>
+                                <connections>
+                                    <segue destination="dW4-dT-QDQ" kind="show" id="ZvR-Ly-fuu"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -243,7 +246,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="274.5" y="674.5"/>
+            <point key="canvasLocation" x="1146.5" y="1178.5"/>
         </scene>
         <!--Create Account Controller-->
         <scene sceneID="k23-QG-xaI">
@@ -457,7 +460,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ABV-bG-sDD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="274.5" y="1430.5"/>
+            <point key="canvasLocation" x="188.5" y="1754.5"/>
         </scene>
         <!--Company Auth Controller-->
         <scene sceneID="Pcz-aE-qqr">
@@ -569,9 +572,6 @@
                                         <state key="normal" title="Go Back">
                                             <color key="titleColor" red="0.30588235289999999" green="0.8862745098" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <connections>
-                                            <segue destination="BYZ-38-t0r" kind="show" identifier="returnUser" id="4eW-Uv-fDC"/>
-                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome BetaGig Providers" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ayS-sf-1Tu">
                                         <rect key="frame" x="5" y="47" width="364" height="42"/>
@@ -1451,10 +1451,10 @@
             </objects>
             <point key="canvasLocation" x="2709.5" y="2397.5"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main View Controller-->
         <scene sceneID="dl1-M3-nGO">
             <objects>
-                <tabBarController id="VIq-dN-Cm3" sceneMemberID="viewController">
+                <tabBarController id="VIq-dN-Cm3" customClass="MainViewController" customModule="Betagig" customModuleProvider="target" sceneMemberID="viewController">
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="VRV-Fi-EVa">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -1502,7 +1502,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="63" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Bsj-69-Feq">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="63" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Bsj-69-Feq">
                                 <rect key="frame" x="27" y="130" width="321" height="488"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -1917,12 +1917,13 @@
         <!--Login Main Controller-->
         <scene sceneID="Kbq-Yf-fge">
             <objects>
-                <viewController id="zNJ-cN-Uwg" customClass="LoginMainController" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kmu-18-VpM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController definesPresentationContext="YES" id="zNJ-cN-Uwg" customClass="LoginMainController" customModule="Betagig" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8ea-wd-RPK"/>
                         <viewControllerLayoutGuide type="bottom" id="V1t-ym-q7u"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="O7E-yb-Fet">
+                    <view key="view" opaque="NO" contentMode="scaleToFill" id="O7E-yb-Fet">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -1942,6 +1943,9 @@
                                     <constraint firstAttribute="height" constant="48" id="QfK-7d-TbX"/>
                                 </constraints>
                                 <state key="normal" image="g+"/>
+                                <connections>
+                                    <action selector="loginWithGoogle:" destination="zNJ-cN-Uwg" eventType="touchUpInside" id="BVx-J5-a8J"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ffP-cX-IL5">
                                 <rect key="frame" x="48" y="299" width="278" height="48"/>
@@ -1949,6 +1953,9 @@
                                     <constraint firstAttribute="height" constant="48" id="aBM-4w-ggX"/>
                                 </constraints>
                                 <state key="normal" image="Twtr"/>
+                                <connections>
+                                    <action selector="loginWithTwitter:" destination="zNJ-cN-Uwg" eventType="touchUpInside" id="mH3-ab-KDR"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n5t-Ik-mh6">
                                 <rect key="frame" x="330" y="37" width="25" height="25"/>
@@ -1957,6 +1964,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <state key="normal" image="Delete Filled-50 white"/>
+                                <connections>
+                                    <segue destination="dW4-dT-QDQ" kind="show" identifier="authenticatedSegue" id="i1t-FR-Nh5"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Betagig" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DWE-Pd-Rmk">
                                 <rect key="frame" x="156" y="68" width="137" height="61"/>
@@ -1976,6 +1986,9 @@
                                     <constraint firstAttribute="width" constant="38" id="lxW-rq-LcN"/>
                                 </constraints>
                                 <state key="normal" image="Left Filled-50"/>
+                                <connections>
+                                    <segue destination="ho2-r3-vmx" kind="presentation" id="ufE-GQ-q5b"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u9A-Er-vsC">
                                 <rect key="frame" x="48" y="174" width="278" height="48"/>
@@ -1983,6 +1996,9 @@
                                     <constraint firstAttribute="height" constant="48" id="irL-Qq-9QN"/>
                                 </constraints>
                                 <state key="normal" image="fb"/>
+                                <connections>
+                                    <action selector="loginWithFacebook:" destination="zNJ-cN-Uwg" eventType="touchUpInside" id="ooR-YU-K74"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Njb-An-4bf">
                                 <rect key="frame" x="48" y="363" width="278" height="48"/>
@@ -1990,6 +2006,9 @@
                                     <constraint firstAttribute="height" constant="48" id="xkr-ZJ-EmT"/>
                                 </constraints>
                                 <state key="normal" image="email-1"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="wzQ-Vz-x0F"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2031,9 +2050,8 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Kmu-18-VpM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-7.5" y="-982.5"/>
+            <point key="canvasLocation" x="398.5" y="969.5"/>
         </scene>
         <!--GiftA User Controller-->
         <scene sceneID="fZB-sY-iK4">
@@ -2206,7 +2224,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5KA-hC-WXa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="482.5" y="-982.5"/>
+            <point key="canvasLocation" x="154.5" y="-1230.5"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="puR-p6-Dvv">
@@ -2229,7 +2247,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wrH-Z3-5fX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-327.5" y="-49.5"/>
+            <point key="canvasLocation" x="-127.5" y="-147.5"/>
         </scene>
         <!--Browse-->
         <scene sceneID="cNf-j6-46i">
@@ -2343,20 +2361,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Welcome to Betagig" translatesAutoresizingMaskIntoConstraints="NO" id="bf2-Yb-m0X">
-                                <rect key="frame" x="8" y="301" width="375" height="40"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="26"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Job shadow professionals from hundreds of gigs to find a career you love." translatesAutoresizingMaskIntoConstraints="NO" id="oQJ-OY-pGu">
-                                <rect key="frame" x="0.0" y="286" width="375" height="46"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="206" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ttl-yV-ssi">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2466,17 +2470,9 @@
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Ttl-yV-ssi" firstAttribute="top" secondItem="N1C-7C-f5w" secondAttribute="bottom" id="431-ys-2WF"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="bf2-Yb-m0X" secondAttribute="trailing" constant="-24" id="7lf-On-EHE"/>
-                            <constraint firstItem="oQJ-OY-pGu" firstAttribute="centerY" secondItem="8Dk-Hw-o1A" secondAttribute="centerY" id="7t4-7y-7sz"/>
                             <constraint firstItem="Ttl-yV-ssi" firstAttribute="bottom" secondItem="p6z-rh-JPX" secondAttribute="top" id="ESb-Q9-rEA"/>
                             <constraint firstAttribute="trailing" secondItem="Ttl-yV-ssi" secondAttribute="trailing" id="EsI-rD-DN0"/>
-                            <constraint firstItem="oQJ-OY-pGu" firstAttribute="trailing" secondItem="Ttl-yV-ssi" secondAttribute="trailing" id="ZlX-YD-dxh"/>
-                            <constraint firstItem="bf2-Yb-m0X" firstAttribute="leading" secondItem="8Dk-Hw-o1A" secondAttribute="leadingMargin" constant="-8" id="ltm-H5-Tj1"/>
-                            <constraint firstItem="p6z-rh-JPX" firstAttribute="top" secondItem="bf2-Yb-m0X" secondAttribute="bottom" constant="277" id="mxK-Rf-6a2"/>
                             <constraint firstItem="Ttl-yV-ssi" firstAttribute="leading" secondItem="8Dk-Hw-o1A" secondAttribute="leading" id="nbM-eJ-8Gf"/>
-                            <constraint firstItem="bf2-Yb-m0X" firstAttribute="top" secondItem="N1C-7C-f5w" secondAttribute="bottom" constant="237" id="qyn-tS-2eR"/>
-                            <constraint firstItem="oQJ-OY-pGu" firstAttribute="leading" secondItem="Ttl-yV-ssi" secondAttribute="leading" id="xMH-Mp-Tf8"/>
-                            <constraint firstItem="oQJ-OY-pGu" firstAttribute="top" secondItem="N1C-7C-f5w" secondAttribute="bottom" constant="222" id="yQq-os-bqw"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="kTB-UM-zKt"/>
@@ -3076,11 +3072,7 @@
         <scene sceneID="iZM-r4-Irq">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="skN-1X-Ph7" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="My BetaGigs" image="Briefcase-25-gray" selectedImage="Briefcase Filled-25-orange" id="sFX-h7-GUc">
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="image" keyPath="keyPath" value="Briefcase Filled-25-orange"/>
-                        </userDefinedRuntimeAttributes>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="My BetaGigs" image="Briefcase-25-gray" selectedImage="Briefcase Filled-25-orange" id="sFX-h7-GUc"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hLE-Xo-Utz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -3185,7 +3177,7 @@
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="dW4-dT-QDQ" kind="show" identifier="logOut" id="HOs-HH-L1a"/>
+                                                        <action selector="logOut:" destination="XML-0z-d9s" eventType="touchUpInside" id="C8n-iH-EVU"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -3399,7 +3391,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="63" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Dd4-9h-aeg">
+                            <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="63" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Dd4-9h-aeg">
                                 <rect key="frame" x="27" y="179" width="321" height="357"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -3634,7 +3626,7 @@
         <image name="stars" width="1780" height="288"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="91e-jc-6Wx"/>
-        <segue reference="GfH-ad-YLU"/>
+        <segue reference="ZvR-Ly-fuu"/>
+        <segue reference="e4R-qu-AYO"/>
     </inferredMetricsTieBreakers>
 </document>

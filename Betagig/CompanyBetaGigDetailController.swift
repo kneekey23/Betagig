@@ -107,12 +107,9 @@ class CompanyBetaGigDetailController: UIViewController {
     func updateGigStatus(newStatus: String) {
         
         let apiUrl = "https://qc2n6qlv7g.execute-api.us-west-2.amazonaws.com/dev/betagig/status";
-        let headers = [
-            "x-api-key": "3euU5d6Khj5YQXZNDBrqq1NDkDytrwek1AyToIHA",
-            "Content-Type": "application/json"
-        ]
+
         let body = ["id": String(self.betagig!.id!), "status": newStatus]
-        Alamofire.request(.POST, apiUrl, parameters: body, headers: headers, encoding: .JSON).validate()
+        Alamofire.request(.POST, apiUrl, parameters: body, headers: Constants.headers, encoding: .JSON).validate()
             .responseJSON { response in
                 
                 switch response.result {

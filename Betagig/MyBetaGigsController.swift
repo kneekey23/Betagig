@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Firebase
 import Foundation
 import Alamofire
 import SwiftyJSON
@@ -19,20 +18,46 @@ class MyBetaGigsController: UIViewController, UITableViewDataSource, UITableView
     var mypendingGigs: [BetaGig] = []
     var myconfirmedGigs: [BetaGig] = []
     var mypastGigs: [BetaGig] = []
-
-    let userId: String = "a2c1144f-6842-4249-b3cd-77bd8571cf04"
+    var needsToRefresh = true
     
     @IBOutlet weak var betaGigsTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getMyBetaGigs(userId)
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-
-         getMyBetaGigs(userId)
+        
+        if AmazonCognitoManager.sharedInstance.isLoggedIn() {
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+            
+            AmazonCognitoManager.sharedInstance.resumeSession {
+                (task) -> AnyObject! in
+                dispatch_async(dispatch_get_main_queue()) {
+                    if self.needsToRefresh {
+                        self.getMyBetaGigs(AmazonCognitoManager.sharedInstance.currentUserId!)
+                        self.needsToRefresh = false
+                    }
+        
+                    
+                }
+                return nil
+            }
+        } else {
+            
+            let backgroundView: UIView = UIView.init(frame: self.view.frame)
+            backgroundView.userInteractionEnabled = false;
+            backgroundView.backgroundColor =  UIColor.whiteColor()
+            let loginButton: UIButton = UIButton.init(type: .Custom)
+            loginButton.frame = CGRectMake(self.view.frame.size.width/2 - loginButton.frame.size.width/2, self.view.frame.size.height/2 - loginButton.frame.size.height/2, loginButton.frame.size.width, loginButton.frame.size.height);
+            loginButton.tintColor = UIColor(hexString: "B048B5")
+            loginButton.titleLabel?.text = "Login"
+            loginButton.titleLabel?.textColor = UIColor.whiteColor()
+            backgroundView.addSubview(loginButton)
+            self.view.addSubview(backgroundView)
+      
+        }
 
     }
 
@@ -45,12 +70,9 @@ class MyBetaGigsController: UIViewController, UITableViewDataSource, UITableView
         self.mypastGigs.removeAll()
 
         let apiUrl = "https://qc2n6qlv7g.execute-api.us-west-2.amazonaws.com/dev/betagig/user?id=\(userId)";
-        let headers = [
-            "x-api-key": "3euU5d6Khj5YQXZNDBrqq1NDkDytrwek1AyToIHA",
-            "Content-Type": "application/json"
-        ]
+
         
-        Alamofire.request(.GET, apiUrl, headers: headers).validate()
+        Alamofire.request(.GET, apiUrl, headers: Constants.headers).validate()
             .responseJSON { response in
                 
         switch response.result {
@@ -201,7 +223,7 @@ class MyBetaGigsController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
        // tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
         self.performSegueWithIdentifier("betaGigDetail", sender: betaGigsTableView.cellForRowAtIndexPath(indexPath))
     }
     

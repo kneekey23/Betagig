@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Firebase
 import Foundation
 import Alamofire
 import SwiftyJSON
@@ -19,8 +18,7 @@ class MyHostGigsController: UIViewController, UITableViewDataSource, UITableView
     var mypendingGigs: [BetaGig] = []
     var myconfirmedGigs: [BetaGig] = []
     var mypastGigs: [BetaGig] = []
-    
-    let hostUserId: String = "1234"
+    var needsToRefresh = true
 
     var selectedCellRow: Int = 0
     var selectedCellSection: Int = 0
@@ -31,14 +29,47 @@ class MyHostGigsController: UIViewController, UITableViewDataSource, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getMyHostGigs(hostUserId)
+     
 
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-
-        getMyHostGigs(hostUserId)
+        
+        if AmazonCognitoManager.sharedInstance.isLoggedIn() {
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+            
+            AmazonCognitoManager.sharedInstance.resumeSession {
+                (task) -> AnyObject! in
+                dispatch_async(dispatch_get_main_queue()) {
+                    if self.needsToRefresh {
+                        self.getMyHostGigs(AmazonCognitoManager.sharedInstance.currentUserId!)
+                        self.needsToRefresh = false
+                    }
+                    
+                    
+                }
+                return nil
+            }
+        } else {
+            
+            let backgroundView: UIView = UIView.init(frame: self.view.frame)
+            backgroundView.userInteractionEnabled = false;
+            backgroundView.backgroundColor =  UIColor.whiteColor()
+            let loginButton: UIButton = UIButton.init(type: .Custom)
+            loginButton.frame = CGRectMake(self.view.frame.size.width/2 - loginButton.frame.size.width/2, self.view.frame.size.height/2 - loginButton.frame.size.height/2, loginButton.frame.size.width, loginButton.frame.size.height);
+            loginButton.tintColor = UIColor(hexString: "B048B5")
+            loginButton.titleLabel?.text = "Login"
+            loginButton.titleLabel?.textColor = UIColor.whiteColor()
+            backgroundView.addSubview(loginButton)
+            self.view.addSubview(backgroundView)
+            
+        }
+        
+        
+      
+        
+    
         
         }
 
@@ -50,12 +81,9 @@ class MyHostGigsController: UIViewController, UITableViewDataSource, UITableView
         self.mypastGigs.removeAll()
         
         let apiUrl = "https://qc2n6qlv7g.execute-api.us-west-2.amazonaws.com/dev/betagig/host?id=\(hostUserId)";
-        let headers = [
-            "x-api-key": "3euU5d6Khj5YQXZNDBrqq1NDkDytrwek1AyToIHA",
-            "Content-Type": "application/json"
-        ]
+
         
-        Alamofire.request(.GET, apiUrl, headers: headers).validate()
+        Alamofire.request(.GET, apiUrl, headers: Constants.headers).validate()
             .responseJSON { response in
                 
                 switch response.result {
@@ -203,7 +231,7 @@ class MyHostGigsController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-       // tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
         selectedCellRow = indexPath.row
         selectedCellSection = indexPath.section
         self.performSegueWithIdentifier("hostGigDetail", sender: hostGigsTableView.cellForRowAtIndexPath(indexPath))

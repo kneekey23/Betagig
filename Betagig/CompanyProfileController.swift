@@ -7,18 +7,18 @@
 //
 
 import UIKit
-import Firebase
+
 
 
 class CompanyProfileController: UITableViewController {
 
     
-    let ref = Firebase(url: "https://betagig1.firebaseio.com")
+  
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if segue.identifier == "companyLogOut"{
-            ref.unauth()
+          
             let loginVC = segue.destinationViewController as! CompanyAuthController
             loginVC.hidesBottomBarWhenPushed = true
         }

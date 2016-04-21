@@ -12,6 +12,7 @@ import Foundation
 import UIKit
 import Alamofire
 import SwiftyJSON
+import AWSCore
 
 
 class BrowseViewController: UIViewController, UITableViewDataSource, CityListViewControllerDelegate, LoginViewControllerDelegate {
@@ -25,10 +26,6 @@ class BrowseViewController: UIViewController, UITableViewDataSource, CityListVie
     var cityButton: UIButton?
     var city:String?
   
-    let headers = [
-        "x-api-key": "3euU5d6Khj5YQXZNDBrqq1NDkDytrwek1AyToIHA",
-        "Content-Type": "application/json"
-    ]
     
     override func viewDidLoad() {
         
@@ -45,18 +42,21 @@ class BrowseViewController: UIViewController, UITableViewDataSource, CityListVie
         cityButton!.addTarget(self, action: #selector(BrowseViewController.clickOnButton(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         self.navigationItem.titleView = cityButton
         
-//        ref.observeAuthEventWithBlock({ authData in
-////            if authData != nil {
-//            if loggedIn {
-//                // user authenticated
-//                print("logged in")
-//            } else {
-//                // No user is signed in
-//                self.performSegueWithIdentifier("loginSegue", sender: self)
-//            }
-//        })
-//        self.performSegueWithIdentifier("loginSegue", sender: self)
+        if AmazonCognitoManager.sharedInstance.isLoggedIn() {
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+            
+            AmazonCognitoManager.sharedInstance.resumeSession {
+                (task) -> AnyObject! in
+                dispatch_async(dispatch_get_main_queue()) {
+                    
+                }
+                return nil
+            }
+        } else {
+            self.performSegueWithIdentifier("loginSegue", sender: self)
+        }
     }
+    
     
     func clickOnButton(button: UIButton) {
          self.performSegueWithIdentifier("citySegue", sender: button)
@@ -73,7 +73,7 @@ class BrowseViewController: UIViewController, UITableViewDataSource, CityListVie
         let apiUrl = "https://qc2n6qlv7g.execute-api.us-west-2.amazonaws.com/dev/categories";
 
         
-        Alamofire.request(.GET, apiUrl, headers: headers).validate()
+        Alamofire.request(.GET, apiUrl, headers: Constants.headers).validate()
             .responseJSON { response in
                 
                 switch response.result {
@@ -101,7 +101,7 @@ class BrowseViewController: UIViewController, UITableViewDataSource, CityListVie
         
         let apiUrl = "https://qc2n6qlv7g.execute-api.us-west-2.amazonaws.com/dev/career";
         
-        Alamofire.request(.GET, apiUrl, headers: headers).validate()
+        Alamofire.request(.GET, apiUrl, headers: Constants.headers).validate()
             .responseJSON { response in
                 
                 switch response.result {
@@ -147,7 +147,7 @@ class BrowseViewController: UIViewController, UITableViewDataSource, CityListVie
                             let apiUrl = "https://qc2n6qlv7g.execute-api.us-west-2.amazonaws.com/dev/company?id=\(career.id!)";
                           
                             
-                            Alamofire.request(.GET, apiUrl, headers: headers).validate()
+                            Alamofire.request(.GET, apiUrl, headers: Constants.headers).validate()
                                 .responseJSON { response in
                                     
                                     switch response.result {

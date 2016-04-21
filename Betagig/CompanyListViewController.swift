@@ -14,10 +14,7 @@ class CompanyListViewController: UIViewController, UITableViewDataSource, UITabl
     var companies: [Company] = []
     var careerId: String?
     var careerName: String?
-    let headers = [
-        "x-api-key": "3euU5d6Khj5YQXZNDBrqq1NDkDytrwek1AyToIHA",
-        "Content-Type": "application/json"
-    ]
+
    
     @IBOutlet weak var companyListTableView: UITableView!
     override func viewDidLoad() {
@@ -61,7 +58,7 @@ class CompanyListViewController: UIViewController, UITableViewDataSource, UITabl
         let apiUrl = "https://qc2n6qlv7g.execute-api.us-west-2.amazonaws.com/dev/company/all?id=\(careerId!)";
         
         
-        Alamofire.request(.GET, apiUrl, headers: headers).validate()
+        Alamofire.request(.GET, apiUrl, headers: Constants.headers).validate()
             .responseJSON { response in
                 
                 switch response.result {

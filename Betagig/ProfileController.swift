@@ -7,20 +7,49 @@
 //
 
 import UIKit
-
+import AWSCore
 
 
 class ProfileController: UITableViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        if AmazonCognitoManager.sharedInstance.isLoggedIn() {
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+            
+            AmazonCognitoManager.sharedInstance.resumeSession {
+                (task) -> AnyObject! in
+                dispatch_async(dispatch_get_main_queue()) {
+                    
+                }
+                return nil
+            }
+        } else {
+            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            appDelegate.popLoginModal()
+        }
+    }
   
+    @IBAction func logOut(sender: AnyObject) {
+        AmazonCognitoManager.sharedInstance.logOut {
+            (task) -> AnyObject! in
+            dispatch_async(dispatch_get_main_queue()) {
+                
+                self.tabBarController?.selectedIndex = 0
+                let firstNavController: UINavigationController = self.tabBarController?.selectedViewController as! UINavigationController;
+                firstNavController.popToRootViewControllerAnimated(true)
+            }
+            return nil
+        }
+    }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 
-        if segue.identifier == "logOut"{
-           
-            loggedIn = false
-            let loginVC = segue.destinationViewController as! MainViewController
-            loginVC.hidesBottomBarWhenPushed = true  
-        }
     }
     
     

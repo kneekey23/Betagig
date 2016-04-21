@@ -19,7 +19,7 @@ class BetaGigRequestController: UIViewController, UIPickerViewDataSource, UIPick
     var durationArray: [String] = ["1","3", "5"]
     var selectedCompany: Company?
     var selectedCareer: String?
-    let userId: String = "a2c1144f-6842-4249-b3cd-77bd8571cf04"
+    //let userId: String = "a2c1144f-6842-4249-b3cd-77bd8571cf04"
     
     @IBOutlet weak var durationTextField: UITextField!
  
@@ -79,12 +79,9 @@ class BetaGigRequestController: UIViewController, UIPickerViewDataSource, UIPick
     }
     @IBAction func requestAction(sender: AnyObject) {
         
-        let apiUrl = "https://qc2n6qlv7g.execute-api.us-west-2.amazonaws.com/dev/user?id=\(userId)";
-        let headers = [
-            "x-api-key": "3euU5d6Khj5YQXZNDBrqq1NDkDytrwek1AyToIHA",
-            "Content-Type": "application/json"
-        ]
-        Alamofire.request(.GET, apiUrl, headers: headers).validate()
+        let apiUrl = "https://qc2n6qlv7g.execute-api.us-west-2.amazonaws.com/dev/user?id=\(AmazonCognitoManager.sharedInstance.currentUserId)";
+
+        Alamofire.request(.GET, apiUrl, headers: Constants.headers).validate()
             .responseJSON { response in
                 
                 switch response.result {
@@ -117,7 +114,7 @@ class BetaGigRequestController: UIViewController, UIPickerViewDataSource, UIPick
                     let betagigUrl = "https://qc2n6qlv7g.execute-api.us-west-2.amazonaws.com/dev/betagig"
                   
                     
-                    Alamofire.request(.POST, betagigUrl, headers: headers, parameters: dict, encoding: .JSON)
+                    Alamofire.request(.POST, betagigUrl, headers: Constants.headers, parameters: dict, encoding: .JSON)
                         .responseJSON{ response in
                             switch response.result{
                             case .Success:
