@@ -44,6 +44,7 @@ class CompanyBetaGigDetailController: UIViewController {
                 let msg = "You have successfully accepted this pending betagig request!"
                 let alertController = UIAlertController(title: "Thank You", message: msg, preferredStyle: UIAlertControllerStyle.Alert)
                 let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: {(alertAction: UIAlertAction!) in
+                    
                     self.navigationController?.popToRootViewControllerAnimated(true)
                 })
                 alertController.addAction(okAction)
@@ -130,6 +131,8 @@ class CompanyBetaGigDetailController: UIViewController {
             userProfileController.userName = self.betagig!.testerName
             
         }
+        
+        
     }
 
 }

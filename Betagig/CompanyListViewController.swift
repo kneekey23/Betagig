@@ -29,32 +29,6 @@ class CompanyListViewController: UIViewController, UITableViewDataSource, UITabl
 
     func getData(){
         
-//        let ref = Firebase(url: "https://betagig1.firebaseio.com/companies")
-//        
-//        // Attach a closure to read the data
-//        ref.observeSingleEventOfType(.Value, withBlock: { snapshot in
-//            
-//            var companies = [Company]()
-//            
-//            for item in snapshot.children {
-//                let company = Company(json: item as! FDataSnapshot)
-//                companies.append(company)
-//            }
-//            
-//            for c in companies {
-//                for gig in c.gigs {
-//                    if gig == self.career {
-//                        self.companies.append(c)
-//                    }
-//                }
-//            }
-//            
-//            self.companyListTableView.reloadData()
-//            
-//            }, withCancelBlock: { error in
-//                print(error.description)
-//        })
-        
         let apiUrl = "https://qc2n6qlv7g.execute-api.us-west-2.amazonaws.com/dev/company/all?id=\(careerId!)";
         
         
@@ -134,6 +108,7 @@ class CompanyListViewController: UIViewController, UITableViewDataSource, UITabl
                 
             }
             companyDetailController.career = careerName
+            companyDetailController.careeerId = careerId
             
         }
         

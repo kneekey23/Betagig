@@ -19,6 +19,7 @@ class BetaGigRequestController: UIViewController, UIPickerViewDataSource, UIPick
     var durationArray: [String] = ["1","3", "5"]
     var selectedCompany: Company?
     var selectedCareer: String?
+    var selectedCareerId: String?
     //let userId: String = "a2c1144f-6842-4249-b3cd-77bd8571cf04"
     
     @IBOutlet weak var durationTextField: UITextField!
@@ -79,7 +80,7 @@ class BetaGigRequestController: UIViewController, UIPickerViewDataSource, UIPick
     }
     @IBAction func requestAction(sender: AnyObject) {
         
-        let apiUrl = "https://qc2n6qlv7g.execute-api.us-west-2.amazonaws.com/dev/user?id=\(AmazonCognitoManager.sharedInstance.currentUserId)";
+        let apiUrl = "https://qc2n6qlv7g.execute-api.us-west-2.amazonaws.com/dev/user?id=\(AmazonCognitoManager.sharedInstance.currentUserId!)";
 
         Alamofire.request(.GET, apiUrl, headers: Constants.headers).validate()
             .responseJSON { response in
@@ -93,12 +94,12 @@ class BetaGigRequestController: UIViewController, UIPickerViewDataSource, UIPick
                     var dict : [String: AnyObject] = [:]
                     dict["companyName"] = (self.selectedCompany?.name)!
                     dict["careerName"] = self.selectedCareer
-                    dict["careerId"] = "1234"
+                    dict["careerId"] = self.selectedCareerId
                     dict["startDate"] = self.startDateTextField?.text!
                     dict["endDate"] = self.startDateTextField?.text!
                     dict["time"] = "10:00AM - 6:00 PM"
-                    dict["companyContactUserName"] = "Aiko Rogers"
-                    dict["companyContactUserId"] = "4567"
+                    dict["companyContactUserName"] = "Marv Marvington"
+                    dict["companyContactUserId"] = "af9da2a5-77e6-421d-9894-ca7b59b57dde"
                     dict["id"] = ""
                     dict["companyStreet"] = (self.selectedCompany?.street)!
                     dict["companyCity"] = (self.selectedCompany?.city)!
@@ -117,8 +118,8 @@ class BetaGigRequestController: UIViewController, UIPickerViewDataSource, UIPick
                     Alamofire.request(.POST, betagigUrl, headers: Constants.headers, parameters: dict, encoding: .JSON)
                         .responseJSON{ response in
                             switch response.result{
-                            case .Success:
-                                self.performSegueWithIdentifier("successSegue", sender: nil)
+                            case .Success: break
+                                //self.performSegueWithIdentifier("successSegue", sender: nil)
                             case .Failure(let error):
                                  print("Request failed with error: \(error)")
                             }

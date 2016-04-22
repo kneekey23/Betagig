@@ -22,6 +22,45 @@ class MessagesController: UIViewController, UITableViewDataSource, UITableViewDe
         mainTableView.tableFooterView = UIView(frame: CGRectZero)
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        if AmazonCognitoManager.sharedInstance.isLoggedIn() {
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+            
+            AmazonCognitoManager.sharedInstance.resumeSession {
+                (task) -> AnyObject! in
+                dispatch_async(dispatch_get_main_queue()) {
+                    
+                }
+                return nil
+            }
+        } else {
+            self.mainTableView.hidden = true
+            let x: CGFloat = self.view.frame.size.width/2 - 321/2
+            let y: CGFloat = self.view.frame.size.height/2 - 49/2
+            let loginButton: UIButton = UIButton(frame: CGRect(x: x, y: y, width: 321, height: 49))
+            
+            loginButton.backgroundColor = UIColor(hexString: "E65100")
+            loginButton.setTitle("Login or Sign up here", forState: .Normal)
+            
+            loginButton.titleLabel?.textColor = UIColor.whiteColor()
+            loginButton.addTarget(self, action: #selector(popModal), forControlEvents: .TouchUpInside)
+            loginButton.titleLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 18)
+            loginButton.tag = 1
+           
+            self.view.addSubview(loginButton)
+        }
+    }
+    
+    func popModal(sender: UIButton!){
+        let btnsendtag: UIButton = sender
+        if btnsendtag.tag == 1 {
+            let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc : LoginController = storyboard.instantiateViewControllerWithIdentifier("loginModalController") as! LoginController
+            self.tabBarController?.presentViewControllerFromVisibleViewController(vc, animated: true)
+        }
+    }
+    
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "Messages"
     }

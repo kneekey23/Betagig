@@ -20,6 +20,7 @@ class CompanyDetailController: UIViewController {
     
     var company: Company?
     var career: String?
+    var careeerId: String?
     
     @IBAction func bestTestGig(sender: AnyObject) {
     }
@@ -35,6 +36,7 @@ class CompanyDetailController: UIViewController {
             
             betagigRequestController.selectedCompany = company
             betagigRequestController.selectedCareer = career
+            betagigRequestController.selectedCareerId = careeerId
         }
     }
     

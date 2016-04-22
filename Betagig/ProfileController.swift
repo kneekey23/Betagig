@@ -30,8 +30,9 @@ class ProfileController: UITableViewController {
                 return nil
             }
         } else {
-            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-            appDelegate.popLoginModal()
+            let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc : LoginController = storyboard.instantiateViewControllerWithIdentifier("loginModalController") as! LoginController
+            self.tabBarController?.presentViewControllerFromVisibleViewController(vc, animated: true)
         }
     }
   

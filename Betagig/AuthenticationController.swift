@@ -60,7 +60,7 @@ class AuthenticationController: UIViewController,UITextFieldDelegate, UITableVie
 
         username.delegate = self
         password.delegate = self
-        username.text = "nicki@betagig.com"
+        username.text = "mel@ucla.edu"
         password.text = "goucla23"
     }
     

@@ -45,20 +45,33 @@ class MyBetaGigsController: UIViewController, UITableViewDataSource, UITableView
                 return nil
             }
         } else {
+
+            let x: CGFloat = self.view.frame.size.width/2 - 321/2
+            let y: CGFloat = self.view.frame.size.height/2 - 49/2
+            let loginButton: UIButton = UIButton(frame: CGRect(x: x, y: y, width: 321, height: 49))
             
-            let backgroundView: UIView = UIView.init(frame: self.view.frame)
-            backgroundView.userInteractionEnabled = false;
-            backgroundView.backgroundColor =  UIColor.whiteColor()
-            let loginButton: UIButton = UIButton.init(type: .Custom)
-            loginButton.frame = CGRectMake(self.view.frame.size.width/2 - loginButton.frame.size.width/2, self.view.frame.size.height/2 - loginButton.frame.size.height/2, loginButton.frame.size.width, loginButton.frame.size.height);
-            loginButton.tintColor = UIColor(hexString: "B048B5")
-            loginButton.titleLabel?.text = "Login"
+            loginButton.backgroundColor = UIColor(hexString: "E65100")
+            loginButton.setTitle("Login or Sign up here", forState: .Normal)
+            
             loginButton.titleLabel?.textColor = UIColor.whiteColor()
-            backgroundView.addSubview(loginButton)
-            self.view.addSubview(backgroundView)
+            loginButton.addTarget(self, action: #selector(popModal), forControlEvents: .TouchUpInside)
+            loginButton.titleLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 18)
+            loginButton.tag = 1
+            self.betaGigsTableView.hidden = true
+            self.view.addSubview(loginButton)
+         
       
         }
 
+    }
+    
+    func popModal(sender: UIButton!){
+        let btnsendtag: UIButton = sender
+        if btnsendtag.tag == 1 {
+            let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc : LoginController = storyboard.instantiateViewControllerWithIdentifier("loginModalController") as! LoginController
+            self.tabBarController?.presentViewControllerFromVisibleViewController(vc, animated: true)
+        }
     }
 
 

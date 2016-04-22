@@ -122,6 +122,7 @@
 		81AC3D5F1C8241000006BAFB /* UserControllers */ = {
 			isa = PBXGroup;
 			children = (
+				8BBFC3891CB5B886002805CB /* MessagesController.swift */,
 				81FA7B8A1C81802C000BACBD /* CreateAccountController.swift */,
 				81FA7B751C81173A000BACBD /* ProfileController.swift */,
 				81FA7B811C816920000BACBD /* MyBetaGigsController.swift */,
@@ -189,7 +190,6 @@
 				816D77B11C82E19A0062594C /* PaymentViewController.swift */,
 				816D77BC1C8909FE0062594C /* GiftAUserController.swift */,
 				8B9724EC1CAB6B8E00788017 /* LoginController.swift */,
-				8BBFC3891CB5B886002805CB /* MessagesController.swift */,
 				813039AB1CC044CB003B5F65 /* LoginMainController.swift */,
 				81D52C091CC538E6001972E2 /* Constants.swift */,
 				81D52C0B1CC53E7B001972E2 /* AmazonCognitoManager.swift */,

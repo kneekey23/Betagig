@@ -22,11 +22,12 @@ class LoginController: UIViewController {
     }
     
     func tapOnX(button: UIButton) {
+        delegate?.setModalBoolean(true)
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 }
 
 protocol LoginViewControllerDelegate
 {
-    func sendValue(value : NSString)
+    func setModalBoolean(value : Bool)
 }

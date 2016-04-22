@@ -25,6 +25,7 @@ class BrowseViewController: UIViewController, UITableViewDataSource, CityListVie
     var careers: [Career] = []
     var cityButton: UIButton?
     var city:String?
+    var loginModalShown: Bool = false
   
     
     override func viewDidLoad() {
@@ -41,7 +42,13 @@ class BrowseViewController: UIViewController, UITableViewDataSource, CityListVie
         cityButton!.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
         cityButton!.addTarget(self, action: #selector(BrowseViewController.clickOnButton(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         self.navigationItem.titleView = cityButton
-        
+        loginModalShown = true
+   
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+       
         if AmazonCognitoManager.sharedInstance.isLoggedIn() {
             UIApplication.sharedApplication().networkActivityIndicatorVisible = true
             
@@ -53,7 +60,15 @@ class BrowseViewController: UIViewController, UITableViewDataSource, CityListVie
                 return nil
             }
         } else {
-            self.performSegueWithIdentifier("loginSegue", sender: self)
+            if loginModalShown == false{
+                loginModalShown = true
+                //self.performSegueWithIdentifier("loginSegue", sender: self)
+                let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let vc : LoginController = storyboard.instantiateViewControllerWithIdentifier("loginModalController") as! LoginController
+                self.tabBarController?.presentViewControllerFromVisibleViewController(vc, animated: true)
+                
+            }
+            
         }
     }
     
@@ -236,6 +251,10 @@ class BrowseViewController: UIViewController, UITableViewDataSource, CityListVie
         
         return cell
         
+    }
+    
+    func setModalBoolean(value: Bool) {
+        loginModalShown = value
     }
     
     
